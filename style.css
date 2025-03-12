@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Barlow", sans-serif;
+}
+
+body {
+    width: 100dvw;
+    min-height: 100dvh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    background-color: #f9f9f9;
+}
+
+h1.title {
+    display: inline;
+
+    position: sticky;
+
+    top: 5dvh;
+    left: 5dvw;
+
+    align-self: flex-start;
+
+    margin: 0;
+    padding: 0;
+
+    color: #777;
+}
+
+main {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+
+    margin: 50px auto;
+
+    &>div#call-to-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 24px;
+        flex-wrap: wrap;
+
+        width: 100%;
+
+        &>div.call {
+            width: 400px;
+
+            &>h1 {
+                color: #333;
+            }
+
+            &>img {
+                width: 100%;
+                height: auto;
+
+                border-radius: 16px;
+
+                @media (max-width: 915px) {
+                    display: none;
+                }
+            }
+        }
+
+        &>div.action {
+            width: 400px;
+            min-height: 275px;
+
+            background-color: #fff;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            border-radius: 16px;
+            border: 0 solid #fff;
+
+            padding: 20px;
+
+            text-align: center;
+
+            transition: 250ms;
+
+            box-sizing: border-box;
+
+            &>button.btn#add-files {
+                background-color: rgb(15, 112, 230);
+
+                color: #f9f9f9;
+
+                border: none;
+                border-radius: 16px;
+
+                margin: 8px 0;
+                margin-bottom: 32px;
+                padding: 10px 20px;
+
+                cursor: pointer;
+
+                transition: 250ms;
+
+                &:hover {
+                    box-shadow: 8px 8px rgb(10, 78, 161);
+                }
+            }
+
+            &>h2,
+            &>h3 {
+                font-weight: 500;
+            }
+
+            &.dragover {
+                border: 4px dashed #333;
+            }
+        }
+    }
+}
