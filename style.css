@@ -56,6 +56,8 @@ main {
 
         width: 100%;
 
+        margin-bottom: 32px;
+
         &>div.call {
             width: 400px;
 
@@ -124,5 +126,126 @@ main {
                 border: 4px dashed #333;
             }
         }
+    }
+
+    &>h1 {
+        text-align: center;
+
+        font-weight: 500;
+
+        color: #333;
+
+        margin: 0;
+        margin-bottom: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &>span {
+            margin-right: 12px;
+
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+    }
+
+    &>div.images {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 12px;
+        flex-wrap: wrap;
+
+        width: 100%;
+
+        &>div.image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+
+            width: 350px;
+            height: 350px;
+
+            background-color: #fff;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            border-radius: 16px;
+            border: 0 solid #fff;
+
+            padding: 20px;
+
+            text-align: center;
+
+            transition: 250ms;
+
+            box-sizing: border-box;
+
+            &>div.show-image {
+                width: 100%;
+                height: 70%;
+
+                animation: skeleton-loading 1s infinite alternate;
+
+                &>img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &>button.btn#download-file {
+                background-color: rgb(15, 112, 230);
+
+                color: #f9f9f9;
+
+                border: none;
+                border-radius: 16px;
+
+                padding: 10px 20px;
+
+                cursor: pointer;
+
+                transition: 250ms;
+
+                &:hover {
+                    box-shadow: 8px 8px rgb(10, 78, 161);
+                }
+            }
+
+            &>button.btn#remove-file {
+                background-color: rgb(230, 15, 15);
+
+                color: #f9f9f9;
+
+                border: none;
+                border-radius: 16px;
+
+                margin-bottom: 32px;
+                padding: 10px 20px;
+
+                cursor: pointer;
+
+                transition: 250ms;
+
+                &:hover {
+                    box-shadow: 8px 8px rgb(161, 10, 10);
+                }
+            }
+        }
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #fff;
+    }
+
+    100% {
+        background-color: #999;
     }
 }
