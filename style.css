@@ -168,7 +168,7 @@ main {
             gap: 12px;
 
             width: 350px;
-            height: 350px;
+            height: auto;
 
             background-color: #fff;
 
@@ -187,7 +187,7 @@ main {
 
             &>div.show-image {
                 width: 100%;
-                height: 70%;
+                height: 225px;
 
                 animation: skeleton-loading 1s infinite alternate;
 
@@ -198,42 +198,52 @@ main {
                 }
             }
 
-            &>button.btn#download-file {
-                background-color: rgb(15, 112, 230);
+            &>div.buttons {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
 
-                color: #f9f9f9;
+                width: 100%;
 
-                border: none;
-                border-radius: 16px;
+                &>button.btn.download-file {
+                    background-color: rgb(15, 112, 230);
 
-                padding: 10px 20px;
+                    color: #f9f9f9;
 
-                cursor: pointer;
+                    border: none;
+                    border-radius: 16px;
 
-                transition: 250ms;
+                    padding: 10px 20px;
 
-                &:hover {
-                    box-shadow: 8px 8px rgb(10, 78, 161);
+                    cursor: pointer;
+
+                    transition: 250ms;
+
+                    &:hover {
+                        box-shadow: 8px 8px rgb(10, 78, 161);
+                    }
                 }
-            }
 
-            &>button.btn#remove-file {
-                background-color: rgb(230, 15, 15);
+                &>button.btn.remove-file {
+                    background-color: rgb(230, 15, 15);
 
-                color: #f9f9f9;
+                    color: #f9f9f9;
 
-                border: none;
-                border-radius: 16px;
+                    border: none;
+                    border-radius: 16px;
 
-                margin-bottom: 32px;
-                padding: 10px 20px;
+                    padding: 10px 20px;
 
-                cursor: pointer;
+                    cursor: pointer;
 
-                transition: 250ms;
+                    transition: 250ms;
 
-                &:hover {
-                    box-shadow: 8px 8px rgb(161, 10, 10);
+                    &:hover {
+                        box-shadow: 8px 8px rgb(161, 10, 10);
+                    }
                 }
             }
         }
