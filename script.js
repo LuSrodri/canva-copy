@@ -7,7 +7,12 @@ const fileInput = document.getElementById('file-input');
 const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
 const showQtdImages = document.getElementById('show-qtd-images');
+showQtdImages.addEventListener('click', removeBackgrounds);
 const qtdImages = document.getElementById('qtd-images');
+
+const segmenter = await pipeline('background-removal', 'Xenova/modnet');
+
+
 
 addFilesButton.addEventListener('click', () => {
     fileInput.click();
@@ -47,7 +52,6 @@ function handleFiles(files) {
 
     if (allowedTypes.includes(file.type)) {
         filesToRemoveBackground.push(file);
-        console.log("Arquivos válidos:", filesToRemoveBackground);
         showQtdImages.style.display = 'flex';
         qtdImages.textContent = filesToRemoveBackground.length;
         showImage(file);
@@ -98,12 +102,99 @@ function removeImageFromArray(file) {
     if (index > -1) {
         filesToRemoveBackground.splice(index, 1);
     }
-    console.log("Arquivos válidos:", filesToRemoveBackground);
     qtdImages.textContent = filesToRemoveBackground.length;
 }
 
-// const segmenter = await pipeline('background-removal', 'Xenova/modnet');
-// const url = 'https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/portrait-of-woman_small.jpg';
-// const output = await segmenter(url);
+async function removeBackgrounds() {
+    // Display none all imgs
+    const imagesDiv = document.querySelectorAll('.image');
+    const images = document.querySelectorAll('.image img');
+    images.forEach(img => {
+        img.style.display = 'none';
+    });
 
-// console.log(output);
+    // Disable all delete buttons
+    const buttons = document.querySelectorAll('.remove-file');
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    // Do remove background
+    const promises = filesToRemoveBackground.map(file => removeBackground(file));
+
+    const results = await Promise.all(promises);
+
+    // Show results
+    results.forEach((result, index) => {
+        const imageData = result[0].data;
+        const imageWidth = result[0].width;
+        const imageHeight = result[0].height;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = imageWidth;
+        canvas.height = imageHeight;
+
+        const imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+        ctx.putImageData(imageDataObj, 0, 0);
+
+        const imgURL = canvas.toDataURL('image/png');
+
+        const img = document.createElement('img');
+        img.src = imgURL;
+
+        const parent = images[index].parentNode;
+        parent.appendChild(img);
+        parent.removeChild(images[index]);
+
+        img.style.display = 'block';
+    });
+
+    // Enable all delete buttons
+    buttons.forEach(button => {
+        button.disabled = false;
+    });
+
+    // Adds download button
+    const downloadButton = document.createElement('button');
+    downloadButton.classList.add('btn');
+    downloadButton.classList.add('download-file');
+    downloadButton.textContent = 'Download';
+    results.forEach((result, index) => {
+        downloadButton.addEventListener('click', () => {
+            downloadImage(result, index);
+        });
+        imagesDiv[index].querySelector('.buttons').appendChild(downloadButton);
+    });
+}
+
+function removeBackground(file) {
+    return new Promise(async (resolve, reject) => {
+        const fileURL = URL.createObjectURL(file);
+        const output = await segmenter(fileURL);
+        resolve(output);
+    });
+}
+
+function downloadImage(result, index) {
+    const imageData = result[0].data;
+    const imageWidth = result[0].width;
+    const imageHeight = result[0].height;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = imageWidth;
+    canvas.height = imageHeight;
+
+    const imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+    ctx.putImageData(imageDataObj, 0, 0);
+
+    const imgURL = canvas.toDataURL('image/png');
+
+    const a = document.createElement('a');
+    a.href = imgURL;
+    a.download = `image-${index}.png`;
+    a.click();
+}

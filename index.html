@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remova fundos de imagens. Automático, gratuito e 100% seguro! - SEM FUNDOS</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer type="module"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer type="module"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Remova fundos de imagens de forma grátis, rápida e 100% de forma privada!">
@@ -20,7 +20,7 @@
             <div class="call">
                 <h1>Remova fundos de imagens</h1>
                 <p>Automático, gratuito e 100% seguro!</p>
-                <img src="background-image.png" alt="background-image">
+                <img id="teste" src="background-image.png" alt="background-image">
             </div>
             <div class="action" id="drop-zone">
                 <button id="add-files" class="btn">
@@ -31,7 +31,7 @@
                 <p>Arquivos permitidos: JPG, PNG</p>
             </div>
         </div>
-        <h1 id="show-qtd-images" style="display: none;" ><span id="qtd-images">0</span> Imagens selecionadas</h1>
+        <button id="show-qtd-images" style="display: none;">Remover fundos de <span id="qtd-images">0</span> imagens</button>
         <div class="images" id="images">
         </div>
     </main>
