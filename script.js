@@ -14,6 +14,11 @@ let segmenter = undefined;
 pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((newSegmenter) => {
     segmenter = newSegmenter;
     showQtdImages.disabled = false;
+}).catch(() => {
+    pipeline('background-removal', 'briaai/RMBG-1.4').then((newSegmenter) => {
+        segmenter = newSegmenter;
+        showQtdImages.disabled = false;
+    });
 });
 
 
