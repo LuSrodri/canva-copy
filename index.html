@@ -24,14 +24,16 @@
             </div>
             <div class="action" id="drop-zone">
                 <button id="add-files" class="btn">
-                    <h2>Clique para selecionar <i>arquivos</i> 🖼️</h2>
+                    <h2>Clique para <i>adicionar</i> 🖼️</h2>
                 </button>
                 <h2>Ou arraste e solte <i>imagens</i> aqui</h2>
-                <input type="file" id="file-input" accept="image/jpeg, image/png" style="display: none;" />
+                <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;" />
                 <p>Arquivos permitidos: JPG, PNG</p>
             </div>
         </div>
-        <button id="show-qtd-images" style="display: none;" disabled>Remover fundos de <span id="qtd-images">0</span> imagens</button>
+        <hr>
+        <button id="show-qtd-images" style="display: none;" disabled>Remover fundos</button>
+        <p><span id="qtd-images">0</span> imagens adicionadas</p>
         <div class="images" id="images">
         </div>
     </main>

@@ -32,6 +32,8 @@ h1.title {
     padding: 0;
 
     color: #777;
+
+    z-index: 1000;
 }
 
 main {
@@ -128,6 +130,13 @@ main {
         }
     }
 
+    &>hr {
+        width: 30%;
+        height: 1px;
+
+        background-color: #333;
+    }
+
     &>button {
         border: none;
         border-radius: 16px;
@@ -147,8 +156,8 @@ main {
 
         background-color: rgb(15, 112, 230);
 
-        margin: 0;
-        margin-bottom: 12px;
+        margin: 8px 0;
+        margin-bottom: 0;
 
         display: flex;
         align-items: center;

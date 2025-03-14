@@ -52,15 +52,16 @@ fileInput.addEventListener('change', (e) => {
 
 function handleFiles(files) {
     const allowedTypes = ['image/jpeg', 'image/png'];
-    const file = files[0];
 
-    if (allowedTypes.includes(file.type)) {
-        filesToRemoveBackground.push(file);
-        showQtdImages.style.display = 'flex';
-        qtdImages.textContent = filesToRemoveBackground.length;
-        showImage(file);
-    } else {
-        alert("Tipo de arquivo não permitido. Escolha JPG ou PNG.");
+    for (let file of files) {
+        if (allowedTypes.includes(file.type)) {
+            filesToRemoveBackground.push(file);
+            showQtdImages.style.display = 'flex';
+            qtdImages.textContent = filesToRemoveBackground.length;
+            showImage(file);
+        } else {
+            alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
+        }
     }
 }
 
@@ -108,6 +109,9 @@ function removeImageFromArray(file) {
         filesToRemoveBackground.splice(index, 1);
     }
     qtdImages.textContent = filesToRemoveBackground.length;
+    if (filesToRemoveBackground.length === 0) {
+        showQtdImages.style.display = 'none';
+    }
 }
 
 async function removeBackgrounds() {
