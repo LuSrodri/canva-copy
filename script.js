@@ -10,7 +10,11 @@ const showQtdImages = document.getElementById('show-qtd-images');
 showQtdImages.addEventListener('click', removeBackgrounds);
 const qtdImages = document.getElementById('qtd-images');
 
-const segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4');
+let segmenter = undefined;
+pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((newSegmenter) => {
+    segmenter = newSegmenter;
+    showQtdImages.disabled = false;
+});
 
 
 
@@ -71,6 +75,7 @@ function showImage(file) {
 
         const divShowImage = document.createElement('div');
         divShowImage.classList.add('show-image');
+        divShowImage.classList.add('loading');
         divShowImage.appendChild(img);
 
         divImage.appendChild(divShowImage);
@@ -106,26 +111,21 @@ function removeImageFromArray(file) {
 }
 
 async function removeBackgrounds() {
-    // Display none all imgs
     const imagesDiv = document.querySelectorAll('.image');
     const images = document.querySelectorAll('.image img');
     images.forEach(img => {
         img.style.display = 'none';
     });
 
-    // Disable all delete buttons
     const buttons = document.querySelectorAll('.remove-file');
     buttons.forEach(button => {
         button.disabled = true;
     });
 
-    // Do remove background
-    const promises = filesToRemoveBackground.map(file => removeBackground(file));
+    for (let index in filesToRemoveBackground) {
+        const file = filesToRemoveBackground[index];
 
-    const results = await Promise.all(promises);
-
-    // Show results
-    results.forEach((result, index) => {
+        const result = await removeBackground(file);
         const imageData = result[0].data;
         const imageWidth = result[0].width;
         const imageHeight = result[0].height;
@@ -137,7 +137,6 @@ async function removeBackgrounds() {
         canvas.height = imageHeight;
 
         let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
-
         imageDataObj = normalizeAlphaPixels(imageDataObj);
 
         ctx.putImageData(imageDataObj, 0, 0);
@@ -152,31 +151,34 @@ async function removeBackgrounds() {
         parent.removeChild(images[index]);
 
         img.style.display = 'block';
-    });
 
-    // Enable all delete buttons
-    buttons.forEach(button => {
-        button.disabled = false;
-    });
+        imagesDiv[index].querySelector('.show-image').classList.remove('loading');
 
-    // Adds download button
-    const downloadButton = document.createElement('button');
-    downloadButton.classList.add('btn');
-    downloadButton.classList.add('download-file');
-    downloadButton.textContent = 'Download';
-    results.forEach((result, index) => {
+        if (imagesDiv[index].querySelector('.download-file')) {
+            imagesDiv[index].querySelector('.download-file').remove();
+        }
+        const downloadButton = document.createElement('button');
+        downloadButton.classList.add('btn', 'download-file');
+        downloadButton.textContent = 'Download';
+
         downloadButton.addEventListener('click', () => {
             downloadImage(result, index);
         });
+
         imagesDiv[index].querySelector('.buttons').appendChild(downloadButton);
-    });
+
+        buttons.forEach(button => {
+            button.disabled = false;
+        });
+    }
 }
 
 function removeBackground(file) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const fileURL = URL.createObjectURL(file);
-        const output = await segmenter(fileURL);
-        resolve(output);
+        segmenter(fileURL).then((result) => {
+            resolve(result);
+        });
     });
 }
 
