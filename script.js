@@ -1,4 +1,4 @@
-import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.4.0';
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers';
 
 
 const dropZone = document.getElementById('drop-zone');
@@ -10,7 +10,7 @@ const showQtdImages = document.getElementById('show-qtd-images');
 showQtdImages.addEventListener('click', removeBackgrounds);
 const qtdImages = document.getElementById('qtd-images');
 
-const segmenter = await pipeline('background-removal', 'Xenova/modnet');
+const segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4');
 
 
 
@@ -136,7 +136,10 @@ async function removeBackgrounds() {
         canvas.width = imageWidth;
         canvas.height = imageHeight;
 
-        const imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+        let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+
+        imageDataObj = normalizeAlphaPixels(imageDataObj);
+
         ctx.putImageData(imageDataObj, 0, 0);
 
         const imgURL = canvas.toDataURL('image/png');
@@ -188,7 +191,10 @@ function downloadImage(result, index) {
     canvas.width = imageWidth;
     canvas.height = imageHeight;
 
-    const imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+    let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+
+    imageDataObj = normalizeAlphaPixels(imageDataObj);
+
     ctx.putImageData(imageDataObj, 0, 0);
 
     const imgURL = canvas.toDataURL('image/png');
@@ -197,4 +203,17 @@ function downloadImage(result, index) {
     a.href = imgURL;
     a.download = `image-${index}.png`;
     a.click();
+}
+
+function normalizeAlphaPixels(imageData) {
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+        let alpha = data[i + 3];
+        let v = (alpha - 127) * 255 / 59;
+        v = Math.round(v);
+        data[i + 3] = Math.max(0, Math.min(255, v));
+    }
+
+    return imageData;
 }
