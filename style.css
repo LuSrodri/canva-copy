@@ -288,7 +288,7 @@ footer {
     align-items: center;
     justify-content: space-evenly;
 
-    width: 100%;
+    width: 100dvw;
 
     padding: 16px;
     margin-top: 32px;
@@ -299,6 +299,10 @@ footer {
         margin: 0;
         padding: 0;
         color: #333;
+
+        width: 40%;
+
+        text-align: center;
 
         &>a {
             color: rgb(15, 112, 230);
