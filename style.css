@@ -17,20 +17,18 @@ body {
 
     background-color: #f9f9f9;
 
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 h1.title {
-    display: inline;
-
-    position: sticky;
-
-    top: 5dvh;
-    left: 5dvw;
-
     align-self: flex-start;
 
     margin: 0;
+    margin-top: 5dvh;
+    margin-left: 5dvw;
     padding: 0;
 
     color: #777;
@@ -48,9 +46,7 @@ main {
 
     width: 90%;
 
-    margin: 50px auto;
-
-    margin-bottom: 64px;
+    margin: 16px auto;
 
     &>div#call-to-action {
         display: flex;
@@ -142,9 +138,11 @@ main {
 
         width: 100dvw;
 
-        padding: 32px 0;
+        padding: 32px 6px;
 
         background-color: rgb(255, 200, 62);
+
+        box-sizing: border-box;
 
         &>button {
             border: none;
@@ -297,11 +295,6 @@ main {
 }
 
 footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -312,7 +305,7 @@ footer {
     padding: 16px;
     margin-top: 32px;
 
-    backdrop-filter: blur(10px);
+    box-sizing: border-box;
 
     &>p {
         margin: 0;
