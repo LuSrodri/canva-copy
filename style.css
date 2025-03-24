@@ -50,6 +50,8 @@ main {
 
     margin: 50px auto;
 
+    margin-bottom: 64px;
+
     &>div#call-to-action {
         display: flex;
         align-items: center;
@@ -132,146 +134,161 @@ main {
         }
     }
 
-    &>hr {
-        width: 30%;
-        height: 1px;
-
-        background-color: #333;
-    }
-
-    &>button {
-        border: none;
-        border-radius: 16px;
-
-        padding: 10px 20px;
-
-        cursor: pointer;
-
-        transition: 250ms;
-
-        text-align: center;
-
-        font-size: 24px;
-        font-weight: 500;
-
-        color: #f9f9f9;
-
-        background-color: rgb(15, 112, 230);
-
-        margin: 8px 0;
-        margin-bottom: 0;
-
+    &>div.images-container {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
 
-        &>span {
-            margin: 0 6px;
+        width: 100dvw;
 
-            font-size: 1.4em;
-            font-weight: 700;
-        }
+        padding: 32px 0;
 
-        &:hover {
-            box-shadow: 8px 8px rgb(10, 78, 161);
-        }
-    }
+        background-color: rgb(255, 200, 62);
 
-    &>div.images {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        gap: 12px;
-        flex-wrap: wrap;
-
-        width: 100%;
-
-        &>div.image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 12px;
-
-            width: 350px;
-            height: auto;
-
-            background-color: #fff;
-
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+        &>button {
+            border: none;
             border-radius: 16px;
-            border: 0 solid #fff;
 
-            padding: 20px;
+            padding: 10px 20px;
 
-            text-align: center;
+            cursor: pointer;
 
             transition: 250ms;
 
-            box-sizing: border-box;
+            text-align: center;
 
-            &>div.show-image {
-                width: 100%;
-                height: 225px;
+            font-size: 24px;
+            font-weight: 500;
 
-                &.loading {
-                    animation: skeleton-loading 1s infinite alternate;
-                }
+            color: #f9f9f9;
 
-                &>img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
+            background-color: rgb(15, 112, 230);
+
+            margin: 8px 0;
+            margin-bottom: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &>span {
+                margin: 0 6px;
+
+                font-size: 1.4em;
+                font-weight: 700;
             }
 
-            &>div.buttons {
+            &:hover {
+                box-shadow: 8px 8px rgb(10, 78, 161);
+            }
+        }
+
+        &>h2 {
+            color: #333;
+        }
+
+        &>div.images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 12px;
+            flex-wrap: wrap;
+
+            width: 100%;
+
+            &>div.image {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 gap: 12px;
-                flex-wrap: wrap;
 
-                width: 100%;
+                width: 425px;
+                height: auto;
 
-                &>button.btn.download-file {
-                    background-color: rgb(15, 112, 230);
+                background-color: #fff;
 
-                    color: #f9f9f9;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-                    border: none;
-                    border-radius: 16px;
+                border-radius: 16px;
+                border: 0 solid #fff;
 
-                    padding: 10px 20px;
+                padding: 20px;
 
-                    cursor: pointer;
+                text-align: center;
 
-                    transition: 250ms;
+                transition: 250ms;
 
-                    &:hover {
-                        box-shadow: 8px 8px rgb(10, 78, 161);
+                box-sizing: border-box;
+
+                &>div.show-image {
+                    width: 100%;
+                    height: 350px;
+
+                    &.loading {
+                        animation: skeleton-loading 1s infinite alternate;
+                    }
+
+                    &>img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
 
-                &>button.btn.remove-file {
-                    background-color: rgb(230, 15, 15);
+                &>div.buttons {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+                    flex-wrap: wrap;
 
-                    color: #f9f9f9;
+                    width: 100%;
 
-                    border: none;
-                    border-radius: 16px;
+                    &>button {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
 
-                    padding: 10px 20px;
+                    &>button.btn.download-file {
+                        background-color: #f9f9f9;
 
-                    cursor: pointer;
+                        color: rgb(15, 112, 230);
 
-                    transition: 250ms;
+                        border: 2px solid rgb(15, 112, 230);
+                        border-radius: 16px;
 
-                    &:hover {
-                        box-shadow: 8px 8px rgb(161, 10, 10);
+                        padding: 10px 20px;
+
+                        cursor: pointer;
+
+                        transition: 250ms;
+
+                        &:hover {
+                            box-shadow: 8px 8px rgb(10, 78, 161);
+                        }
+                    }
+
+                    &>button.btn.remove-file {
+                        background-color: #f9f9f9;
+
+                        color: rgb(230, 15, 15);
+
+                        border: 2px solid rgb(230, 15, 15);
+                        border-radius: 16px;
+
+                        padding: 10px 20px;
+
+                        cursor: pointer;
+
+                        transition: 250ms;
+
+                        &:hover {
+                            box-shadow: 8px 8px rgb(161, 10, 10);
+                        }
                     }
                 }
             }
@@ -280,7 +297,9 @@ main {
 }
 
 footer {
-    position: sticky;
+    position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
 
     display: flex;

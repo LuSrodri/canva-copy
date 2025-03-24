@@ -6,7 +6,7 @@ const addFilesButton = document.getElementById('add-files');
 const fileInput = document.getElementById('file-input');
 const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
-const showQtdImages = document.getElementById('show-qtd-images');
+const showQtdImages = document.getElementById('show-qtd-images') ?? document.createElement('button');
 showQtdImages.addEventListener('click', removeBackgrounds);
 const qtdImages = document.getElementById('qtd-images');
 
@@ -19,6 +19,8 @@ pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((ne
         segmenter = newSegmenter;
         showQtdImages.disabled = false;
     });
+}).catch((e) => {
+    alert('Erro ao carregar o modelo de remoção de fundo: ' + e + '. Tente novamente mais tarde.');
 });
 
 
@@ -68,6 +70,8 @@ function handleFiles(files) {
             alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
         }
     }
+
+    setTimeout(() => { removeBackgrounds(); }, 1000);
 }
 
 function showImage(file) {
@@ -92,7 +96,7 @@ function showImage(file) {
         const buttonToDelete = document.createElement('button');
         buttonToDelete.classList.add('btn');
         buttonToDelete.classList.add('remove-file');
-        buttonToDelete.textContent = 'Desistir';
+        buttonToDelete.textContent = '❌';
         buttonToDelete.addEventListener('click', () => {
             removeImageFromArray(file);
             divImage.remove();
@@ -120,6 +124,8 @@ function removeImageFromArray(file) {
 }
 
 async function removeBackgrounds() {
+    divImages.scrollIntoView({ behavior: 'smooth' });
+
     const imagesDiv = document.querySelectorAll('.image');
     const images = document.querySelectorAll('.image img');
     images.forEach(img => {
@@ -168,13 +174,14 @@ async function removeBackgrounds() {
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file');
-        downloadButton.textContent = 'Download';
+        downloadButton.textContent = '📥 Baixar Sem Fundo';
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result, index);
         });
 
-        imagesDiv[index].querySelector('.buttons').appendChild(downloadButton);
+        const buttonsDiv = imagesDiv[index].querySelector('.buttons');
+        buttonsDiv.insertBefore(downloadButton, buttonsDiv.firstChild);
 
         buttons.forEach(button => {
             button.disabled = false;
