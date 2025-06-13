@@ -6,18 +6,13 @@ const addFilesButton = document.getElementById('add-files');
 const fileInput = document.getElementById('file-input');
 const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
-const showQtdImages = document.getElementById('show-qtd-images') ?? document.createElement('button');
-showQtdImages.addEventListener('click', removeBackgrounds);
-const qtdImages = document.getElementById('qtd-images');
 
 let segmenter = undefined;
 pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((newSegmenter) => {
     segmenter = newSegmenter;
-    showQtdImages.disabled = false;
 }).catch(() => {
     pipeline('background-removal', 'briaai/RMBG-1.4').then((newSegmenter) => {
         segmenter = newSegmenter;
-        showQtdImages.disabled = false;
     });
 }).catch((e) => {
     alert('Erro ao carregar o modelo de remoção de fundo: ' + e + '. Tente novamente mais tarde.');
@@ -63,15 +58,14 @@ function handleFiles(files) {
     for (let file of files) {
         if (allowedTypes.includes(file.type)) {
             filesToRemoveBackground.push(file);
-            showQtdImages.style.display = 'flex';
-            qtdImages.textContent = filesToRemoveBackground.length;
+            updateQtdImages(filesToRemoveBackground.length);
             showImage(file);
         } else {
             alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
         }
     }
 
-    setTimeout(() => { removeBackgrounds(); }, 1000);
+    setTimeout(() => { removeBackgrounds(); }, 250);
 }
 
 function showImage(file) {
@@ -81,11 +75,11 @@ function showImage(file) {
         divImage.classList.add('image');
 
         const img = document.createElement('img');
+        img.classList.add('loading');
         img.src = e.target.result;
 
         const divShowImage = document.createElement('div');
         divShowImage.classList.add('show-image');
-        divShowImage.classList.add('loading');
         divShowImage.appendChild(img);
 
         divImage.appendChild(divShowImage);
@@ -117,10 +111,7 @@ function removeImageFromArray(file) {
     if (index > -1) {
         filesToRemoveBackground.splice(index, 1);
     }
-    qtdImages.textContent = filesToRemoveBackground.length;
-    if (filesToRemoveBackground.length === 0) {
-        showQtdImages.style.display = 'none';
-    }
+    updateQtdImages(filesToRemoveBackground.length);
 }
 
 async function removeBackgrounds() {
@@ -128,9 +119,6 @@ async function removeBackgrounds() {
 
     const imagesDiv = document.querySelectorAll('.image');
     const images = document.querySelectorAll('.image img');
-    images.forEach(img => {
-        img.style.display = 'none';
-    });
 
     const buttons = document.querySelectorAll('.remove-file');
     buttons.forEach(button => {
@@ -174,7 +162,7 @@ async function removeBackgrounds() {
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file');
-        downloadButton.textContent = '📥 Baixar Sem Fundo';
+        downloadButton.textContent = '📥 Baixar';
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result, index);
@@ -234,4 +222,8 @@ function normalizeAlphaPixels(imageData) {
     }
 
     return imageData;
+}
+
+function updateQtdImages(qtd) {
+    document.querySelector('#start-now').style.display = qtd > 0 ? 'none' : 'flex';
 }
