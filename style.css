@@ -106,7 +106,7 @@ main {
 
             box-sizing: border-box;
 
-            animation: waiting 2.5s infinite alternate;
+            animation: waiting 2.5s infinite alternate ease-in-out;
 
             &>button.btn#add-files {
                 background-color: rgb(15, 112, 230);
@@ -122,7 +122,7 @@ main {
 
                 cursor: pointer;
 
-                transition: 250ms;
+                transition: 250ms !important;
 
                 &:hover {
                     box-shadow: 8px 8px rgb(10, 78, 161);
@@ -319,6 +319,71 @@ main {
             }
         }
     }
+
+    &>div#why-use {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+        gap: 24px;
+        flex-wrap: wrap;
+
+        width: 100%;
+
+        &>div.img {
+            width: 400px;
+
+            &>img {
+                width: 100%;
+                height: auto;
+
+                @media (max-width: 915px) {
+                    display: none;
+                }
+            }
+        }
+
+        &>div.text {
+            width: 400px;
+            min-height: 275px;
+
+            padding: 20px;
+
+            & h2,
+            & p {
+                color: #333;
+            }
+
+            & p {
+                font-weight: 300;
+                margin: 0;
+            }
+
+            & ul {
+                list-style: none;
+                padding: 0;
+
+                & li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 8px;
+
+                    margin: 3px 0;
+
+                    &::before {
+                        content: '✔️';
+                        font-size: 18px;
+                    }
+
+                    & p {
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
 }
 
 footer {
@@ -347,22 +412,17 @@ footer {
     &>p {
         text-transform: uppercase;
         text-align: center;
-        font-weight: 900;
-        font-size: 18px;
+        font-weight: 600;
 
         letter-spacing: calc(1px / 10 * 6);
 
-        color: #fff;
-        text-stroke: 1px #333;
-        -webkit-text-stroke: 1px #333;
+        color: #777;
 
         margin: 0;
         margin-bottom: 12px;
 
         &>a {
             color: rgb(15, 112, 230);
-            text-stroke: 0px;
-            -webkit-text-stroke: 0px;
 
             text-decoration: none;
 
@@ -399,8 +459,9 @@ footer {
     0% {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     100% {
-        box-shadow: 0 0 20px rgba(15, 112, 230, 0.5);
+        box-shadow: 0 0 20px rgba(255, 200, 62, 0.3);
     }
 }
 
