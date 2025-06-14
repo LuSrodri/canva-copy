@@ -229,8 +229,10 @@ main {
                     height: min-content;
 
                     &>img {
+                        max-width: 80dvw;
                         width: auto;
-                        height: 350px;
+                        max-height: 350px;
+                        height: auto;
 
                         border: 3px solid rgb(255, 200, 62);
 
