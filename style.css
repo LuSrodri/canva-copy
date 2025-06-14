@@ -21,6 +21,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
+}
+
+body>img.paper-plane {
+    position: absolute;
+
+    width: 14vw;
+    min-width: 125px;
+    height: auto;
+
+    top: 5dvh;
+    right: 5dvw;
+
+    z-index: 0;
 }
 
 h1.title {
@@ -326,7 +341,7 @@ main {
         justify-content: center;
         flex-direction: row-reverse;
         gap: 24px;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
 
         width: 100%;
 
@@ -336,10 +351,6 @@ main {
             &>img {
                 width: 100%;
                 height: auto;
-
-                @media (max-width: 915px) {
-                    display: none;
-                }
             }
         }
 
