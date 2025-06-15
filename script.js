@@ -162,7 +162,7 @@ async function removeBackgrounds() {
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file');
-        downloadButton.textContent = '📥 Baixar';
+        downloadButton.textContent = '📥 Download';
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result, index);
