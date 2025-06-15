@@ -241,12 +241,15 @@ main {
                 width: auto;
                 height: auto;
 
-                background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.2);
 
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
                 border-radius: 24px;
-                border: 0 solid #fff;
+                border: 2px solid rgba(255, 255, 255, 0.4);
 
                 padding: 16px;
 
@@ -260,15 +263,23 @@ main {
                     width: min-content;
                     height: min-content;
 
+                    background-color: rgba(0, 0, 0, 0.2);
+
+                    backdrop-filter: blur(6px);
+                    -webkit-backdrop-filter: blur(6px);
+
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+                    border-radius: 8px;
+                    border: 1px solid rgba(255, 255, 255, 0.4);
+
                     &>img {
                         max-width: 80dvw;
                         width: auto;
                         max-height: 350px;
                         height: auto;
 
-                        border: 3px solid rgb(255, 200, 62);
-
-                        border-radius: 8px 8px 0 0;
+                        border-radius: 8px;
 
                         &.loading {
                             animation: loading 2.5s infinite alternate;
@@ -410,6 +421,8 @@ footer {
 
     box-sizing: border-box;
 
+    position: relative;
+
     &>hr {
         width: 90%;
         height: 1px;
@@ -432,6 +445,14 @@ footer {
         margin: 0;
         margin-bottom: 12px;
 
+        z-index: 1;
+
+        backdrop-filter: blur(4px);
+
+        padding: 2px 8px;
+
+        border-radius: 4px;
+
         &>a {
             color: rgb(15, 112, 230);
 
@@ -441,6 +462,20 @@ footer {
                 text-decoration: underline;
             }
         }
+    }
+
+    &>img.rocket-rising {
+        width: 80px;
+        height: auto;
+
+        position: absolute;
+
+        bottom: 6px;
+        left: 5dvw;
+
+        z-index: 0;
+
+        user-select: none;
     }
 }
 
