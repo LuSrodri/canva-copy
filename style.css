@@ -68,15 +68,19 @@ main {
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: 24px;
+        gap: 0 24px;
         flex-wrap: wrap;
 
         width: 100%;
 
         margin-bottom: 32px;
 
-        &>div.call {
+        &>div {
             width: 400px;
+            max-width: 90dvw;
+        }
+
+        &>div.call {
 
             &>h1 {
                 color: #333;
@@ -103,60 +107,77 @@ main {
         }
 
         &>div.action {
-            width: 400px;
-            min-height: 275px;
 
-            background-color: #fff;
+            &>p {
+                color: #777;
 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                font-weight: bold;
+            }
 
-            border-radius: 16px;
-            border: 4px solid #fff;
+            &>div#drop-zone {
 
-            padding: 20px;
+                width: 400px;
+                max-width: 100%;
+                min-height: 325px;
 
-            text-align: center;
+                background-color: #fff;
 
-            transition: 500ms;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-            box-sizing: border-box;
-
-            animation: waiting 2.5s infinite alternate ease-in-out;
-
-            &>button.btn#add-files {
-                background-color: rgb(15, 112, 230);
-
-                color: #f9f9f9;
-
-                border: none;
                 border-radius: 16px;
+                border: 4px solid #fff;
 
-                margin: 8px 0;
-                margin-bottom: 32px;
-                padding: 10px 20px;
+                padding: 20px;
 
-                cursor: pointer;
-
-                transition: 250ms !important;
-
-                &:hover {
-                    box-shadow: 8px 8px rgb(10, 78, 161);
-                }
-            }
-
-            &>h2,
-            &>p {
-                color: #333;
                 text-align: center;
-            }
 
-            &>p {
-                font-weight: 300;
-            }
+                transition: 500ms;
 
-            &.dragover {
-                border: 4px solid rgb(15, 112, 230);
-                box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
+                box-sizing: border-box;
+
+                animation: waiting 2.5s infinite alternate ease-in-out;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                &>button.btn#add-files {
+                    background-color: rgb(15, 112, 230);
+
+                    color: #f9f9f9;
+
+                    border: none;
+                    border-radius: 16px;
+
+                    margin: 8px 0;
+                    margin-bottom: 32px;
+                    padding: 10px 20px;
+
+                    cursor: pointer;
+
+                    transition: 250ms !important;
+
+                    &:hover {
+                        box-shadow: 8px 8px rgb(10, 78, 161);
+                    }
+                }
+
+                &>h2,
+                &>p {
+                    color: #333;
+                    text-align: center;
+                }
+
+                &>p {
+                    font-weight: 300;
+                }
+
+                &.dragover {
+                    border: 4px solid rgb(15, 112, 230);
+                    box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
+                }
+
             }
         }
     }
@@ -170,7 +191,7 @@ main {
         width: 100dvw;
         min-height: 250px;
 
-        padding: 32px 6px;
+        padding: 32px 0;
 
         background-color: rgb(255, 200, 62);
 
@@ -222,14 +243,20 @@ main {
         &>div.images {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             flex-direction: row;
             gap: 12px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
 
             width: 100%;
 
             z-index: 2;
+
+            overflow-x: auto;
+
+            padding: 6px 12px;
+
+            box-sizing: border-box;
 
             &>div.image {
                 display: flex;
@@ -238,7 +265,9 @@ main {
                 justify-content: flex-start;
                 gap: 12px;
 
-                width: auto;
+                flex: 0 0 auto;
+                min-width: 300px;
+                max-width: 100%;
                 height: auto;
 
                 background-color: rgba(255, 255, 255, 0.2);
@@ -258,6 +287,14 @@ main {
                 transition: 250ms;
 
                 box-sizing: border-box;
+
+                &:first-child {
+                    margin-left: auto;
+                }
+
+                &:last-child {
+                    margin-right: auto;
+                }
 
                 &>div.show-image {
                     width: min-content;
