@@ -51,6 +51,37 @@ h1.title {
     z-index: 1000;
 }
 
+header {
+    width: 100dvw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &>p {
+        text-transform: uppercase;
+        font-weight: 600;
+
+        letter-spacing: calc(1px / 10 * 6);
+
+        color: #36454F;
+
+        margin: 0;
+        margin-left: 5dvw;
+
+        z-index: 1;
+
+        backdrop-filter: blur(4px);
+
+        border-radius: 4px;
+
+        &>a {
+            color: rgb(15, 112, 230);
+        }
+    }
+}
+
 main {
     position: relative;
 

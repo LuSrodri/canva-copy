@@ -35,10 +35,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Pre fetch images -->
+    <link rel="prefetch" href="/examples/beside-pool.jpg" as="image">
+    <link rel="prefetch" href="/examples/father-daughter-walking.jpg" as="image">
+    <link rel="prefetch" href="/examples/plane.jpg" as="image">
+    <link rel="prefetch" href="/examples/tree.png" as="image">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
-    <h1 class="title">SEM FUNDOS 🏖️©</h1>
+    <header>
+        <h1 class="title">SEM FUNDOS 🏖️©</h1>
+        <p>
+            <a href="/en.html">🇬🇧 English version <i class="fa-solid fa-up-right-from-square"></i></a>
+        </p>
+    </header>
 
     <img class="paper-plane" src="paper_plane.webp" alt="paper plane">
 
@@ -115,18 +129,21 @@
         <img src="/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
         <hr>
         <p>
-            Desenvolvido com ❤️ por Lucas Rodrigues | <a href="https://www.linkedin.com/in/lucas-santos-rodrigues" target="_blank">LinkedIn do Lucas Rodrigues</a>
+            Desenvolvido com ❤️ por Lucas Rodrigues | <a href="https://www.linkedin.com/in/lucas-santos-rodrigues"
+                target="_blank">LinkedIn do Lucas Rodrigues</a>
         </p>
         <p>
-            <a href="https://github.com/lusrodri/canva-copy" target="_blank">Mais sobre o projeto SEM FUNDOS 🏖️© no Github</a>
+            <a href="https://github.com/lusrodri/canva-copy" target="_blank">Mais sobre o projeto SEM FUNDOS 🏖️© no
+                Github</a>
         </p>
         <p>
-            SEM FUNDOS 🏖️© é um projeto de código aberto
-        </p>
-        <p>
-            <a href="/en.html">🇬🇧 English version</a>
+            SEM FUNDOS 🏖️© <span id="year">2025</span> é um projeto de código aberto
         </p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 
