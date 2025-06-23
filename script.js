@@ -1,5 +1,3 @@
-import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.4.0';
-
 
 const dropZone = document.getElementById('drop-zone');
 const addFilesButton = document.getElementById('add-files');
@@ -8,18 +6,29 @@ const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
 const imagesExamples = document.querySelectorAll('img.example-image');
 
-let segmenter = undefined;
-pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((newSegmenter) => {
-    segmenter = newSegmenter;
-}).catch(() => {
-    pipeline('background-removal', 'briaai/RMBG-1.4').then((newSegmenter) => {
-        segmenter = newSegmenter;
-    });
-}).catch((e) => {
-    alert('Erro ao carregar o modelo de remoção de fundo: ' + e + '. Tente novamente mais tarde.');
-});
+const inferenceAiWorker = new Worker('./inference_ai.js', { type: 'module' });
 
+inferenceAiWorker.onmessage = (event) => {
+    const { id, result, error } = event.data;
 
+    if (!id) {
+        if (error) alert(`Error: ${error}`);
+        return;
+    }
+
+    const { resolve, reject } = pendingRequests.get(id);
+    pendingRequests.delete(id);
+
+    if (error) {
+        alert(`Error: ${error}`);
+        reject(new Error(error));
+    } else {
+        resolve(result);
+    }
+};
+
+const pendingRequests = new Map();
+let nextRequestId = 1;
 
 addFilesButton.addEventListener('click', () => {
     fileInput.click();
@@ -202,13 +211,19 @@ async function removeBackgrounds() {
     }
 }
 
-function removeBackground(file) {
-    return new Promise((resolve, reject) => {
-        const fileURL = URL.createObjectURL(file);
-        segmenter(fileURL).then((result) => {
-            resolve(result);
+let currentPromise = Promise.resolve();
+
+async function removeBackground(file) {
+    const thisCall = async () => {
+        return new Promise((resolve, reject) => {
+            const id = nextRequestId++;
+            pendingRequests.set(id, { resolve, reject });
+            inferenceAiWorker.postMessage({ id, file });
         });
-    });
+    };
+
+    currentPromise = currentPromise.then(() => thisCall());
+    return currentPromise;
 }
 
 function downloadImage(result, index) {
