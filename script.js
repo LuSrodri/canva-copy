@@ -6,6 +6,7 @@ const addFilesButton = document.getElementById('add-files');
 const fileInput = document.getElementById('file-input');
 const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
+const imagesExamples = document.querySelectorAll('img.example-image');
 
 let segmenter = undefined;
 pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" }).then((newSegmenter) => {
@@ -51,6 +52,29 @@ fileInput.addEventListener('change', (e) => {
         e.target.value = '';
     }
 });
+
+imagesExamples.forEach((image) => {
+    image.addEventListener('click', () => {
+        const url = image.getAttribute('src');
+        if (url) {
+            handleFilesByUrl(url);
+        } else {
+            console.error('URL não encontrada para a imagem de exemplo.');
+        }
+    });
+});
+
+function handleFilesByUrl(url) {
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const file = new File([blob], 'image-from-url.png', { type: blob.type });
+            handleFiles([file]);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar a imagem da URL:', error);
+        });
+}
 
 function handleFiles(files) {
     const allowedTypes = ['image/jpeg', 'image/png'];

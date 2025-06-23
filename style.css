@@ -108,17 +108,18 @@ main {
 
         &>div.action {
 
-            &>p {
+            & p.gray {
                 color: #777;
 
                 font-weight: bold;
+
+                text-align: center;
             }
 
             &>div#drop-zone {
 
                 width: 400px;
                 max-width: 100%;
-                min-height: 275px;
 
                 background-color: #fff;
 
@@ -151,7 +152,7 @@ main {
                     border-radius: 16px;
 
                     margin: 8px 0;
-                    margin-bottom: 32px;
+                    margin-bottom: 16px;
                     padding: 10px 20px;
 
                     cursor: pointer;
@@ -178,6 +179,46 @@ main {
                     box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
                 }
 
+            }
+
+            &>div.examples {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                width: 100%;
+
+                &>div.example-images {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    gap: 12px;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    &>img {
+                        width: 20%;
+                        aspect-ratio: 1 / 1;
+
+                        object-fit: cover;
+
+                        border-radius: 8px;
+
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                        transition: transform 150ms;
+
+                        cursor: pointer;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
             }
         }
     }
