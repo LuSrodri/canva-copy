@@ -55,7 +55,8 @@ fileInput.addEventListener('change', (e) => {
 
 imagesExamples.forEach((image) => {
     image.addEventListener('click', () => {
-        const url = image.getAttribute('src');
+        const partialUrl = image.getAttribute('data-url');
+        const url = new URL(partialUrl, window.location.origin).toString();
         if (url) {
             handleFilesByUrl(url);
         } else {

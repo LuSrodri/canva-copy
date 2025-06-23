@@ -46,7 +46,7 @@ h1.title {
     margin-left: 5dvw;
     padding: 0;
 
-    color: #777;
+    color: #36454F;
 
     z-index: 1000;
 }
@@ -109,7 +109,7 @@ main {
         &>div.action {
 
             & p.gray {
-                color: #777;
+                color: #36454F;
 
                 font-weight: bold;
 
@@ -518,7 +518,7 @@ footer {
 
         letter-spacing: calc(1px / 10 * 6);
 
-        color: #777;
+        color: #36454F;
 
         margin: 0;
         margin-bottom: 12px;
@@ -533,12 +533,6 @@ footer {
 
         &>a {
             color: rgb(15, 112, 230);
-
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
         }
     }
 
