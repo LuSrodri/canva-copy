@@ -98,8 +98,6 @@ function handleFiles(files) {
             alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
         }
     }
-
-    setTimeout(() => { removeBackgrounds(); }, 250);
 }
 
 function showImage(file) {
@@ -136,6 +134,8 @@ function showImage(file) {
         divImage.appendChild(divButtons);
 
         divImages.appendChild(divImage);
+
+        startsRemoveBackground(img, file);
     };
     reader.readAsDataURL(file);
 }
@@ -148,21 +148,13 @@ function removeImageFromArray(file) {
     updateQtdImages(filesToRemoveBackground.length);
 }
 
-async function removeBackgrounds() {
+async function startsRemoveBackground(imgElement, file) {
     divImages.scrollIntoView({ behavior: 'smooth' });
 
-    const imagesDiv = document.querySelectorAll('.image');
-    const images = document.querySelectorAll('.image img');
+    const image = imgElement;
+    const imageDiv = image.parentNode.parentNode;
 
-    const buttons = document.querySelectorAll('.remove-file');
-    buttons.forEach(button => {
-        button.disabled = true;
-    });
-
-    for (let index in filesToRemoveBackground) {
-        const file = filesToRemoveBackground[index];
-
-        const result = await removeBackground(file);
+    removeBackground(file).then((result) => {
         const imageData = result[0].data;
         const imageWidth = result[0].width;
         const imageHeight = result[0].height;
@@ -183,32 +175,28 @@ async function removeBackgrounds() {
         const img = document.createElement('img');
         img.src = imgURL;
 
-        const parent = images[index].parentNode;
+        const parent = image.parentNode;
         parent.appendChild(img);
-        parent.removeChild(images[index]);
+        parent.removeChild(image);
 
         img.style.display = 'block';
 
-        imagesDiv[index].querySelector('.show-image').classList.remove('loading');
+        imageDiv.querySelector('.show-image').classList.remove('loading');
 
-        if (imagesDiv[index].querySelector('.download-file')) {
-            imagesDiv[index].querySelector('.download-file').remove();
+        if (imageDiv.querySelector('.download-file')) {
+            imageDiv.querySelector('.download-file').remove();
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file');
         downloadButton.textContent = '📥 Download';
 
         downloadButton.addEventListener('click', () => {
-            downloadImage(result, index);
+            downloadImage(result);
         });
 
-        const buttonsDiv = imagesDiv[index].querySelector('.buttons');
+        const buttonsDiv = imageDiv.querySelector('.buttons');
         buttonsDiv.insertBefore(downloadButton, buttonsDiv.firstChild);
-
-        buttons.forEach(button => {
-            button.disabled = false;
-        });
-    }
+    });
 }
 
 let currentPromise = Promise.resolve();
@@ -226,7 +214,7 @@ async function removeBackground(file) {
     return currentPromise;
 }
 
-function downloadImage(result, index) {
+function downloadImage(result) {
     const imageData = result[0].data;
     const imageWidth = result[0].width;
     const imageHeight = result[0].height;
@@ -247,7 +235,7 @@ function downloadImage(result, index) {
 
     const a = document.createElement('a');
     a.href = imgURL;
-    a.download = `image-${index}.png`;
+    a.download = `image-without-background.png`;
     a.click();
 }
 
