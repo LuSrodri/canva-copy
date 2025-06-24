@@ -9,7 +9,63 @@ const imagesExamples = document.querySelectorAll('img.example-image');
 const inferenceAiWorker = new Worker('./inference_ai.js', { type: 'module' });
 
 inferenceAiWorker.onmessage = (event) => {
-    const { id, result, error } = event.data;
+    const { id, result, error, success } = event.data;
+
+    if (success) {
+        addFilesButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        addFilesButton.disabled = false;
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', (e) => {
+            if (!dropZone.contains(e.relatedTarget)) {
+                dropZone.classList.remove('dragover');
+            }
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length) {
+                handleFiles(files);
+            }
+        });
+
+        dropZone.removeAttribute('aria-disabled');
+
+        fileInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            if (files.length) {
+                handleFiles(files);
+                e.target.value = '';
+            }
+        });
+
+        fileInput.disabled = false;
+
+        imagesExamples.forEach((image) => {
+            image.addEventListener('click', () => {
+                const partialUrl = image.getAttribute('data-url');
+                const url = new URL(partialUrl, window.location.origin).toString();
+                if (url) {
+                    handleFilesByUrl(url);
+                } else {
+                    console.error('URL not found for the example image:', partialUrl);
+                }
+            });
+
+            image.removeAttribute('aria-disabled');
+        });
+
+        return
+    }
 
     if (!id) {
         if (error) alert(`Error: ${error}`);
@@ -30,50 +86,6 @@ inferenceAiWorker.onmessage = (event) => {
 const pendingRequests = new Map();
 let nextRequestId = 1;
 
-addFilesButton.addEventListener('click', () => {
-    fileInput.click();
-});
-
-dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.classList.add('dragover');
-});
-
-dropZone.addEventListener('dragleave', (e) => {
-    if (!dropZone.contains(e.relatedTarget)) {
-        dropZone.classList.remove('dragover');
-    }
-});
-
-dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('dragover');
-    const files = e.dataTransfer.files;
-    if (files.length) {
-        handleFiles(files);
-    }
-});
-
-fileInput.addEventListener('change', (e) => {
-    const files = e.target.files;
-    if (files.length) {
-        handleFiles(files);
-        e.target.value = '';
-    }
-});
-
-imagesExamples.forEach((image) => {
-    image.addEventListener('click', () => {
-        const partialUrl = image.getAttribute('data-url');
-        const url = new URL(partialUrl, window.location.origin).toString();
-        if (url) {
-            handleFilesByUrl(url);
-        } else {
-            console.error('URL não encontrada para a imagem de exemplo.');
-        }
-    });
-});
-
 function handleFilesByUrl(url) {
     fetch(url)
         .then(response => response.blob())
@@ -82,7 +94,7 @@ function handleFilesByUrl(url) {
             handleFiles([file]);
         })
         .catch(error => {
-            console.error('Erro ao buscar a imagem da URL:', error);
+            console.error('Error fetching the image from URL:', error);
         });
 }
 
@@ -95,7 +107,7 @@ function handleFiles(files) {
             updateQtyImages(filesToRemoveBackground.length);
             showImage(file);
         } else {
-            alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
+            alert(`File type not supported: ${file.type}. Please upload a JPEG or PNG image.`);
         }
     }
 }

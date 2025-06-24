@@ -3,17 +3,15 @@ import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers
 let segmenter = undefined;
 
 try {
-    segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4', { device: "webgpu" });
+    segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4');
+    postMessage({
+        success: 'Background removal model loaded successfully using CPU.'
+    });
 }
-catch (error) {
-    try {
-        segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4');
-    }
-    catch (e) {
-        postMessage({
-            error: 'Failed to load the background removal model. Please check your internet connection or try again later.'
-        });
-    }
+catch (e) {
+    postMessage({
+        error: `Failed to load the background removal model. Please check your internet connection or try again later. ${error.message}. ${e.message}.`
+    });
 }
 
 async function removeBackground(file) {

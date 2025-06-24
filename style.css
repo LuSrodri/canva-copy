@@ -178,6 +178,12 @@ main {
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
 
+                &[aria-disabled="true"] {
+                    pointer-events: none;
+
+                    box-shadow: none !important;
+                }
+
                 &>button.btn#add-files {
                     background-color: rgb(15, 112, 230);
 
@@ -256,6 +262,17 @@ main {
                         &:active {
                             border: 8px solid rgb(15, 112, 230);
                             box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
+                        }
+
+                        &[aria-disabled="true"] {
+                            filter: grayscale(1);
+
+                            border: none !important;
+                            box-shadow: none !important;
+
+                            transform: none !important;
+
+                            cursor: not-allowed !important;
                         }
                     }
                 }

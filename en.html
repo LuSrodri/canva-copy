@@ -59,25 +59,25 @@
             </div>
             <div class="action">
                 <p class="gray">✨<i> Tip:</i> Select multiple images at once!</p>
-                <div id="drop-zone">
-                    <button id="add-files" class="btn">
+                <div id="drop-zone" aria-disabled="true">
+                    <button id="add-files" class="btn" disabled>
                         <h2>Click or Tap to <i>Start</i> 🖼️</h2>
                     </button>
                     <h2>Or drag and drop <i>images</i> here</h2>
-                    <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;" />
+                    <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;" disabled />
                     <p>Supported files: <i>JPG</i>, <i>PNG</i></p>
                 </div>
                 <div class="examples">
                     <p class="gray"><i>No image to test?</i> Try one below!</p>
                     <div class="example-images">
                         <img src="examples/tree-reduced.webp" alt="Exemplo 1" class="example-image"
-                            data-url="examples/tree.png">
+                            data-url="examples/tree.png" aria-disabled="true">
                         <img src="examples/plane-reduced.webp" alt="Exemplo 2" class="example-image"
-                            data-url="examples/plane.jpg">
+                            data-url="examples/plane.jpg" aria-disabled="true">
                         <img src="examples/father-daughter-walking-reduced.webp" alt="Exemplo 3" class="example-image"
-                            data-url="examples/father-daughter-walking.jpg">
+                            data-url="examples/father-daughter-walking.jpg" aria-disabled="true">
                         <img src="examples/beside-pool-reduced.webp" alt="Exemplo 4" class="example-image"
-                            data-url="examples/beside-pool.jpg">
+                            data-url="examples/beside-pool.jpg" aria-disabled="true">
                     </div>
                 </div>
             </div>
