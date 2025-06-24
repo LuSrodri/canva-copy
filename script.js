@@ -92,7 +92,7 @@ function handleFiles(files) {
     for (let file of files) {
         if (allowedTypes.includes(file.type)) {
             filesToRemoveBackground.push(file);
-            updateQtdImages(filesToRemoveBackground.length);
+            updateQtyImages(filesToRemoveBackground.length);
             showImage(file);
         } else {
             alert(`Tipo de arquivo não permitido. Escolha JPG ou PNG. Arquivo ${file.name} não foi adicionado.`);
@@ -145,7 +145,7 @@ function removeImageFromArray(file) {
     if (index > -1) {
         filesToRemoveBackground.splice(index, 1);
     }
-    updateQtdImages(filesToRemoveBackground.length);
+    updateQtyImages(filesToRemoveBackground.length);
 }
 
 async function startsRemoveBackground(imgElement, file) {
@@ -252,6 +252,6 @@ function normalizeAlphaPixels(imageData) {
     return imageData;
 }
 
-function updateQtdImages(qtd) {
+function updateQtyImages(qtd) {
     document.querySelector('#start-now').style.display = qtd > 0 ? 'none' : 'flex';
 }

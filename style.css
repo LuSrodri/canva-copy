@@ -245,12 +245,17 @@ main {
                         border-radius: 8px;
 
                         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                        transition: transform 150ms;
+                        transition: transform 150ms, border 500ms, box-shadow 500ms;
 
                         cursor: pointer;
 
                         &:hover {
                             transform: scale(1.05);
+                        }
+
+                        &:active {
+                            border: 8px solid rgb(15, 112, 230);
+                            box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
                         }
                     }
                 }
