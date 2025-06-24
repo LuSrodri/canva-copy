@@ -395,9 +395,9 @@ main {
                         border-radius: 8px;
 
                         &.loading {
-                            animation: loading 5s infinite alternate;
+                            animation: loading 1500ms infinite alternate ease-in-out;
                             border: none;
-                            will-change: auto;
+                            will-change: opacity, box-shadow, filter;
                         }
                     }
                 }
@@ -588,23 +588,21 @@ footer {
 
 @keyframes loading {
     0% {
-        filter: brightness(1) drop-shadow(0 0 0px rgb(15, 112, 230));
         opacity: 0.7;
+        box-shadow: 0 0 24px rgba(255, 200, 62, 1);
+        filter: brightness(1.2);
     }
 
-    40% {
-        filter: brightness(1.4) drop-shadow(0 0 10px rgb(15, 112, 230));
+    50% {
         opacity: 1;
-    }
-
-    60% {
-        filter: brightness(1.2) drop-shadow(0 0 15px rgb(255, 200, 62));
-        opacity: 0.95;
+        box-shadow: 0 0 24px rgba(15, 112, 230, 0.7);
+        filter: brightness(1);
     }
 
     100% {
-        filter: brightness(1) drop-shadow(0 0 0px rgb(15, 112, 230));
         opacity: 0.7;
+        box-shadow: 0 0 24px rgba(15, 112, 230, 0.7);
+        filter: brightness(0.8);
     }
 }
 
