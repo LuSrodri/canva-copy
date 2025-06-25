@@ -202,6 +202,40 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const shareButton = document.querySelector('#share');
+        shareButton.addEventListener('click', async () => {
+            shareButton.innerHTML = '<h3>Compartilhando... <i class="fa-solid fa-clock"></i></h3>';
+
+            const shareData = {
+                title: 'De graça, sem limites, sem upload e 100% seguro! — SEM FUNDOS 🏖️©',
+                text: 'Remova o fundo de imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado. Experimente o SEM FUNDOS 🏖️© agora!',
+                url: 'https://semfundos.lusrodri.me'
+            };
+
+            try {
+                await navigator.share(shareData);
+                shareButton.innerHTML = '<h3>Compartilhado com sucesso! <i class="fa-solid fa-check"></i></h3>';
+                setTimeout(() => {
+                    shareButton.innerHTML = '<h3>Compartilhe com um amigo! <i class="fa-solid fa-share"></i></h3>';
+                }, 2000);
+            } catch {
+
+                try {
+                    await navigator.clipboard.writeText(shareData.url);
+
+                    shareButton.innerHTML = '<h3>Link copiado para a área de transferência! <i class="fa-solid fa-check"></i></h3>';
+                    setTimeout(() => {
+                        shareButton.innerHTML = '<h3>Compartilhe com um amigo! <i class="fa-solid fa-share"></i></h3>';
+                    }, 2000);
+                } catch {
+                    shareButton.innerHTML = '<h3>Erro ao compartilhar! <i class="fa-solid fa-xmark"></i></h3>';
+                    setTimeout(() => {
+                        shareButton.innerHTML = '<h3>Compartilhe com um amigo! <i class="fa-solid fa-share"></i></h3>';
+                    }, 2000);
+                }
+            }
+        });
     </script>
 
 </body>
