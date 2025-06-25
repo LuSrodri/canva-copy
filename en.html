@@ -51,7 +51,7 @@
     <img class="paper-plane" src="paper_plane.webp" alt="paper plane">
 
     <main>
-        <div id="call-to-action">
+        <div id="call-to-action" class="section">
             <div class="call">
                 <h1>Remove Image Backgrounds</h1>
                 <p>Free, unlimited, no uploads, and 100% private!</p>
@@ -64,7 +64,8 @@
                         <h2>Click or Tap to <i>Start</i> 🖼️</h2>
                     </button>
                     <h2>Or drag and drop <i>images</i> here</h2>
-                    <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;" disabled />
+                    <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;"
+                        disabled />
                     <p>Supported files: <i>JPG</i>, <i>PNG</i></p>
                 </div>
                 <div class="examples">
@@ -82,13 +83,15 @@
                 </div>
             </div>
         </div>
+
         <div class="images-container">
             <img src="emoji_painting.webp" alt="emoji painting" class="emoji-painting">
             <h3 id="start-now" class="start-now">Select an image to get started</h3>
             <div class="images" id="images">
             </div>
         </div>
-        <div id="why-use">
+
+        <div id="why-use" class="section">
             <div class="img">
                 <img id="emoji-finished-paiting" src="emoji_finished_painting.webp" alt="emoji finished painting">
             </div>
@@ -117,6 +120,68 @@
                 </ul>
             </div>
         </div>
+
+        <div id="how-to-use" class="section">
+            <div class="img">
+                <video id="video-how-to-use" src="how-to-use.mp4" autoplay muted loop playsinline
+                    preload="none"></video>
+            </div>
+            <div class="text">
+                <h2>How to use BACKGROUND FREE 🏖️©?</h2>
+                <p>
+                    Just follow the steps! <br>
+                    And see how easy it is to remove image backgrounds!
+                </p>
+                <ol>
+                    <li>
+                        <p>Go to BACKGROUND FREE 🏖️©</p>
+                    </li>
+                    <li>
+                        <p>Select an image</p>
+                    </li>
+                    <li>
+                        <p>Wait a few seconds</p>
+                    </li>
+                    <li>
+                        <p>Done! Now enjoy your image with a transparent background</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="how-it-works" class="section">
+            <div class="img">
+                <img id="background-image" src="background-image.webp" alt="background image">
+            </div>
+            <div class="text">
+                <h2>How does it work?</h2>
+                <p>
+                    BACKGROUND FREE 🏖️© uses advanced <strong>image segmentation</strong> techniques to detect and remove
+                    the background directly in your browser. That means: <strong>no image is uploaded to any external
+                        server</strong>, ensuring your privacy and security. The process is fast, efficient, and
+                    completely free!
+                </p>
+            </div>
+        </div>
+
+        <div id="incentives-me" class="section">
+            <div class="action">
+                <a id="donation" class="btn" href="https://donate.stripe.com/00w4gy8qla919dI3YV1ck03" target="_blank">
+                    <h3>Send a tip! <i class="fa-solid fa-coins"></i></h3>
+                </a>
+                <button id="share" class="btn">
+                    <h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>
+                </button>
+            </div>
+            <div class="call">
+                <h2>Support this project!</h2>
+                <p>
+                    If you enjoyed BACKGROUND FREE 🏖️© and want to support the ongoing development and improvements,
+                    consider making a donation and sharing it with others! Any amount or help is welcome and helps keep
+                    the project alive and free for everyone.
+                </p>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -137,6 +202,38 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const shareButton = document.querySelector('#share');
+        shareButton.addEventListener('click', async () => {
+            shareButton.innerHTML = '<h3>Sharing... <i class="fa-solid fa-clock"></i></h3>';
+
+            const shareData = {
+                title: 'Free, unlimited, no uploads, and 100% private! — BACKGROUND FREE 🏖️©',
+                text: 'Remove image backgrounds for free, fast and secure. No uploads — 100% in your browser. Try BACKGROUND FREE 🏖️© now!',
+                url: 'https://semfundos.lusrodri.me/en'
+            };
+
+            try {
+                await navigator.share(shareData);
+                shareButton.innerHTML = '<h3>Successfully shared! <i class="fa-solid fa-check"></i></h3>';
+                setTimeout(() => {
+                    shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                }, 2000);
+            } catch {
+                try {
+                    await navigator.clipboard.writeText(shareData.url);
+                    shareButton.innerHTML = '<h3>Link copied to clipboard! <i class="fa-solid fa-check"></i></h3>';
+                    setTimeout(() => {
+                        shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                    }, 2000);
+                } catch {
+                    shareButton.innerHTML = '<h3>Sharing failed! <i class="fa-solid fa-xmark"></i></h3>';
+                    setTimeout(() => {
+                        shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                    }, 2000);
+                }
+            }
+        });
     </script>
 
 </body>
