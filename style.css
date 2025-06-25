@@ -113,6 +113,7 @@ main {
     }
 
     &>div#call-to-action {
+        flex-wrap: wrap;
 
         &>div.call {
 
@@ -644,7 +645,11 @@ main {
             align-items: center;
             justify-content: center;
 
-            &>button {
+            &>.btn {
+                all: unset;
+
+                display: inline-block;
+
                 background-color: rgb(15, 112, 230);
 
                 color: #f9f9f9;
@@ -652,13 +657,16 @@ main {
                 border: none;
                 border-radius: 16px;
 
-                margin: 8px 0;
-                margin-bottom: 16px;
+                margin: 8px 0 16px;
                 padding: 10px 20px;
 
                 cursor: pointer;
 
                 transition: 250ms !important;
+
+                text-decoration: none;
+
+                box-sizing: border-box;
 
                 &:hover {
                     box-shadow: 8px 8px rgb(10, 78, 161);
