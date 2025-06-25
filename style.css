@@ -100,7 +100,7 @@ main {
         justify-content: center;
         flex-direction: row;
         gap: 0 24px;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
 
         width: 100%;
 
@@ -597,7 +597,6 @@ main {
         }
     }
 
-    
     &>div#how-it-works {
         flex-direction: row-reverse;
 
@@ -629,6 +628,60 @@ main {
             & p {
                 font-weight: 300;
                 margin: 0;
+            }
+        }
+    }
+
+    &>div#incentives-me {
+
+        &>div.action {
+            width: 400px;
+
+            padding: 20px 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &>button {
+                background-color: rgb(15, 112, 230);
+
+                color: #f9f9f9;
+
+                border: none;
+                border-radius: 16px;
+
+                margin: 8px 0;
+                margin-bottom: 16px;
+                padding: 10px 20px;
+
+                cursor: pointer;
+
+                transition: 250ms !important;
+
+                &:hover {
+                    box-shadow: 8px 8px rgb(10, 78, 161);
+                }
+            }
+        }
+
+        &>div.call {
+            width: 400px;
+
+            padding: 20px;
+
+            & h2,
+            & p {
+                color: #333;
+            }
+
+            & h2 {
+                margin-top: 0;
+            }
+
+            & p {
+                font-weight: 300;
             }
         }
     }
