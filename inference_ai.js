@@ -3,7 +3,7 @@ import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers
 let segmenter = undefined;
 
 try {
-    segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4');
+    segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4', { dtype: 'fp32' });
     postMessage({
         success: 'Background removal model loaded successfully using CPU.'
     });
