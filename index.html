@@ -40,10 +40,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     window.location = url;
                 }
             };
+
             gtag('event', 'conversion', {
                 'send_to': 'AW-10837733837/ZxxLCL7U2OQaEM3j6q8o',
                 'event_callback': callback
             });
+
+            gtag('event', 'background_removed', {
+                'send_to': 'G-XQFNE3CH9D',
+                'value': 1.0
+            });
+
             return false;
         }
     </script>
