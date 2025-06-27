@@ -94,7 +94,7 @@ main {
 
     margin: 16px auto;
 
-    &>div.section {
+    &>section.section {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -112,7 +112,7 @@ main {
         }
     }
 
-    &>div#call-to-action {
+    &>section#call-to-action {
         flex-wrap: wrap;
 
         &>div.call {
@@ -284,7 +284,7 @@ main {
         }
     }
 
-    &>div.images-container {
+    &>section.images-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -485,7 +485,7 @@ main {
         }
     }
 
-    &>div#why-use {
+    &>section#why-use {
         flex-direction: row-reverse;
         flex-wrap: wrap-reverse;
 
@@ -540,7 +540,7 @@ main {
         }
     }
 
-    &>div#how-to-use {
+    &>section#how-to-use {
         flex-wrap: wrap-reverse;
 
         &>div.img {
@@ -598,7 +598,7 @@ main {
         }
     }
 
-    &>div#how-it-works {
+    &>section#how-it-works {
         flex-direction: row-reverse;
 
         &>div.img {
@@ -633,7 +633,7 @@ main {
         }
     }
 
-    &>div#incentives-me {
+    &>section#incentives-me {
 
         &>div.action {
             width: 400px;
