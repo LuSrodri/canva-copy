@@ -31,6 +31,23 @@
         gtag('config', 'G-XQFNE3CH9D');
     </script>
 
+    <!-- Event snippet for imagem processada com sucesso conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10837733837/ZxxLCL7U2OQaEM3j6q8o',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
     <!-- Pre connect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -167,6 +167,8 @@ async function startsRemoveBackground(imgElement, file) {
     const imageDiv = image.parentNode.parentNode;
 
     removeBackground(file).then((result) => {
+        gtag_report_conversion(undefined);
+
         const imageData = result[0].data;
         const imageWidth = result[0].width;
         const imageHeight = result[0].height;
