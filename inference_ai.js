@@ -10,7 +10,7 @@ try {
 }
 catch (e) {
     postMessage({
-        error: `Failed to load the background removal model. Please check your internet connection or try again later. ${error.message}. ${e.message}.`
+        error: `Failed to load the background removal model. Please check your internet connection or try again later. ${e.message}.`
     });
 }
 
