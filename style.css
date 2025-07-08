@@ -241,16 +241,20 @@ main {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-direction: row;
+                flex-direction: column;
 
                 width: 100%;
 
-                padding: 8px;
+                padding: 12px;
+
+                gap: 12px;
 
                 box-sizing: border-box;
 
                 &>p {
                     text-align: start;
+
+                    margin: 0;
                 }
 
                 &>div.example-images {
@@ -261,7 +265,7 @@ main {
                     flex-wrap: nowrap;
                     gap: 8px;
 
-                    width: max-content;
+                    width: fit-content;
 
                     box-sizing: border-box;
 
