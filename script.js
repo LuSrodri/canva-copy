@@ -134,7 +134,7 @@ function showImage(file) {
         const buttonToDelete = document.createElement('button');
         buttonToDelete.classList.add('btn');
         buttonToDelete.classList.add('remove-file');
-        buttonToDelete.textContent = '❌';
+        buttonToDelete.innerHTML = '<h2><i class="fa-solid fa-ban"></i></h2>';
         buttonToDelete.addEventListener('click', () => {
             removeImageFromArray(file);
             divImage.remove();
@@ -161,7 +161,9 @@ function removeImageFromArray(file) {
 }
 
 async function startsRemoveBackground(imgElement, file) {
-    divImages.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+        divImages.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }, 100);
 
     const image = imgElement;
     const imageDiv = image.parentNode.parentNode;
@@ -202,7 +204,7 @@ async function startsRemoveBackground(imgElement, file) {
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file');
-        downloadButton.textContent = '📥 Download';
+        downloadButton.innerHTML = '<h2><i class="fa-solid fa-floppy-disk"></i> Save</h2>';
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result);

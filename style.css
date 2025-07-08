@@ -379,9 +379,13 @@ main {
 
             overflow-x: auto;
 
-            padding: 6px 12px;
+            padding: 32px 12px;
 
             box-sizing: border-box;
+
+            &:empty {
+                display: none !important;
+            }
 
             &>div.image {
                 display: flex;
@@ -461,46 +465,57 @@ main {
 
                     width: 100%;
 
-                    &>button {
-                        font-size: 18px;
-                        font-weight: 900;
-                    }
-
                     &>button.btn.download-file {
-                        background-color: #f9f9f9;
+                        background-color: rgb(15, 112, 230);
 
-                        color: rgb(15, 112, 230);
+                        color: #f9f9f9;
 
-                        border: 2px solid rgb(15, 112, 230);
+                        border: unset;
                         border-radius: 16px;
 
-                        padding: 10px 20px;
+                        margin: 0;
+                        padding: 0 30px;
 
                         cursor: pointer;
 
-                        transition: 250ms;
+                        transition: all 300ms ease !important;
+
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
                         &:hover {
-                            box-shadow: 8px 8px rgb(10, 78, 161);
+                            background-color: rgb(25, 135, 255);
+                            transform: translateY(-2px);
+                        }
+
+                        &:active {
+                            transform: translateY(0);
                         }
                     }
 
                     &>button.btn.remove-file {
-                        background-color: #f9f9f9;
+                        background-color: rgb(230, 15, 15);
 
-                        color: rgb(230, 15, 15);
+                        color: #f9f9f9;
 
-                        border: 2px solid rgb(230, 15, 15);
+                        border: unset;
                         border-radius: 16px;
 
-                        padding: 10px 20px;
+                        margin: 0;
+                        padding: 0 30px;
 
                         cursor: pointer;
 
-                        transition: 250ms;
+                        transition: all 300ms ease !important;
+
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
                         &:hover {
-                            box-shadow: 8px 8px rgb(161, 10, 10);
+                            background-color: rgb(255, 25, 25);
+                            transform: translateY(-2px);
+                        }
+
+                        &:active {
+                            transform: translateY(0);
                         }
                     }
                 }
