@@ -1,0 +1,54 @@
+section#why-use {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+
+    gap: 0 24px;
+
+    width: 100%;
+
+    margin-bottom: 32px;
+
+    &>div.img {
+        width: 400px;
+
+        &>img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &>div.text {
+        width: 400px;
+        min-height: 275px;
+
+        padding: 20px;
+
+        & ul {
+            list-style: none;
+            padding: 0;
+
+            & li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+
+                margin: 3px 0;
+
+                &::before {
+                    content: '✔️';
+                    font-size: 18px;
+                }
+
+                & p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

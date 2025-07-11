@@ -4,6 +4,7 @@
 @import url('styles/button.css');
 @import url('styles/call-to-action.css');
 @import url('styles/images-container.css');
+@import url('styles/why-use.css');
 
 * {
     font-family: "Barlow", sans-serif;
@@ -74,60 +75,7 @@ main {
 
     
 
-    &>section#why-use {
-        flex-direction: row-reverse;
-        flex-wrap: wrap-reverse;
-
-        &>div.img {
-            width: 400px;
-
-            &>img {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        &>div.text {
-            width: 400px;
-            min-height: 275px;
-
-            padding: 20px;
-
-            & h2,
-            & p {
-                color: #333;
-            }
-
-            & p {
-                font-weight: 300;
-                margin: 0;
-            }
-
-            & ul {
-                list-style: none;
-                padding: 0;
-
-                & li {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 8px;
-
-                    margin: 3px 0;
-
-                    &::before {
-                        content: '✔️';
-                        font-size: 18px;
-                    }
-
-                    & p {
-                        font-weight: 600;
-                        margin: 0;
-                    }
-                }
-            }
-        }
-    }
+    
 
     &>section#how-to-use {
         flex-wrap: wrap-reverse;
