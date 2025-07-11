@@ -5,6 +5,7 @@
 @import url('styles/call-to-action.css');
 @import url('styles/images-container.css');
 @import url('styles/why-use.css');
+@import url('styles/how-to-use.css');
 
 * {
     font-family: "Barlow", sans-serif;
@@ -77,63 +78,7 @@ main {
 
     
 
-    &>section#how-to-use {
-        flex-wrap: wrap-reverse;
-
-        &>div.img {
-            width: 400px;
-
-            &>video {
-                width: 100%;
-                height: auto;
-
-                border-radius: 16px;
-                border: 4px solid #fff;
-
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        &>div.text {
-            width: 400px;
-            min-height: 275px;
-
-            padding: 20px;
-
-            & h2,
-            & p {
-                color: #333;
-            }
-
-            & p {
-                font-weight: 300;
-                margin: 0;
-            }
-
-            & ol {
-                padding: 0;
-
-                & li {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 8px;
-
-                    margin: 3px 0;
-
-                    &::before {
-                        content: '🔹';
-                        font-size: 18px;
-                    }
-
-                    & p {
-                        font-weight: 600;
-                        margin: 0;
-                    }
-                }
-            }
-        }
-    }
+  
 
     &>section#how-it-works {
         flex-direction: row-reverse;
