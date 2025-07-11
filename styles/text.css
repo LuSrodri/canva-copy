@@ -1,0 +1,77 @@
+h1 {
+    color: #36454F;
+
+    z-index: 2;
+
+    &.title {
+        align-self: flex-start;
+
+        padding: 0;
+        margin: 0;
+    }
+
+    &.highlight {
+        font-size: 2.75rem;
+
+        margin: 0;
+    }
+}
+
+p,
+a {
+    font-size: 1.12rem;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    color: #36454F;
+
+    &.blur {
+        backdrop-filter: blur(10px);
+
+        border-radius: 6px;
+
+        padding: 3px 8px;
+    }
+
+    &.overlap {
+        z-index: 2;
+    }
+
+    &.uppercase {
+        text-transform: uppercase;
+    }
+
+    &.bold {
+        font-weight: 500;
+        letter-spacing: calc(1px / 10 * 2);
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    & strong {
+        font-weight: 500;
+    }
+
+    & * {
+        color: #36454F;
+    }
+}
+
+a {
+    &.highlight {
+        color: rgb(15, 112, 230);
+
+        text-decoration: none;
+
+        font-weight: 600;
+
+        letter-spacing: calc(1px / 10 * 6);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

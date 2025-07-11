@@ -67,9 +67,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <body>
     <header>
         <h1 class="title">SEM FUNDOS</h1>
-        <p>
-            <a href="/en.html">🇬🇧 English</a>
-        </p>
+        <a class="highlight overlap blur uppercase" href="/en.html">🇬🇧 English</a>
     </header>
 
     <img class="paper-plane" src="assets/images/paper_plane.webp" alt="paper plane">
@@ -77,30 +75,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <main>
         <section id="call-to-action" class="section">
             <div class="call">
-                <h1>Remova Fundos<br> de Imagens</h1>
-                <p>De graça, sem limites, sem upload e 100% seguro!</p>
+                <h1 class="highlight">Remova Fundos<br> de Imagens</h1>
+                <p class="bold">De graça, sem limites, sem upload e 100% seguro!</p>
                 <img id="teste" src="assets/images/example.webp" alt="Examplo de remoção de fundo">
             </div>
             <div class="action">
-                <p class="gray">✨<i> Dica:</i> selecione várias imagens de uma vez!</p>
+                <p class="blur overlap bold center">✨<i> Dica:</i> selecione várias imagens de uma vez!</p>
                 <div id="drop-zone" aria-disabled="true">
                     <button id="add-files" class="btn" disabled>
                         <h2>Selecione uma imagem <i class="fa-solid fa-images"></i></h2>
                     </button>
                     <p>Ou arraste e solte <i>imagens</i> aqui</p>
-                    <p>Arquivos permitidos: <i>JPG</i>, <i>PNG</i></p>
+                    <p><i>Arquivos permitidos: <strong>JPG</strong>, <strong>PNG</strong></i></p>
                     <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;"
                         disabled />
                 </div>
                 <div class="examples">
-                    <p class="gray"><i>Sem imagem?</i> Use essas!</p>
+                    <p class="blur overlap bold center"><i>Não tem imagem?</i> Use uma dessas!</p>
                     <div class="example-images">
                         <img src="assets/images/examples/tree-reduced.webp" alt="Exemplo 1" class="example-image"
                             data-url="assets/images/examples/tree.png" aria-disabled="true">
                         <img src="assets/images/examples/plane-reduced.webp" alt="Exemplo 2" class="example-image"
                             data-url="assets/images/examples/plane.jpg" aria-disabled="true">
-                        <img src="assets/images/examples/father-daughter-walking-reduced.webp" alt="Exemplo 3" class="example-image"
-                            data-url="assets/images/examples/father-daughter-walking.jpg" aria-disabled="true">
+                        <img src="assets/images/examples/father-daughter-walking-reduced.webp" alt="Exemplo 3"
+                            class="example-image" data-url="assets/images/examples/father-daughter-walking.jpg"
+                            aria-disabled="true">
                         <img src="assets/images/examples/beside-pool-reduced.webp" alt="Exemplo 4" class="example-image"
                             data-url="assets/images/examples/beside-pool.jpg" aria-disabled="true">
                     </div>
@@ -116,7 +115,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <section id="why-use" class="section">
             <div class="img">
-                <img id="emoji-finished-paiting" src="assets/images/emoji_finished_painting.webp" alt="emoji finished painting">
+                <img id="emoji-finished-paiting" src="assets/images/emoji_finished_painting.webp"
+                    alt="emoji finished painting">
             </div>
             <div class="text">
                 <h2>Por que usar o SEM FUNDOS?</h2>

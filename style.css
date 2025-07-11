@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@import url('styles/text.css');
+
 * {
     font-family: "Barlow", sans-serif;
 }
@@ -38,14 +40,6 @@ body>img.paper-plane {
     z-index: 0;
 }
 
-p {
-    font-size: 1.12rem;
-    line-height: 1.5;
-    font-weight: 400;
-
-    color: #36454F;
-}
-
 header {
     width: 100dvw;
 
@@ -60,40 +54,6 @@ header {
     padding-right: 5dvw;
 
     box-sizing: border-box;
-
-    h1.title {
-        align-self: flex-start;
-
-        padding: 0;
-        margin: 0;
-
-        color: #36454F;
-
-        z-index: 1000;
-    }
-
-    &>p {
-        text-transform: uppercase;
-        font-weight: 600;
-
-        letter-spacing: calc(1px / 10 * 6);
-
-        color: #36454F;
-        background-color: rgba(255, 255, 255, 0.4);
-
-        margin: 0;
-        padding: 2px 8px;
-
-        z-index: 1;
-
-        backdrop-filter: blur(4px);
-
-        border-radius: 4px;
-
-        &>a {
-            color: rgb(15, 112, 230);
-        }
-    }
 }
 
 main {
@@ -131,18 +91,6 @@ main {
 
         &>div.call {
 
-            &>h1 {
-                color: #36454F;
-
-                font-size: 2.75rem;
-
-                margin: 0;
-            }
-
-            &>p {
-                font-weight: 300;
-            }
-
             &>img {
                 width: 100%;
                 height: auto;
@@ -156,10 +104,6 @@ main {
         }
 
         &>div.action {
-
-            & p.gray {
-                text-align: center;
-            }
 
             &>div#drop-zone {
 
