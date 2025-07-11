@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import url('styles/text.css');
+@import url('styles/button.css');
 
 * {
     font-family: "Barlow", sans-serif;
@@ -138,40 +139,6 @@ main {
                     pointer-events: none;
 
                     box-shadow: none !important;
-                }
-
-                button.btn#add-files {
-                    background-color: rgb(15, 112, 230);
-
-                    color: #f9f9f9;
-
-                    border: unset;
-                    border-radius: 16px;
-
-                    margin: 8px 0;
-                    margin-bottom: 16px;
-                    padding: 10px 20px;
-
-                    cursor: pointer;
-
-                    transition: all 300ms ease !important;
-
-                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-                    &:hover {
-                        background-color: rgb(25, 135, 255);
-                        transform: translateY(-2px);
-                    }
-
-                    &:active {
-                        transform: translateY(0);
-                    }
-                }
-
-                &>p {
-                    font-weight: 300;
-
-                    margin: 0;
                 }
 
                 &.dragover {
