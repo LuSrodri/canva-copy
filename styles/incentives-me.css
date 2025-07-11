@@ -1,0 +1,36 @@
+section#incentives-me {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+
+    gap: 0 24px;
+
+    width: 100%;
+
+    margin-bottom: 32px;
+
+    &>div.action {
+        width: 400px;
+
+        padding: 20px 0;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 16px;
+
+        flex-direction: column;
+    }
+
+    &>div.call {
+        width: 400px;
+
+        padding: 20px;
+    }
+}

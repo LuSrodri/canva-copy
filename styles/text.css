@@ -47,7 +47,7 @@ h3 {
 }
 
 p,
-a {
+a:not(.btn) {
     font-size: 1.12rem;
     font-weight: 400;
 

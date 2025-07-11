@@ -1,7 +1,10 @@
-button {
-    text-transform: uppercase;
+button,
+a {
 
     &.btn {
+        text-transform: uppercase;
+        text-decoration: none;
+
         background-color: rgb(15, 112, 230);
 
         color: #f9f9f9;

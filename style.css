@@ -7,6 +7,7 @@
 @import url('styles/why-use.css');
 @import url('styles/how-to-use.css');
 @import url('styles/how-it-works.css');
+@import url('styles/incentives-me.css');
 
 * {
     font-family: "Barlow", sans-serif;
@@ -73,76 +74,6 @@ main {
     width: 90%;
 
     margin: 16px auto;
-
-
-    
-
-    
-
-  
-
-   
-
-    &>section#incentives-me {
-
-        &>div.action {
-            width: 400px;
-
-            padding: 20px 0;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            &>.btn {
-                all: unset;
-
-                display: inline-block;
-
-                background-color: rgb(15, 112, 230);
-
-                color: #f9f9f9;
-
-                border: none;
-                border-radius: 16px;
-
-                margin: 8px 0 16px;
-                padding: 10px 20px;
-
-                cursor: pointer;
-
-                transition: 250ms !important;
-
-                text-decoration: none;
-
-                box-sizing: border-box;
-
-                &:hover {
-                    box-shadow: 8px 8px rgb(10, 78, 161);
-                }
-            }
-        }
-
-        &>div.call {
-            width: 400px;
-
-            padding: 20px;
-
-            & h2,
-            & p {
-                color: #333;
-            }
-
-            & h2 {
-                margin-top: 0;
-            }
-
-            & p {
-                font-weight: 300;
-            }
-        }
-    }
 }
 
 footer {
@@ -171,28 +102,7 @@ footer {
     }
 
     &>p {
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: 600;
-
-        letter-spacing: calc(1px / 10 * 6);
-
-        color: #36454F;
-
         margin: 0;
-        margin-bottom: 12px;
-
-        z-index: 1;
-
-        backdrop-filter: blur(4px);
-
-        padding: 2px 8px;
-
-        border-radius: 4px;
-
-        &>a {
-            color: rgb(15, 112, 230);
-        }
     }
 
     &>img.rocket-rising {
