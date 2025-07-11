@@ -132,8 +132,7 @@ function showImage(file) {
         divButtons.classList.add('buttons');
 
         const buttonToDelete = document.createElement('button');
-        buttonToDelete.classList.add('btn');
-        buttonToDelete.classList.add('remove-file');
+        buttonToDelete.classList.add('btn', 'remove-file', 'small', 'red');
         buttonToDelete.innerHTML = '<h2><i class="fa-solid fa-ban"></i></h2>';
         buttonToDelete.addEventListener('click', () => {
             removeImageFromArray(file);
@@ -203,7 +202,7 @@ async function startsRemoveBackground(imgElement, file) {
             imageDiv.querySelector('.download-file').remove();
         }
         const downloadButton = document.createElement('button');
-        downloadButton.classList.add('btn', 'download-file');
+        downloadButton.classList.add('btn', 'download-file', 'small');
         downloadButton.innerHTML = '<h2><i class="fa-solid fa-floppy-disk"></i> Save</h2>';
 
         downloadButton.addEventListener('click', () => {

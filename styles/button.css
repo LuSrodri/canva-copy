@@ -1,4 +1,5 @@
 button {
+    text-transform: uppercase;
 
     &.btn {
         background-color: rgb(15, 112, 230);
@@ -8,7 +9,7 @@ button {
         border: unset;
         border-radius: 16px;
 
-        margin: 8px 0;
+        margin: 0;
         padding: 6px 20px;
 
         cursor: pointer;
@@ -16,6 +17,18 @@ button {
         transition: all 300ms ease !important;
 
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+        &.red {
+            background-color: rgb(230, 15, 15);
+
+            &:hover {
+                background-color: rgb(255, 25, 25);
+            }
+        }
+
+        &.small {
+            padding: 0 20px;
+        }
 
         &:hover {
             background-color: rgb(25, 135, 255);
@@ -25,5 +38,15 @@ button {
         &:active {
             transform: translateY(0);
         }
+    }
+
+    &:disabled {
+        opacity: 0.5 !important;
+
+        border: none !important;
+
+        cursor: not-allowed !important;
+
+        box-shadow: none !important;
     }
 }

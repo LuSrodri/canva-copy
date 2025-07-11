@@ -90,7 +90,7 @@ section#call-to-action {
             box-sizing: border-box;
 
             &>p {
-                text-align: start;
+                text-align: center;
 
                 margin: 0;
             }
