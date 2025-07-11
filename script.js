@@ -124,6 +124,11 @@ function showImage(file) {
         const divImage = document.createElement('div');
         divImage.classList.add('image');
 
+        const infoview = document.createElement('h3');
+        infoview.classList.add('loading', 'infoview');
+        infoview.textContent = typeof PROCESSING_IMAGE_TEXT !== 'undefined' ? PROCESSING_IMAGE_TEXT : 'Processing image ⏳';
+        divImage.appendChild(infoview);
+
         const img = document.createElement('img');
         img.classList.add('loading');
         img.src = e.target.result;
@@ -209,7 +214,8 @@ async function startsRemoveBackground(imgElement, file) {
         }
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file', 'small');
-        downloadButton.innerHTML = `<h3><i class="fa-solid fa-floppy-disk"></i> ${SAVE_IMAGE_TEXT}</h3>`;
+        const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
+        downloadButton.innerHTML = `<h3><i class="fa-solid fa-floppy-disk"></i> ${saveText}</h3>`;
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result);
@@ -217,6 +223,10 @@ async function startsRemoveBackground(imgElement, file) {
 
         const buttonsDiv = imageDiv.querySelector('.buttons');
         buttonsDiv.insertBefore(downloadButton, buttonsDiv.firstChild);
+
+        const infoview = imageDiv.querySelector('.infoview');
+        infoview.textContent = typeof READY_IMAGE_TEXT !== 'undefined' ? READY_IMAGE_TEXT : 'Ready image ✅';
+        infoview.classList.remove('loading');
     });
 }
 
