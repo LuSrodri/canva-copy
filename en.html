@@ -67,9 +67,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <body>
     <header>
         <h1 class="title">BACKGROUND FREE</h1>
-        <p>
-            <a href="/">🇧🇷 Português</a>
-        </p>
+        <a class="highlight overlap blur uppercase" href="/">🇧🇷 Português</a>
     </header>
 
     <img class="paper-plane" src="assets/images/paper_plane.webp" alt="paper plane">
@@ -77,30 +75,34 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <main>
         <section id="call-to-action" class="section">
             <div class="call">
-                <h1>Remove Image<br> Backgrounds</h1>
-                <p>Free, unlimited, no uploads, and 100% private!</p>
+                <h1 class="highlight">Remove Image<br> Backgrounds</h1>
+                <p class="bold">Free, unlimited, no uploads, and 100% private!</p>
                 <img id="teste" src="assets/images/example.webp" alt="Background removal example">
             </div>
             <div class="action">
-                <p class="gray">✨<i> Tip:</i> Select multiple images at once!</p>
+                <p class="blur overlap bold center">✨<i> Tip:</i> Select multiple images at once!</p>
                 <div id="drop-zone" aria-disabled="true">
                     <button id="add-files" class="btn" disabled>
                         <h2>Click or Tap to <i>Start</i> <i class="fa-solid fa-images"></i></h2>
                     </button>
-                    <p>Or drag and drop <i>images</i> here</p>
-                    <p>Supported files: <i>JPG</i>, <i>PNG</i></p>
+                    <p>
+                        Or drag and drop <i>images</i> here
+                        <br><br>
+                        <i>Supported files: <strong>JPG</strong>, <strong>PNG</strong></i>
+                    </p>
                     <input type="file" multiple id="file-input" accept="image/jpeg, image/png" style="display: none;"
                         disabled />
                 </div>
                 <div class="examples">
-                    <p class="gray"><i>No image?</i> Try one of these!</p>
+                    <p class="blur overlap bold center"><i>No image?</i> Try one of these!</p>
                     <div class="example-images">
                         <img src="assets/images/examples/tree-reduced.webp" alt="Exemplo 1" class="example-image"
                             data-url="assets/images/examples/tree.png" aria-disabled="true">
                         <img src="assets/images/examples/plane-reduced.webp" alt="Exemplo 2" class="example-image"
                             data-url="assets/images/examples/plane.jpg" aria-disabled="true">
-                        <img src="assets/images/examples/father-daughter-walking-reduced.webp" alt="Exemplo 3" class="example-image"
-                            data-url="assets/images/examples/father-daughter-walking.jpg" aria-disabled="true">
+                        <img src="assets/images/examples/father-daughter-walking-reduced.webp" alt="Exemplo 3"
+                            class="example-image" data-url="assets/images/examples/father-daughter-walking.jpg"
+                            aria-disabled="true">
                         <img src="assets/images/examples/beside-pool-reduced.webp" alt="Exemplo 4" class="example-image"
                             data-url="assets/images/examples/beside-pool.jpg" aria-disabled="true">
                     </div>
@@ -110,19 +112,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <section class="images-container">
             <img src="assets/images/emoji_painting.webp" alt="emoji painting" class="emoji-painting">
-            <h3 id="start-now" class="start-now">Select an image to get started</h3>
+            <h3 id="start-now" class="start-now stroke">Select an image to get started</h3>
             <div class="images" id="images"></div>
         </section>
 
         <section id="why-use" class="section">
             <div class="img">
-                <img id="emoji-finished-paiting" src="assets/images/emoji_finished_painting.webp" alt="emoji finished painting">
+                <img id="emoji-finished-paiting" src="assets/images/emoji_finished_painting.webp"
+                    alt="emoji finished painting">
             </div>
             <div class="text">
                 <h2>Why use BACKGROUND FREE?</h2>
                 <p>
-                    Try it now! <br>
-                    See how easy it is to remove backgrounds from images!
+                    Try it now and see how easy it is to remove backgrounds from images!
                 </p>
                 <ul>
                     <li>
@@ -138,7 +140,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <p>No uploads — runs entirely in your browser</p>
                     </li>
                     <li>
-                        <p>Remove backgrounds from multiple images at once</p>
+                        <p>Multiple images at once</p>
                     </li>
                 </ul>
             </div>
@@ -152,8 +154,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="text">
                 <h2>How to use BACKGROUND FREE?</h2>
                 <p>
-                    Just follow the steps! <br>
-                    And see how easy it is to remove image backgrounds!
+                    Just follow the steps and see how easy it is to remove image backgrounds:
                 </p>
                 <ol>
                     <li>
@@ -166,9 +167,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <p>Wait a few seconds</p>
                     </li>
                     <li>
-                        <p>Done! Now enjoy your image with a transparent background</p>
+                        <p>Done!</p>
                     </li>
                 </ol>
+                <p>Now enjoy your image with a transparent background</p>
             </div>
         </section>
 
@@ -181,8 +183,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <p>
                     BACKGROUND FREE uses advanced <strong>image segmentation</strong> techniques to detect and remove
                     the background directly in your browser. That means: <strong>no image is uploaded to any external
-                        server</strong>, ensuring your privacy and security. The process is fast, efficient, and
-                    completely free!
+                        server</strong>, ensuring your privacy and security. This way the process is fast, efficient,
+                    and
+                    completely free. <a href="https://huggingface.co/docs/transformers.js" target="_blank"
+                        class="highlight">Learn more
+                        about a
+                        technology for running AI models locally.</a>
                 </p>
             </div>
         </section>
@@ -190,10 +196,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <section id="incentives-me" class="section">
             <div class="action">
                 <a id="donation" class="btn" href="https://donate.stripe.com/00w4gy8qla919dI3YV1ck03" target="_blank">
-                    <h3>Send a tip! <i class="fa-solid fa-coins"></i></h3>
+                    <h2>Make a Donation <i class="fa-solid fa-coins"></i></h2>
                 </a>
                 <button id="share" class="btn">
-                    <h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>
+                    <h2>Share with a friend <i class="fa-solid fa-share"></i></h2>
                 </button>
             </div>
             <div class="call">
@@ -210,15 +216,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
         <hr>
-        <p>
-            Built with ❤️ by Lucas Rodrigues | <a href="https://github.com/LuSrodri" target="_blank">Lucas Rodrigues'
+        <p class="highlight blur overlap bold center uppercase">
+            Built with ❤️ by Lucas Rodrigues | <a class="highlight" href="https://github.com/LuSrodri" target="_blank">Lucas Rodrigues'
                 Github</a>
         </p>
-        <p>
-            <a href="https://github.com/lusrodri/canva-copy" target="_blank">More about the BACKGROUND FREE in
+        <p class="highlight blur overlap bold center uppercase">
+            <a class="highlight" href="https://github.com/lusrodri/canva-copy" target="_blank">More about the BACKGROUND FREE in
                 Github</a>
         </p>
-        <p>
+        <p class="highlight blur overlap bold center uppercase">
             BACKGROUND FREE <span id="year">2025</span> is an open-source project
         </p>
     </footer>
