@@ -64,6 +64,12 @@ inferenceAiWorker.onmessage = (event) => {
             image.removeAttribute('aria-disabled');
         });
 
+        document.addEventListener('paste', async (event) => {
+            const items = event.clipboardData.items;
+            const images = Array.from(items).filter(item => item.type.startsWith('image/'));
+            handleFiles(images.map(item => item.getAsFile()));
+        });
+
         return
     }
 
