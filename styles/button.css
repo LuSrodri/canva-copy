@@ -38,6 +38,10 @@ button {
         &:active {
             transform: translateY(0);
         }
+
+        & * {
+            color: #f9f9f9;
+        }
     }
 
     &:disabled {

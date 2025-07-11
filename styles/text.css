@@ -17,14 +17,19 @@ h1 {
     }
 }
 
+h2 {
+    color: #36454F;
+    letter-spacing: calc(1px / 10 * 3);
+}
+
 h3 {
     &.stroke {
         color: #fff;
 
         text-align: center;
         text-transform: uppercase;
-        text-stroke: 1px #333;
-        -webkit-text-stroke: 1px #333;
+        text-stroke: 1px #36454F;
+        -webkit-text-stroke: 1px #36454F;
 
         letter-spacing: calc(1px / 10 * 6);
 
