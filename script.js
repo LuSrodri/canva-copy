@@ -124,10 +124,6 @@ function showImage(file) {
         const divImage = document.createElement('div');
         divImage.classList.add('image');
 
-        const infoview = document.createElement('h3');
-        infoview.classList.add('loading', 'infoview');
-        infoview.textContent = typeof PROCESSING_IMAGE_TEXT !== 'undefined' ? PROCESSING_IMAGE_TEXT : 'Processing image ⏳';
-        divImage.appendChild(infoview);
 
         const img = document.createElement('img');
         img.classList.add('loading');
@@ -136,6 +132,11 @@ function showImage(file) {
         const divShowImage = document.createElement('div');
         divShowImage.classList.add('show-image');
         divShowImage.appendChild(img);
+
+        const infoview = document.createElement('h3');
+        infoview.classList.add('loading', 'infoview');
+        infoview.textContent = typeof PROCESSING_IMAGE_TEXT !== 'undefined' ? PROCESSING_IMAGE_TEXT : 'Processing image ⏳';
+        divShowImage.appendChild(infoview);
 
         divImage.appendChild(divShowImage);
 
@@ -285,4 +286,5 @@ function normalizeAlphaPixels(imageData) {
 
 function updateQtyImages(qtd) {
     document.querySelector('#start-now').style.display = qtd > 0 ? 'none' : 'flex';
+    document.querySelector('#share-action').style.display = qtd <= 0 ? 'none' : 'flex';
 }

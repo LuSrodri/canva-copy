@@ -38,16 +38,12 @@ h3 {
         font-weight: 900;
         font-size: 24px;
 
-        z-index: 2;
-
-        backdrop-filter: blur(4px);
-
-        padding: 2px 8px;
-
-        border-radius: 4px;
+        margin: 0;
     }
 
     &.infoview {
+        width: max-content;
+
         color: #36454F;
         background-color: #fff;
 
