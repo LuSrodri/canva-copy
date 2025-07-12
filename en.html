@@ -55,6 +55,24 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
     </script>
 
+    <!-- Event snippet for shared action -->
+    <script>
+        function gtag_report_shared_action(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+
+            gtag('event', 'shared_action', {
+                'send_to': 'G-XQFNE3CH9D',
+                'value': 1.0
+            });
+
+            return false;
+        }
+    </script>
+
     <!-- Pre connect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -260,19 +278,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 await navigator.share(shareData);
                 shareButton.innerHTML = '<h3>Successfully shared! <i class="fa-solid fa-check"></i></h3>';
                 setTimeout(() => {
-                    shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                    shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
                 }, 2000);
+                gtag_report_shared_action(undefined);
             } catch {
                 try {
                     await navigator.clipboard.writeText(shareData.url);
                     shareButton.innerHTML = '<h3>Link copied to clipboard! <i class="fa-solid fa-check"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                        shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
+                    gtag_report_shared_action(undefined);
                 } catch {
                     shareButton.innerHTML = '<h3>Sharing failed! <i class="fa-solid fa-xmark"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share with a friend! <i class="fa-solid fa-share"></i></h3>';
+                        shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
                 }
             }
