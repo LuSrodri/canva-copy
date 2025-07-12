@@ -52,14 +52,14 @@ h3 {
         padding: 2px 8px;
 
         border-radius: 4px;
-        
+
         text-align: center;
         text-transform: uppercase;
     }
 }
 
 p,
-a:not(.btn) {
+a {
     font-size: 1.12rem;
     font-weight: 400;
 
@@ -113,6 +113,10 @@ a {
 
         &:hover {
             text-decoration: underline;
+        }
+
+        & * {
+            color: rgb(15, 112, 230);
         }
     }
 }
