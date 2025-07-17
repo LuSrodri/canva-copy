@@ -22,7 +22,7 @@ h2 {
     letter-spacing: calc(1px / 10 * 3);
 }
 
-h2, h3 {
+h2, h3, h4 {
     color: #36454F;
 
     &.stroke {
@@ -89,6 +89,10 @@ a {
 
     &.center {
         text-align: center;
+    }
+
+    &.small {
+        margin: 0;
     }
 
     & strong {

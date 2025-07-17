@@ -47,6 +47,36 @@ body>img.paper-plane {
     z-index: 0;
 }
 
+body>.highlight-ads {
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    width: 100dvw;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: row;
+
+    gap: 8px;
+
+    z-index: 2;
+
+    background-color: #fff;
+
+    border-bottom: 3px solid rgb(15, 112, 230);
+
+    backdrop-filter: blur(10px);
+
+    padding: 8px;
+
+    box-sizing: border-box;
+}
+
 header {
     width: 100dvw;
 

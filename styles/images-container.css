@@ -22,6 +22,8 @@ section.images-container {
 
     position: relative;
 
+    transition: height 250ms ease-in-out;
+
     &>img.emoji-painting {
         width: 215px;
         height: auto;
