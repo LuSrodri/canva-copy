@@ -228,6 +228,12 @@ async function startsRemoveBackground(imgElement, file) {
         const infoview = imageDiv.querySelector('.infoview');
         infoview.textContent = typeof READY_IMAGE_TEXT !== 'undefined' ? READY_IMAGE_TEXT : 'Ready image ✅';
         infoview.classList.remove('loading');
+
+        document.querySelector('#share-action').classList.remove('hidden');
+        setTimeout(() => {
+            document.querySelector('#share-action').classList.remove('invisible');
+            document.querySelector('.images-container').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        }, 250);
     });
 }
 
@@ -286,5 +292,5 @@ function normalizeAlphaPixels(imageData) {
 
 function updateQtyImages(qtd) {
     document.querySelector('#start-now').style.display = qtd > 0 ? 'none' : 'flex';
-    document.querySelector('#share-action').style.display = qtd <= 0 ? 'none' : 'flex';
+    if (qtd <= 0) document.querySelector('#share-action').classList.add('hidden', 'invisible');
 }
