@@ -7,10 +7,10 @@ button {
         color: #f9f9f9;
 
         border: unset;
-        border-radius: 10px;
+        border-radius: 0.8rem;
 
         margin: 0;
-        padding: 12px;
+        padding: 0.8rem;
 
         cursor: pointer;
 
