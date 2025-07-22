@@ -11,9 +11,11 @@ h1 {
     }
 
     &.highlight {
-        font-size: 2.75rem;
+        font-size: 2.25rem;
 
         margin: 0;
+        
+        font-weight: 600;
     }
 }
 
@@ -59,8 +61,8 @@ h2, h3, h4 {
 
 p,
 a {
-    font-size: 1.12rem;
-    font-weight: 400;
+    font-size: 0.98rem;
+    font-weight: 300;
 
     line-height: 1.5;
 
@@ -83,7 +85,7 @@ a {
     }
 
     &.bold {
-        font-weight: 500;
+        font-weight: 400;
         letter-spacing: calc(1px / 10 * 2);
     }
 

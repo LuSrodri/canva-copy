@@ -7,10 +7,10 @@ button {
         color: #f9f9f9;
 
         border: unset;
-        border-radius: 16px;
+        border-radius: 10px;
 
         margin: 0;
-        padding: 6px 20px;
+        padding: 12px;
 
         cursor: pointer;
 
@@ -27,12 +27,14 @@ button {
         }
 
         &.small {
-            padding: 0 20px;
+            &>* {
+                margin: 0;
+            }
         }
 
         &:hover {
             background-color: rgb(25, 135, 255);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
         }
 
         &:active {
