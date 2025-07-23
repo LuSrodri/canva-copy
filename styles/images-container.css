@@ -7,18 +7,11 @@ section.images-container {
     width: 100dvw;
     min-height: 250px;
 
-    padding: 12px 0;
+    padding: 8px 0;
 
-    gap: 12px;
+    gap: 8px;
 
     box-sizing: border-box;
-
-    background: linear-gradient(157.5deg, #B6D0E2 calc(0% - 200%), #fffafa 100%, #B6D0E2 400%);
-
-    border-top: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-
-    box-shadow: 0 4px 16px rgba(112, 112, 182, 0.32);
 
     position: relative;
 
@@ -40,11 +33,14 @@ section.images-container {
 
     &>div.images {
         display: flex;
+
         align-items: center;
         justify-content: flex-start;
+
         flex-direction: row;
-        gap: 4px;
         flex-wrap: nowrap;
+        
+        gap: 8px;
 
         width: 100%;
 

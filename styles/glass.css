@@ -8,4 +8,10 @@
 
     border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.4);
+
+    transition: box-shadow 300ms ease-in-out !important;
+
+    &:hover {
+        box-shadow: 0 6px 20px rgba(112, 112, 182, 0.48);
+    }
 }
