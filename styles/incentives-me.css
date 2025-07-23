@@ -15,16 +15,20 @@ section#incentives-me {
 
     &>div.img {
         width: 400px;
+        max-width: 90dvw;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
 
         &>img {
-            width: 100%;
+            width: 80%;
             height: auto;
         }
     }
 
     &>div.text {
         width: 400px;
-
-        padding: 20px;
+        max-width: 90dvw;
     }
 }

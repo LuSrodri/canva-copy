@@ -11,8 +11,6 @@ section#call-to-action {
 
     width: 100%;
 
-    margin-bottom: 32px;
-
     &>div {
         width: 400px;
         max-width: 90dvw;

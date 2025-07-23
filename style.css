@@ -107,6 +107,10 @@ main {
     margin: 16px auto;
 }
 
+section {
+    margin-bottom: 12px;
+}
+
 footer {
     display: flex;
     flex-direction: column;

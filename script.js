@@ -291,6 +291,5 @@ function normalizeAlphaPixels(imageData) {
 }
 
 function updateQtyImages(qtd) {
-    document.querySelector('#start-now').style.display = qtd > 0 ? 'none' : 'flex';
     if (qtd <= 0) document.querySelector('#share-action').classList.add('hidden', 'invisible');
 }

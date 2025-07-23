@@ -11,22 +11,24 @@ section#why-use {
 
     width: 100%;
 
-    margin-bottom: 32px;
-
     &>div.img {
         width: 400px;
+        max-width: 90dvw;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
 
         &>img {
-            width: 100%;
+            width: 80%;
             height: auto;
         }
     }
 
     &>div.text {
         width: 400px;
+        max-width: 90dvw;
         min-height: 275px;
-
-        padding: 20px;
 
         & ul {
             list-style: none;
