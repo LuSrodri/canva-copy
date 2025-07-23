@@ -108,7 +108,11 @@ main {
 }
 
 section {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+
+    &:not(#call-to-action) {
+        padding: 8px 0;
+    }
 }
 
 footer {
@@ -120,25 +124,10 @@ footer {
     width: 100dvw;
 
     padding: 16px;
-    margin-top: 32px;
 
     box-sizing: border-box;
 
     position: relative;
-
-    &>hr {
-        width: 90%;
-        height: 1px;
-
-        background-color: #333;
-        border: none;
-
-        margin-bottom: 16px;
-    }
-
-    &>p {
-        margin: 0;
-    }
 
     &>img.rocket-rising {
         width: 80px;

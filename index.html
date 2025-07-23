@@ -189,6 +189,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <p>Várias imagens ao mesmo tempo</p>
                     </li>
                 </ul>
+                <button class="btn small"
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
+                    <h4>Usar agora</h4>
+                </button>
             </div>
         </section>
 
@@ -219,6 +223,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <p>
                     Basta aproveitar a sua imagem com background transparente.
                 </p>
+                <button class="btn small"
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
+                    <h4>Testar agora</h4>
+                </button>
             </div>
         </section>
 
@@ -237,41 +245,82 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         sobre a
                         tecnologia para rodar modelos de IA localmente.</a>
                 </p>
+                <button class="btn small"
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
+                    <h4>Ver a magia</h4>
+                </button>
             </div>
         </section>
 
         <section id="incentives-me" class="section">
-            <div class="img">
+            <div class="left">
+                <h2>Sobre o projeto</h2>
+                <p>
+                    <a class="highlight" href="https://github.com/lusrodri/canva-copy" target="_blank"> O SEM FUNDOS é
+                        um projeto de código aberto disponível no GitHub.</a>
+                    É desenvolvido e mantido por mim, <a class="highlight" href="https://lusrodri.me"
+                        target="_blank">Lucas Santos Rodrigues</a>,
+                    engenheiro da computação e entusiasta de IA, apaixonado por tecnologia e inovação.
+                </p>
+                <p>
+                    O intuito é fornecer uma ferramenta de alto desempenho, fácil de usar e totalmente gratuita para
+                    remover fundos de imagens, sem a necessidade de uploads ou preocupações com privacidade.
+                    Se você gostou e quer me incentivar a continuar desenvolvendo e melhorando o
+                    projeto, <strong>veja como você pode me ajudar</strong>:
+                </p>
                 <img id="making-donation" src="assets/images/making_donation.webp" alt="making donation">
             </div>
-            <div class="text">
-                <h2>Me incentive a continuar!</h2>
-                <p>
-                    Se você gostou e quer me incentivar a continuar desenvolvendo e melhorando o
-                    projeto, considere <a id="donation" class="highlight"
-                        href="https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04" target="_blank">fazer uma doação e
-                        ajudar a manter o <i>SEM FUNDOS</i> disponível para todos!</a> Qualquer valor e apoio é
-                    bem-vindo e ajuda a manter o projeto ativo e gratuito para todos.
-                </p>
+            <div class="right">
+                <ol>
+                    <li>
+                        <h4>Compartilhando</h4>
+                        <p>
+                            Compartilhe o SEM FUNDOS com amigos, familiares e colegas.
+                            Poste sobre o projeto nas redes sociais, forúns, comunidades, grupos e ajude a divulgar.
+                        </p>
+                        <button id="share" class="btn small">
+                            <h3>Compartilhar o site <i class="fa-solid fa-share-nodes"></i></h3>
+                        </button>
+                    </li>
+                    <li>
+                        <h4>Doando</h4>
+                        <p>
+                            Se você quer contribuir financeiramente, considere fazer uma doação.
+                            Qualquer quantia é bem-vinda e ajuda a manter o projeto ativo e em constante evolução.
+                        </p>
+                        <button id="donation2" class="btn small"
+                            onclick="window.open(`https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04`, '_blank')">
+                            <h3>Fazer uma doação <i class="fa-solid fa-heart"></i></h3>
+                        </button>
+                    </li>
+                    <li>
+                        <h4>Contribuindo</h4>
+                        <p>
+                            Se você é desenvolvedor e deseja contribuir com o projeto, sinta-se à vontade para
+                            enviar pull requests, relatar problemas no GitHub ou sugerir melhorias.
+                            Sua contribuição é muito apreciada e ajuda a tornar o SEM FUNDOS ainda melhor.
+                        </p>
+                        <button class="btn small"
+                            onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')">
+                            <h3>Contribuir no GitHub <i class="fa-brands fa-github"></i></h3>
+                        </button>
+                    </li>
+                </ol>
             </div>
         </section>
     </main>
 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
-        <hr>
-        <p class="highlight blur overlap bold center uppercase">
-            Desenvolvido com ❤️ por Lucas Rodrigues | <a class="highlight"
-                href="https://www.linkedin.com/in/lucas-santos-rodrigues" target="_blank">LinkedIn do Lucas
-                Rodrigues</a>
-        </p>
-        <p class="highlight blur overlap bold center uppercase">
-            <a class="highlight" href="https://github.com/lusrodri/canva-copy" target="_blank">Mais sobre o projeto SEM
-                FUNDOS no
-                Github</a>
-        </p>
-        <p class="highlight blur overlap bold center uppercase">
-            SEM FUNDOS <span id="year">2025</span> é um projeto de código aberto
+        <div class="glass" style="padding: 4px;">
+            <a class="highlight" href="/en" target="_blank">
+                <h4 class="infoview">
+                    Also available in 🇬🇧 English
+                </h4>
+            </a>
+        </div>
+        <p class="bold center">
+            SEM FUNDOS <span id="year"></span> — LusRodri
         </p>
     </footer>
 

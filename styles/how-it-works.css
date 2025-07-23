@@ -7,7 +7,7 @@ section#how-it-works {
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 
-    gap: 0 24px;
+    gap: 24px;
 
     width: 100%;
 
