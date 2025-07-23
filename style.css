@@ -64,14 +64,18 @@ body>.highlight-ads {
 
     flex-direction: row;
 
-    gap: 8px;
+    gap: 4px;
 
     z-index: 2;
 
-    padding: 8px;
+    padding: 4px;
     margin: 16px;
 
     box-sizing: border-box;
+
+    &>* {
+        margin: 0;
+    }
 }
 
 header {

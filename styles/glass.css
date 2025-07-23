@@ -4,8 +4,8 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
-    box-shadow: 0 4px 45px rgba(112, 112, 182, 0.12);
+    box-shadow: 0 4px 16px rgba(112, 112, 182, 0.32);
 
-    border-radius: 16px;
+    border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.4);
 }

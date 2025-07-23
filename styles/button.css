@@ -1,13 +1,23 @@
 button {
     text-transform: uppercase;
 
+
     &.btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        flex-direction: row;
+
+        gap: 0.2rem;
+
         background-color: rgb(15, 112, 230);
 
         color: #f9f9f9;
 
         border: unset;
-        border-radius: 0.8rem;
+        border-radius: 8px;
 
         margin: 0;
         padding: 0.8rem;
