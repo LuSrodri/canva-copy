@@ -43,14 +43,12 @@ h2, h3, h4 {
     }
 
     &.infoview {
-        width: max-content;
-
         color: #36454F;
         background-color: #fff;
 
         margin: 0;
 
-        padding: 4px;
+        padding: 6px;
 
         border-radius: 8px;
 

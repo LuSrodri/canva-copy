@@ -43,7 +43,7 @@ section.images-container {
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: 12px;
+        gap: 4px;
         flex-wrap: nowrap;
 
         width: 100%;
@@ -52,7 +52,7 @@ section.images-container {
 
         overflow-x: auto;
 
-        padding: 16px 12px;
+        padding: 4px;
 
         box-sizing: border-box;
 
@@ -100,6 +100,8 @@ section.images-container {
                 position: relative;
 
                 &>h3.infoview {
+                    white-space: nowrap;
+
                     position: absolute;
 
                     bottom: 4px;
@@ -131,7 +133,7 @@ section.images-container {
                 align-items: center;
                 justify-content: center;
 
-                gap: 12px;
+                gap: 4px;
 
                 flex-direction: row;
                 flex-wrap: wrap;
