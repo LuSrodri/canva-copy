@@ -96,7 +96,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             Criando um site? Use a IA da Hostinger Horizons para ajudar!
         </p>
         <button class="btn small" onclick="window.open(`https://www.hostg.xyz/SHHn7`, '_blank')">
-            <h4>Veja mais</h4>
+            <h4>Ver mais</h4>
             <h4><i class="fa-solid fa-arrow-up-right-from-square"></i></h4>
         </button>
     </div>
@@ -114,7 +114,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <p class="blur overlap center bold">✨<i> Dica:</i> selecione várias imagens de uma vez!</p>
                 <div id="drop-zone" aria-disabled="true" class="glass">
                     <button id="add-files" class="btn small" disabled>
-                        <h2>Selecione uma imagem</h2>
+                        <h2>Selecionar uma imagem</h2>
                         <h2><i class="fa-solid fa-images"></i></h2>
                     </button>
                     <p>
@@ -150,14 +150,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div id="share-action" class="hidden invisible glass">
                 <div>
                     <h3 class="infoview">Isso te ajudou? 🧰</h3>
-                    <button id="share" class="btn small">
-                        <h3>Compartilhe o site <i class="fa-solid fa-share-nodes"></i></h3>
-                    </button>
                 </div>
                 <hr>
                 <button id="donation2" class="btn small"
-                    onclick="window.open(`https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04`, '_blank')">
-                    <h3>Me incentive a continuar <i class="fa-solid fa-heart"></i></h3>
+                    onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })">
+                    <h3>Contribuir com o projeto <i class="fa-solid fa-heart"></i></h3>
                 </button>
             </div>
         </section>
@@ -313,7 +310,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
         <div class="glass" style="padding: 4px;">
-            <a class="highlight" href="/en" target="_blank">
+            <a class="highlight" href="/en.html">
                 <h4 class="infoview">
                     Also available in 🇬🇧 English
                 </h4>
@@ -341,7 +338,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 await navigator.share(shareData);
                 shareButton.innerHTML = '<h3>Compartilhado com sucesso! <i class="fa-solid fa-check"></i></h3>';
                 setTimeout(() => {
-                    shareButton.innerHTML = '<h3>Mande a um amigo <i class="fa-solid fa-share-nodes"></i></h3>';
+                    shareButton.innerHTML = '<h3>Compartilhar o site <i class="fa-solid fa-share-nodes"></i></h3>';
                 }, 2000);
                 gtag_report_shared_action(undefined);
             } catch {
@@ -351,13 +348,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                     shareButton.innerHTML = '<h3>Link copiado para a área de transferência! <i class="fa-solid fa-check"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Mande a um amigo <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<h3>Compartilhar o site <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
                     gtag_report_shared_action(undefined);
                 } catch {
                     shareButton.innerHTML = '<h3>Erro ao compartilhar! <i class="fa-solid fa-xmark"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Mande a um amigo <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<h3>Compartilhar o site <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
                 }
             }

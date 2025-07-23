@@ -150,13 +150,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div id="share-action" class="hidden invisible glass">
                 <div>
                     <h3 class="infoview">Was this helpful? 🧰</h3>
-                    <button id="share" class="btn small">
-                        <h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>
-                    </button>
                 </div>
                 <hr>
                 <button id="donation2" class="btn small"
-                    onclick="window.open(`https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04`, '_blank')">
+                    onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })">
                     <h3>Support the project <i class="fa-solid fa-heart"></i></h3>
                 </button>
             </div>
@@ -223,7 +220,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <p>Now enjoy your image with a transparent background</p>
                 <button class="btn small"
                     onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
-                    <h4>Test now</h4>
+                    <h4>Try now</h4>
                 </button>
             </div>
         </section>
@@ -253,13 +250,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="left">
                 <h2>About the project</h2>
                 <p>
-                    <a class="highlight" href="https://github.com/lusrodri/canva-copy" target="_blank">BACKGROUND FREE is an open-source project available on GitHub.</a>
-                    It is developed and maintained by me, <a class="highlight" href="https://lusrodri.me" target="_blank">Lucas Santos Rodrigues</a>,
+                    <a class="highlight" href="https://github.com/lusrodri/canva-copy" target="_blank">BACKGROUND FREE
+                        is an open-source project available on GitHub.</a>
+                    It is developed and maintained by me, <a class="highlight" href="https://lusrodri.me"
+                        target="_blank">Lucas Santos Rodrigues</a>,
                     computer engineer and AI enthusiast, passionate about technology and innovation.
                 </p>
                 <p>
-                    The goal is to provide a high-performance, easy-to-use, and completely free tool to remove image backgrounds, with no uploads or privacy concerns.
-                    If you liked it and want to encourage me to keep developing and improving the project, <strong>see how you can help</strong>:
+                    The goal is to provide a high-performance, easy-to-use, and completely free tool to remove image
+                    backgrounds, with no uploads or privacy concerns.
+                    If you liked it and want to encourage me to keep developing and improving the project, <strong>see
+                        how you can help</strong>:
                 </p>
                 <img id="making-donation" src="assets/images/making_donation.webp" alt="making donation">
             </div>
@@ -269,7 +270,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <h4>Sharing</h4>
                         <p>
                             Share BACKGROUND FREE with friends, family, and colleagues.
-                            Post about the project on social media, forums, communities, groups, and help spread the word.
+                            Post about the project on social media, forums, communities, groups, and help spread the
+                            word.
                         </p>
                         <button id="share" class="btn small">
                             <h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>
@@ -306,7 +308,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
         <div class="glass" style="padding: 4px;">
-            <a class="highlight" href="/" target="_blank">
+            <a class="highlight" href="/">
                 <h4 class="infoview">
                     Também disponível em 🇧🇷 Português
                 </h4>
@@ -334,7 +336,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 await navigator.share(shareData);
                 shareButton.innerHTML = '<h3>Successfully shared! <i class="fa-solid fa-check"></i></h3>';
                 setTimeout(() => {
-                    shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
+                    shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
                 }, 2000);
                 gtag_report_shared_action(undefined);
             } catch {
@@ -342,13 +344,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     await navigator.clipboard.writeText(shareData.url);
                     shareButton.innerHTML = '<h3>Link copied to clipboard! <i class="fa-solid fa-check"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
                     gtag_report_shared_action(undefined);
                 } catch {
                     shareButton.innerHTML = '<h3>Sharing failed! <i class="fa-solid fa-xmark"></i></h3>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share a friend! <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
                 }
             }
