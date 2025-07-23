@@ -122,7 +122,7 @@ function showImage(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
         const divImage = document.createElement('div');
-        divImage.classList.add('image');
+        divImage.classList.add('image', 'glass');
 
 
         const img = document.createElement('img');

@@ -62,27 +62,20 @@ section.images-container {
 
         &>div.image {
             display: flex;
-            flex-direction: column;
+
             align-items: center;
             justify-content: flex-start;
-            gap: 12px;
 
+            gap: 4px;
+
+            flex-direction: column;
             flex: 0 0 auto;
+
             min-width: 200px;
             max-width: 100%;
             height: auto;
 
-            background-color: rgba(255, 255, 255, 0.2);
-
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-            border-radius: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-
-            padding: 12px;
+            padding: 4px;
 
             text-align: center;
 
@@ -99,25 +92,17 @@ section.images-container {
             }
 
             &>div.show-image {
-                width: min-content;
-                height: min-content;
+                max-width: 100%;
+                height: auto;
 
-                background-color: rgba(0, 0, 0, 0.2);
-
-                backdrop-filter: blur(6px);
-                -webkit-backdrop-filter: blur(6px);
-
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-                border-radius: 6px;
-                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 8px;
 
                 position: relative;
 
                 &>h3.infoview {
                     position: absolute;
 
-                    bottom: 12px;
+                    bottom: 4px;
                     left: 50%;
 
                     transform: translateX(-50%);
@@ -126,16 +111,15 @@ section.images-container {
                 }
 
                 &>img {
-                    max-width: 80dvw;
+                    max-width: 100%;
                     width: auto;
                     max-height: 350px;
                     height: auto;
 
-                    border-radius: 6px;
+                    border-radius: 8px;
 
                     &.loading {
                         animation: loading 1500ms infinite alternate ease-in-out;
-                        border: none;
                         will-change: opacity, box-shadow, filter;
                     }
                 }
@@ -165,13 +149,20 @@ section.images-container {
 
         flex-direction: column;
 
-        gap: 12px;
+        gap: 4px;
 
         z-index: 2;
 
         opacity: 1;
 
         transition: opacity 250ms ease-in-out;
+        
+        max-width: 100%;
+
+        padding: 4px;
+        margin: 0 4px;
+
+        box-sizing: border-box;
 
         & * {
             z-index: 2;
@@ -196,7 +187,7 @@ section.images-container {
 
             width: 100%;
 
-            gap: 12px;
+            gap: 4px;
         }
 
         &>hr {
@@ -208,27 +199,6 @@ section.images-container {
 
             margin: 0;
         }
-    }
-
-    &>h2,
-    &>h3,
-    div#share-action {
-        max-width: 100%;
-
-        background-color: rgba(255, 255, 255, 0.2);
-
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-        border-radius: 18px;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-
-        padding: 12px;
-        margin: 0 12px;
-
-        box-sizing: border-box;
     }
 }
 
