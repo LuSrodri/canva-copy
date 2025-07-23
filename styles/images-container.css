@@ -11,14 +11,14 @@ section.images-container {
 
     gap: 12px;
 
-    background-color: rgb(255, 200, 62);
-
     box-sizing: border-box;
+
+    background: linear-gradient(157.5deg, #B6D0E2 calc(0% - 200%), #fffafa 100%, #B6D0E2 400%);
 
     border-top: 4px solid #fff;
     border-bottom: 4px solid #fff;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(112, 112, 182, 0.32);
 
     position: relative;
 
@@ -158,7 +158,7 @@ section.images-container {
         opacity: 1;
 
         transition: opacity 250ms ease-in-out;
-        
+
         max-width: 100%;
 
         padding: 4px;
