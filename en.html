@@ -60,18 +60,72 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
     </script>
 
-    <!-- Event snippet for shared action -->
+    <!-- Event snippet for compartilhamento iniciado conversion page
+In your html page, add the snippet and call gtag_report_shared_action_conversion when someone clicks on the chosen link or button. -->
     <script>
-        function gtag_report_shared_action(url) {
+        function gtag_report_shared_action_conversion(url) {
             var callback = function () {
                 if (typeof (url) != 'undefined') {
                     window.location = url;
                 }
             };
 
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10837733837/OeNiCIijxvcaEM3j6q8o',
+                'event_callback': callback
+            });
+
             gtag('event', 'shared_action', {
                 'send_to': 'G-XQFNE3CH9D',
-                'value': 1.0
+                'value': 2.0
+            });
+
+            return false;
+        }
+    </script>
+
+    <!-- Event snippet for doação iniciada conversion page
+In your html page, add the snippet and call gtag_report_donation_started_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_donation_started_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10837733837/v1JGCIujxvcaEM3j6q8o',
+                'event_callback': callback
+            });
+
+            gtag('event', 'donation_started', {
+                'send_to': 'G-XQFNE3CH9D',
+                'value': 3.0
+            });
+
+            return false;
+        }
+    </script>
+
+    <!-- Event snippet for anúncio clicado conversion page
+In your html page, add the snippet and call gtag_report_ads_clicked_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_ads_clicked_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10837733837/83rNCKSkxvcaEM3j6q8o',
+                'event_callback': callback
+            });
+
+            gtag('event', 'ads_clicked', {
+                'send_to': 'G-XQFNE3CH9D',
+                'value': 4.0
             });
 
             return false;
@@ -95,7 +149,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <p class="small bold">
             Building a website? Use AI with Hostinger Horizons to help!
         </p>
-        <button class="btn small" onclick="window.open(`https://www.hostg.xyz/SHHn7`, '_blank')">
+        <button class="btn small"
+            onclick="window.open('https://www.hostg.xyz/SHHn7', '_blank'); gtag_report_ads_clicked_conversion(undefined);">
             <h4>See now</h4>
             <h4><i class="fa-solid fa-arrow-up-right-from-square"></i></h4>
         </button>
@@ -292,7 +347,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                             Any amount is welcome and helps keep the project active and evolving.
                         </p>
                         <button id="donation2" class="btn small"
-                            onclick="window.open(`https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04`, '_blank')">
+                            onclick="window.open('https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04', '_blank'); gtag_report_donation_started_conversion(undefined);">
                             <h3>Make a donation <i class="fa-solid fa-heart"></i></h3>
                         </button>
                     </li>
@@ -346,7 +401,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 setTimeout(() => {
                     shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
                 }, 2000);
-                gtag_report_shared_action(undefined);
+                gtag_report_shared_action_conversion(undefined);
             } catch {
                 try {
                     await navigator.clipboard.writeText(shareData.url);
@@ -354,7 +409,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     setTimeout(() => {
                         shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
-                    gtag_report_shared_action(undefined);
+                    gtag_report_shared_action_conversion(undefined);
                 } catch {
                     shareButton.innerHTML = '<h3>Sharing failed! <i class="fa-solid fa-xmark"></i></h3>';
                     setTimeout(() => {
