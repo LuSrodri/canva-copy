@@ -121,7 +121,7 @@ main>hr {
 
     height: 0;
 
-    border: 1px solid #36454F25;
+    border: 1px solid rgba(112, 112, 182, 0.32);
     border-radius: 4px;
 
     margin: 12px 0;
