@@ -115,6 +115,18 @@ section {
     }
 }
 
+main>hr {
+    width: 750px;
+    max-width: 90%;
+
+    height: 0;
+
+    border: 1px solid #36454F25;
+    border-radius: 4px;
+
+    margin: 12px 0;
+}
+
 footer {
     display: flex;
     flex-direction: column;
