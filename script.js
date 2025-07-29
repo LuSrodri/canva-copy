@@ -216,7 +216,7 @@ async function startsRemoveBackground(imgElement, file) {
         const downloadButton = document.createElement('button');
         downloadButton.classList.add('btn', 'download-file', 'small');
         const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
-        downloadButton.innerHTML = `<h3><i class="fa-solid fa-floppy-disk"></i> ${saveText}</h3>`;
+        downloadButton.innerHTML = `<h3><i class="fa-regular fa-floppy-disk"></i> ${saveText}</h3>`;
 
         downloadButton.addEventListener('click', () => {
             downloadImage(result);

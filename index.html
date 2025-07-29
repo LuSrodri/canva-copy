@@ -122,7 +122,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 'send_to': 'AW-10837733837/83rNCKSkxvcaEM3j6q8o',
                 'event_callback': callback
             });
-            
+
             gtag('event', 'ads_clicked', {
                 'send_to': 'G-XQFNE3CH9D',
                 'value': 4.0
@@ -138,9 +138,11 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="lusrodri" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="lusrodri" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF"
+        data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </head>
 
 <body>
@@ -151,7 +153,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
         <p class="small bold">
             Criando um site? Use a IA da Hostinger Horizons para ajudar!
         </p>
-        <button class="btn small" onclick="window.open('https://www.hostg.xyz/SHHn7', '_blank'); gtag_report_ads_clicked_conversion(undefined);">
+        <button class="btn small"
+            onclick="window.open('https://www.hostg.xyz/SHHn7', '_blank'); gtag_report_ads_clicked_conversion(undefined);">
             <h4>Ver mais</h4>
             <h4><i class="fa-solid fa-arrow-up-right-from-square"></i></h4>
         </button>
@@ -171,7 +174,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 <div id="drop-zone" aria-disabled="true" class="glass">
                     <button id="add-files" class="btn small" disabled>
                         <h2>Selecionar uma imagem</h2>
-                        <h2><i class="fa-solid fa-images"></i></h2>
+                        <h2><i class="fa-regular fa-images"></i></h2>
                     </button>
                     <p>
                         Ou arraste e solte <i>imagens</i> aqui
@@ -210,7 +213,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 <hr>
                 <button id="donation2" class="btn small"
                     onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })">
-                    <h3>Contribuir com o projeto <i class="fa-solid fa-heart"></i></h3>
+                    <h3>Contribuir com o projeto <i class="fa-regular fa-heart"></i></h3>
                 </button>
             </div>
         </section>
@@ -351,7 +354,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         </p>
                         <button id="donation2" class="btn small"
                             onclick="window.open('https://donate.stripe.com/7sYcN40XTa914Xs52Z1ck04', '_blank'); gtag_report_donation_started_conversion(undefined);">
-                            <h3>Fazer uma doação <i class="fa-solid fa-heart"></i></h3>
+                            <h3>Fazer uma doação <i class="fa-regular fa-heart"></i></h3>
                         </button>
                     </li>
                     <li>
@@ -363,7 +366,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         </p>
                         <button class="btn small"
                             onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')">
-                            <h3>Contribuir no GitHub <i class="fa-brands fa-github"></i></h3>
+                            <h3>Contribuir no GitHub <i class="fa-brands fa-github-alt"></i></h3>
                         </button>
                     </li>
                 </ol>
@@ -381,7 +384,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             </a>
         </div>
         <p class="bold center blur overlap">
-            SEM FUNDOS <span id="year"></span> — LusRodri
+            SEM FUNDOS <span id="year"></span> — LuSRodri
         </p>
     </footer>
 
@@ -390,7 +393,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 
         const shareButton = document.querySelector('#share');
         shareButton.addEventListener('click', async () => {
-            shareButton.innerHTML = '<h3>Compartilhando... <i class="fa-solid fa-clock"></i></h3>';
+            shareButton.innerHTML = '<h3>Compartilhando... <i class="fa-regular fa-clock"></i></h3>';
 
             const shareData = {
                 title: 'Remova Background de Imagens! — SEM FUNDOS',
@@ -416,7 +419,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     }, 2000);
                     gtag_report_shared_action_conversion(undefined);
                 } catch {
-                    shareButton.innerHTML = '<h3>Erro ao compartilhar! <i class="fa-solid fa-xmark"></i></h3>';
+                    shareButton.innerHTML = '<h3>Erro ao compartilhar! <i class="fa-regular fa-xmark"></i></h3>';
                     setTimeout(() => {
                         shareButton.innerHTML = '<h3>Compartilhar o site <i class="fa-solid fa-share-nodes"></i></h3>';
                     }, 2000);
