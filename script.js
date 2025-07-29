@@ -1,3 +1,4 @@
+import { webpToPng } from './utils.js';
 
 const dropZone = document.getElementById('drop-zone');
 const addFilesButton = document.getElementById('add-files');
@@ -104,16 +105,17 @@ function handleFilesByUrl(url) {
         });
 }
 
-function handleFiles(files) {
-    const allowedTypes = ['image/jpeg', 'image/png'];
+async function handleFiles(files) {
+    const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
 
     for (let file of files) {
         if (allowedTypes.includes(file.type)) {
+            if (file.type === 'image/webp') file = await webpToPng(file);            
             filesToRemoveBackground.push(file);
             updateQtyImages(filesToRemoveBackground.length);
             showImage(file);
         } else {
-            alert(`File type not supported: ${file.type}. Please upload a JPEG or PNG image.`);
+            alert(`File type not supported: ${file.type}. Please upload a WEBP, JPEG or PNG image.`);
         }
     }
 }
@@ -123,7 +125,6 @@ function showImage(file) {
     reader.onload = (e) => {
         const divImage = document.createElement('div');
         divImage.classList.add('image', 'glass');
-
 
         const img = document.createElement('img');
         img.classList.add('loading');
