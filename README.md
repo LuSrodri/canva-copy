@@ -14,3 +14,7 @@ Em uma máquina com um navegador (de preferência Windows com Chrome ou Firefox)
 - ⚒️ Garantir que o modelo de IA para remoção de fundo de imagens funcione em outros ambientes, como Linux, MacOS, Android, IOS, e outros.
 - ⚒️ Implementar um módulo de trocar o fundo da imagem por cores sólidas.
 - 🚀 E expandir cada vez mais, aqui a imaginação é o limite.
+
+---
+
+Acesse o repositório da [API](https://github.com/LuSrodri/canva-copy-api) também.
