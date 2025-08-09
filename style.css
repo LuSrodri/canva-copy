@@ -38,8 +38,9 @@ body {
 body>img.paper-plane {
     position: absolute;
 
-    width: 14vw;
-    min-width: 125px;
+    width: 16vw;
+    max-width: 160px;
+    
     height: auto;
 
     top: 5dvh;

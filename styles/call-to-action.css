@@ -17,12 +17,28 @@ section#call-to-action {
     }
 
     &>div.call {
+        display: flex;
+        flex-direction: column;
 
-        &>img {
+        align-items: center;
+
+        &>img.logo {
+            display: none;
+
+            width: auto;
+            max-width: 100%;
+
+            height: 70px;
+
+            @media (max-width: 915px) {
+                display: flex;
+            }
+        }
+
+        &>img.hero {
             width: 100%;
-            height: auto;
 
-            border-radius: 12px;
+            height: auto;
 
             @media (max-width: 915px) {
                 display: none;
