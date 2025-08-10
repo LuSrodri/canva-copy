@@ -1,133 +1,171 @@
 import { webpToPng } from './utils.js';
+import { ImagesProcessor } from './ImagesProcessor.js';
 
 const dropZone = document.getElementById('drop-zone');
 const addFilesButton = document.getElementById('add-files');
 const fileInput = document.getElementById('file-input');
-const filesToRemoveBackground = [];
 const divImages = document.getElementById('images');
 const imagesExamples = document.querySelectorAll('img.example-image');
 
-const inferenceAiWorker = new Worker('./inference_ai.js', { type: 'module' });
+// Inicializa o processador de imagens
+const imagesProcessor = new ImagesProcessor();
 
-inferenceAiWorker.onmessage = (event) => {
-    const { id, result, error, success } = event.data;
+// Map para rastrear elementos DOM por ID de imagem
+const imageElements = new Map();
 
-    if (success) {
-        addFilesButton.addEventListener('click', () => {
-            fileInput.click();
-        });
+// Configura os callbacks do processador
+imagesProcessor.setStateChangeCallback(handleStateChange);
+imagesProcessor.setQueueChangeCallback(handleQueueChange);
 
-        addFilesButton.disabled = false;
-
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('dragover');
-        });
-
-        dropZone.addEventListener('dragleave', (e) => {
-            if (!dropZone.contains(e.relatedTarget)) {
-                dropZone.classList.remove('dragover');
-            }
-        });
-
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length) {
-                handleFiles(files);
-            }
-        });
-
-        dropZone.removeAttribute('aria-disabled');
-
-        fileInput.addEventListener('change', (e) => {
-            const files = e.target.files;
-            if (files.length) {
-                handleFiles(files);
-                e.target.value = '';
-            }
-        });
-
-        fileInput.disabled = false;
-
-        imagesExamples.forEach((image) => {
-            image.addEventListener('click', () => {
-                const partialUrl = image.getAttribute('data-url');
-                const url = new URL(partialUrl, window.location.origin).toString();
-                if (url) {
-                    handleFilesByUrl(url);
-                } else {
-                    console.error('URL not found for the example image:', partialUrl);
-                }
-            });
-
-            image.removeAttribute('aria-disabled');
-        });
-
-        document.addEventListener('paste', async (event) => {
-            const items = event.clipboardData.items;
-            const images = Array.from(items).filter(item => item.type.startsWith('image/'));
-            handleFiles(images.map(item => item.getAsFile()));
-        });
-
-        return
+/**
+ * Manipula mudanças de estado do processador
+ */
+function handleStateChange(eventType, data) {
+    switch (eventType) {
+        case 'processor-ready':
+            enableInterface();
+            break;
+            
+        case 'processor-error':
+            alert(`Error: ${data.error}`);
+            break;
+            
+        case 'image-added':
+            showImage(data.imageItem);
+            // Faz scroll para as imagens quando uma nova é adicionada
+            scrollToImages();
+            break;
+            
+        case 'processing-started':
+            updateImageUI(data.imageItem.id, 'processing');
+            scrollToImages();
+            break;
+            
+        case 'processing-completed':
+            updateImageUI(data.imageItem.id, 'ready', data.imageItem.processedResult);
+            gtag_report_conversion(undefined);
+            showShareSection();
+            break;
+            
+        case 'processing-error':
+            updateImageUI(data.imageItem.id, 'error');
+            alert(`Error processing image: ${data.error.message}`);
+            break;
+            
+        case 'image-removed':
+            removeImageElement(data.id);
+            break;
+            
+        case 'error':
+            alert(`Error: ${data.error}`);
+            break;
     }
-
-    if (!id) {
-        if (error) alert(`Error: ${error}`);
-        return;
-    }
-
-    const { resolve, reject } = pendingRequests.get(id);
-    pendingRequests.delete(id);
-
-    if (error) {
-        alert(`Error: ${error}`);
-        reject(new Error(error));
-    } else {
-        resolve(result);
-    }
-};
-
-const pendingRequests = new Map();
-let nextRequestId = 1;
-
-function handleFilesByUrl(url) {
-    fetch(url)
-        .then(response => response.blob())
-        .then(blob => {
-            const file = new File([blob], 'image-from-url.png', { type: blob.type });
-            handleFiles([file]);
-        })
-        .catch(error => {
-            console.error('Error fetching the image from URL:', error);
-        });
 }
 
+/**
+ * Manipula mudanças na fila de processamento
+ */
+function handleQueueChange(queueInfo) {
+    updateQtyImages(queueInfo.totalImages);
+}
+
+/**
+ * Habilita a interface quando o processador estiver pronto
+ */
+function enableInterface() {
+    // Habilita o botão de adicionar arquivos
+    addFilesButton.addEventListener('click', () => {
+        fileInput.click();
+    });
+    addFilesButton.disabled = false;
+
+    // Configura drag and drop
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', (e) => {
+        if (!dropZone.contains(e.relatedTarget)) {
+            dropZone.classList.remove('dragover');
+        }
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        if (files.length) {
+            handleFiles(files);
+        }
+    });
+
+    dropZone.removeAttribute('aria-disabled');
+
+    // Configura input de arquivo
+    fileInput.addEventListener('change', (e) => {
+        const files = e.target.files;
+        if (files.length) {
+            handleFiles(files);
+            e.target.value = '';
+        }
+    });
+    fileInput.disabled = false;
+
+    // Configura imagens de exemplo
+    imagesExamples.forEach((image) => {
+        image.addEventListener('click', () => {
+            const partialUrl = image.getAttribute('data-url');
+            if (partialUrl) {
+                imagesProcessor.addExampleImage(partialUrl);
+            } else {
+                console.error('URL not found for the example image:', partialUrl);
+            }
+        });
+
+        image.removeAttribute('aria-disabled');
+    });
+
+    // Configura cola de imagens
+    document.addEventListener('paste', async (event) => {
+        const items = event.clipboardData.items;
+        const images = Array.from(items).filter(item => item.type.startsWith('image/'));
+        const files = images.map(item => item.getAsFile()).filter(file => file);
+        if (files.length) {
+            handleFiles(files);
+        }
+    });
+}
+
+/**
+ * Processa arquivos selecionados pelo usuário
+ */
 async function handleFiles(files) {
     const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
 
     for (let file of files) {
         if (allowedTypes.includes(file.type)) {
-            if (file.type === 'image/webp') file = await webpToPng(file);            
-            filesToRemoveBackground.push(file);
-            updateQtyImages(filesToRemoveBackground.length);
-            showImage(file);
+            if (file.type === 'image/webp') {
+                file = await webpToPng(file);
+            }
+            imagesProcessor.addImage(file);
         } else {
             alert(`File type not supported: ${file.type}. Please upload a WEBP, JPEG or PNG image.`);
         }
     }
 }
 
-function showImage(file) {
+/**
+ * Mostra uma nova imagem na interface
+ */
+function showImage(imageItem) {
     const reader = new FileReader();
     reader.onload = (e) => {
         const divImage = document.createElement('div');
         divImage.classList.add('image', 'glass');
+        divImage.dataset.imageId = imageItem.id;
 
         const img = document.createElement('img');
-        img.classList.add('loading');
         img.src = e.target.result;
 
         const divShowImage = document.createElement('div');
@@ -135,8 +173,8 @@ function showImage(file) {
         divShowImage.appendChild(img);
 
         const infoview = document.createElement('h3');
-        infoview.classList.add('loading', 'infoview');
-        infoview.textContent = typeof PROCESSING_IMAGE_TEXT !== 'undefined' ? PROCESSING_IMAGE_TEXT : 'Processing image ⏳';
+        infoview.classList.add('infoview');
+        updateInfoViewText(infoview, imageItem.state);
         divShowImage.appendChild(infoview);
 
         divImage.appendChild(divShowImage);
@@ -148,112 +186,94 @@ function showImage(file) {
         buttonToDelete.classList.add('btn', 'remove-file', 'small', 'red');
         buttonToDelete.innerHTML = '<h3><i class="fa-solid fa-ban"></i></h3>';
         buttonToDelete.addEventListener('click', () => {
-            removeImageFromArray(file);
-            divImage.remove();
-            img.remove();
+            if (imagesProcessor.canRemoveImage(imageItem.id)) {
+                imagesProcessor.removeImage(imageItem.id);
+            }
         });
 
         divButtons.appendChild(buttonToDelete);
-
         divImage.appendChild(divButtons);
 
         divImages.appendChild(divImage);
 
-        startsRemoveBackground(img, file);
+        // Armazena a referência do elemento
+        imageElements.set(imageItem.id, {
+            container: divImage,
+            image: img,
+            infoview: infoview,
+            buttons: divButtons,
+            deleteButton: buttonToDelete
+        });
     };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(imageItem.file);
 }
 
-function removeImageFromArray(file) {
-    const index = filesToRemoveBackground.indexOf(file);
-    if (index > -1) {
-        filesToRemoveBackground.splice(index, 1);
+/**
+ * Atualiza a interface de uma imagem específica
+ */
+function updateImageUI(imageId, state, processedResult = null) {
+    const elements = imageElements.get(imageId);
+    if (!elements) {
+        // Se o elemento ainda não estiver renderizado, tenta novamente em 10ms
+        setTimeout(() => updateImageUI(imageId, state, processedResult), 10);
+        return;
     }
-    updateQtyImages(filesToRemoveBackground.length);
+
+    const { container, image, infoview, buttons, deleteButton } = elements;
+
+    switch (state) {
+        case 'processing':
+            const showImage = container.querySelector('.show-image');
+            if (showImage) {
+                showImage.classList.add('loading');
+            }
+            image.classList.add('loading');
+            infoview.classList.add('loading');
+            updateInfoViewText(infoview, 'processing');
+            deleteButton.disabled = true;
+            deleteButton.style.opacity = '0.5';
+            deleteButton.style.cursor = 'not-allowed';
+            break;
+
+        case 'ready':
+            if (processedResult) {
+                displayProcessedImage(imageId, processedResult);
+            }
+            const showImageReady = container.querySelector('.show-image');
+            if (showImageReady) {
+                showImageReady.classList.remove('loading');
+            }
+            image.classList.remove('loading');
+            infoview.classList.remove('loading');
+            updateInfoViewText(infoview, 'ready');
+            deleteButton.disabled = false;
+            deleteButton.style.opacity = '1';
+            deleteButton.style.cursor = 'pointer';
+            addDownloadButton(imageId, processedResult);
+            break;
+
+        case 'error':
+            const showImageError = container.querySelector('.show-image');
+            if (showImageError) {
+                showImageError.classList.remove('loading');
+            }
+            image.classList.remove('loading');
+            infoview.classList.remove('loading');
+            updateInfoViewText(infoview, 'error');
+            deleteButton.disabled = false;
+            deleteButton.style.opacity = '1';
+            deleteButton.style.cursor = 'pointer';
+            break;
+    }
 }
 
-async function startsRemoveBackground(imgElement, file) {
-    setTimeout(() => {
-        divImages.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-    }, 100);
+/**
+ * Exibe a imagem processada
+ */
+function displayProcessedImage(imageId, result) {
+    const elements = imageElements.get(imageId);
+    if (!elements) return;
 
-    const image = imgElement;
-    const imageDiv = image.parentNode.parentNode;
-
-    removeBackground(file).then((result) => {
-        gtag_report_conversion(undefined);
-
-        const imageData = result[0].data;
-        const imageWidth = result[0].width;
-        const imageHeight = result[0].height;
-
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = imageWidth;
-        canvas.height = imageHeight;
-
-        let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
-        imageDataObj = normalizeAlphaPixels(imageDataObj);
-
-        ctx.putImageData(imageDataObj, 0, 0);
-
-        const imgURL = canvas.toDataURL('image/png');
-
-        const img = document.createElement('img');
-        img.src = imgURL;
-
-        const parent = image.parentNode;
-        parent.appendChild(img);
-        parent.removeChild(image);
-
-        img.style.display = 'block';
-
-        imageDiv.querySelector('.show-image').classList.remove('loading');
-
-        if (imageDiv.querySelector('.download-file')) {
-            imageDiv.querySelector('.download-file').remove();
-        }
-        const downloadButton = document.createElement('button');
-        downloadButton.classList.add('btn', 'download-file', 'small');
-        const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
-        downloadButton.innerHTML = `<h3><i class="fa-regular fa-floppy-disk"></i> ${saveText}</h3>`;
-
-        downloadButton.addEventListener('click', () => {
-            downloadImage(result);
-        });
-
-        const buttonsDiv = imageDiv.querySelector('.buttons');
-        buttonsDiv.insertBefore(downloadButton, buttonsDiv.firstChild);
-
-        const infoview = imageDiv.querySelector('.infoview');
-        infoview.textContent = typeof READY_IMAGE_TEXT !== 'undefined' ? READY_IMAGE_TEXT : 'Ready image ✅';
-        infoview.classList.remove('loading');
-
-        document.querySelector('#share-action').classList.remove('hidden');
-        setTimeout(() => {
-            document.querySelector('#share-action').classList.remove('invisible');
-            document.querySelector('.images-container').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-        }, 250);
-    });
-}
-
-let currentPromise = Promise.resolve();
-
-async function removeBackground(file) {
-    const thisCall = async () => {
-        return new Promise((resolve, reject) => {
-            const id = nextRequestId++;
-            pendingRequests.set(id, { resolve, reject });
-            inferenceAiWorker.postMessage({ id, file });
-        });
-    };
-
-    currentPromise = currentPromise.then(() => thisCall());
-    return currentPromise;
-}
-
-function downloadImage(result) {
     const imageData = result[0].data;
     const imageWidth = result[0].width;
     const imageHeight = result[0].height;
@@ -265,7 +285,126 @@ function downloadImage(result) {
     canvas.height = imageHeight;
 
     let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
+    imageDataObj = normalizeAlphaPixels(imageDataObj);
 
+    ctx.putImageData(imageDataObj, 0, 0);
+
+    const imgURL = canvas.toDataURL('image/png');
+
+    const newImg = document.createElement('img');
+    newImg.src = imgURL;
+
+    const parent = elements.image.parentNode;
+    parent.appendChild(newImg);
+    parent.removeChild(elements.image);
+
+    // Atualiza a referência da imagem
+    elements.image = newImg;
+}
+
+/**
+ * Adiciona botão de download para imagem processada
+ */
+function addDownloadButton(imageId, result) {
+    const elements = imageElements.get(imageId);
+    if (!elements) return;
+
+    const imageItem = imagesProcessor.getImage(imageId);
+    if (!imageItem) return;
+
+    // Remove botão de download existente se houver
+    const existingDownloadButton = elements.buttons.querySelector('.download-file');
+    if (existingDownloadButton) {
+        existingDownloadButton.remove();
+    }
+
+    const downloadButton = document.createElement('button');
+    downloadButton.classList.add('btn', 'download-file', 'small');
+    const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
+    downloadButton.innerHTML = `<h3><i class="fa-regular fa-floppy-disk"></i> ${saveText}</h3>`;
+
+    downloadButton.addEventListener('click', () => {
+        downloadImage(result, imageItem.originalName);
+    });
+
+    elements.buttons.insertBefore(downloadButton, elements.buttons.firstChild);
+}
+
+/**
+ * Remove elemento da imagem da interface
+ */
+function removeImageElement(imageId) {
+    const elements = imageElements.get(imageId);
+    if (elements && elements.container) {
+        elements.container.remove();
+        imageElements.delete(imageId);
+    }
+}
+
+/**
+ * Atualiza o texto do status da imagem
+ */
+function updateInfoViewText(infoview, state) {
+    switch (state) {
+        case 'queued':
+            const queuedText = typeof ADDED_TO_QUEUE_IMAGE_TEXT !== 'undefined' 
+                ? ADDED_TO_QUEUE_IMAGE_TEXT
+                : 'Queued for processing ⏳';
+            infoview.textContent = queuedText;
+            break;
+        case 'processing':
+            const processingText = typeof PROCESSING_IMAGE_TEXT !== 'undefined' 
+                ? PROCESSING_IMAGE_TEXT 
+                : 'Processing image 🔄';
+            infoview.textContent = processingText;
+            break;
+        case 'ready':
+            const readyText = typeof READY_IMAGE_TEXT !== 'undefined' 
+                ? READY_IMAGE_TEXT 
+                : 'Ready image ✅';
+            infoview.textContent = readyText;
+            break;
+        case 'error':
+            infoview.textContent = 'Error ❌';
+            break;
+    }
+}
+
+/**
+ * Faz scroll para a área das imagens
+ */
+function scrollToImages() {
+    setTimeout(() => {
+        divImages.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }, 100);
+}
+
+/**
+ * Mostra a seção de compartilhamento
+ */
+function showShareSection() {
+    document.querySelector('#share-action').classList.remove('hidden');
+    setTimeout(() => {
+        document.querySelector('#share-action').classList.remove('invisible');
+        document.querySelector('.images-container').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }, 250);
+}
+
+/**
+ * Faz download da imagem processada
+ */
+function downloadImage(result, originalName = 'image-without-background.png') {
+    const imageData = result[0].data;
+    const imageWidth = result[0].width;
+    const imageHeight = result[0].height;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = imageWidth;
+    canvas.height = imageHeight;
+
+    let imageDataObj = new ImageData(imageData, imageWidth, imageHeight);
     imageDataObj = normalizeAlphaPixels(imageDataObj);
 
     ctx.putImageData(imageDataObj, 0, 0);
@@ -274,10 +413,19 @@ function downloadImage(result) {
 
     const a = document.createElement('a');
     a.href = imgURL;
-    a.download = `image-without-background.png`;
+    
+    // Usa o nome original se disponível, senão usa o padrão
+    const fileName = originalName.includes('.') 
+        ? originalName.replace(/\.(jpg|jpeg|webp|png)$/i, '-without-background.png')
+        : 'image-without-background.png';
+    
+    a.download = fileName;
     a.click();
 }
 
+/**
+ * Normaliza os pixels alpha da imagem
+ */
 function normalizeAlphaPixels(imageData) {
     const data = imageData.data;
 
@@ -291,6 +439,11 @@ function normalizeAlphaPixels(imageData) {
     return imageData;
 }
 
+/**
+ * Atualiza a quantidade de imagens na interface
+ */
 function updateQtyImages(qtd) {
-    if (qtd <= 0) document.querySelector('#share-action').classList.add('hidden', 'invisible');
+    if (qtd <= 0) {
+        document.querySelector('#share-action').classList.add('hidden', 'invisible');
+    }
 }
