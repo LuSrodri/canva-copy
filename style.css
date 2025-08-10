@@ -35,20 +35,6 @@ body {
     position: relative;
 }
 
-body>img.paper-plane {
-    position: absolute;
-
-    width: 16vw;
-    max-width: 160px;
-    
-    height: auto;
-
-    top: 5dvh;
-    right: 5dvw;
-
-    z-index: 0;
-}
-
 body>.highlight-ads {
     position: relative;
 
