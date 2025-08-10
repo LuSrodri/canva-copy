@@ -7,19 +7,12 @@ const fileInput = document.getElementById('file-input');
 const divImages = document.getElementById('images');
 const imagesExamples = document.querySelectorAll('img.example-image');
 
-// Inicializa o processador de imagens
 const imagesProcessor = new ImagesProcessor();
-
-// Map para rastrear elementos DOM por ID de imagem
 const imageElements = new Map();
 
-// Configura os callbacks do processador
 imagesProcessor.setStateChangeCallback(handleStateChange);
 imagesProcessor.setQueueChangeCallback(handleQueueChange);
 
-/**
- * Manipula mudanças de estado do processador
- */
 function handleStateChange(eventType, data) {
     switch (eventType) {
         case 'processor-ready':
@@ -32,7 +25,6 @@ function handleStateChange(eventType, data) {
             
         case 'image-added':
             showImage(data.imageItem);
-            // Faz scroll para as imagens quando uma nova é adicionada
             scrollToImages();
             break;
             
@@ -62,24 +54,16 @@ function handleStateChange(eventType, data) {
     }
 }
 
-/**
- * Manipula mudanças na fila de processamento
- */
 function handleQueueChange(queueInfo) {
     updateQtyImages(queueInfo.totalImages);
 }
 
-/**
- * Habilita a interface quando o processador estiver pronto
- */
 function enableInterface() {
-    // Habilita o botão de adicionar arquivos
     addFilesButton.addEventListener('click', () => {
         fileInput.click();
     });
     addFilesButton.disabled = false;
 
-    // Configura drag and drop
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
         dropZone.classList.add('dragover');
@@ -102,7 +86,6 @@ function enableInterface() {
 
     dropZone.removeAttribute('aria-disabled');
 
-    // Configura input de arquivo
     fileInput.addEventListener('change', (e) => {
         const files = e.target.files;
         if (files.length) {
@@ -112,7 +95,6 @@ function enableInterface() {
     });
     fileInput.disabled = false;
 
-    // Configura imagens de exemplo
     imagesExamples.forEach((image) => {
         image.addEventListener('click', () => {
             const partialUrl = image.getAttribute('data-url');
@@ -126,7 +108,6 @@ function enableInterface() {
         image.removeAttribute('aria-disabled');
     });
 
-    // Configura cola de imagens
     document.addEventListener('paste', async (event) => {
         const items = event.clipboardData.items;
         const images = Array.from(items).filter(item => item.type.startsWith('image/'));
@@ -137,9 +118,6 @@ function enableInterface() {
     });
 }
 
-/**
- * Processa arquivos selecionados pelo usuário
- */
 async function handleFiles(files) {
     const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
 
@@ -155,9 +133,6 @@ async function handleFiles(files) {
     }
 }
 
-/**
- * Mostra uma nova imagem na interface
- */
 function showImage(imageItem) {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -196,7 +171,6 @@ function showImage(imageItem) {
 
         divImages.appendChild(divImage);
 
-        // Armazena a referência do elemento
         imageElements.set(imageItem.id, {
             container: divImage,
             image: img,
@@ -208,13 +182,9 @@ function showImage(imageItem) {
     reader.readAsDataURL(imageItem.file);
 }
 
-/**
- * Atualiza a interface de uma imagem específica
- */
 function updateImageUI(imageId, state, processedResult = null) {
     const elements = imageElements.get(imageId);
     if (!elements) {
-        // Se o elemento ainda não estiver renderizado, tenta novamente em 10ms
         setTimeout(() => updateImageUI(imageId, state, processedResult), 10);
         return;
     }
@@ -267,9 +237,6 @@ function updateImageUI(imageId, state, processedResult = null) {
     }
 }
 
-/**
- * Exibe a imagem processada
- */
 function displayProcessedImage(imageId, result) {
     const elements = imageElements.get(imageId);
     if (!elements) return;
@@ -298,13 +265,9 @@ function displayProcessedImage(imageId, result) {
     parent.appendChild(newImg);
     parent.removeChild(elements.image);
 
-    // Atualiza a referência da imagem
     elements.image = newImg;
 }
 
-/**
- * Adiciona botão de download para imagem processada
- */
 function addDownloadButton(imageId, result) {
     const elements = imageElements.get(imageId);
     if (!elements) return;
@@ -312,7 +275,6 @@ function addDownloadButton(imageId, result) {
     const imageItem = imagesProcessor.getImage(imageId);
     if (!imageItem) return;
 
-    // Remove botão de download existente se houver
     const existingDownloadButton = elements.buttons.querySelector('.download-file');
     if (existingDownloadButton) {
         existingDownloadButton.remove();
@@ -330,9 +292,6 @@ function addDownloadButton(imageId, result) {
     elements.buttons.insertBefore(downloadButton, elements.buttons.firstChild);
 }
 
-/**
- * Remove elemento da imagem da interface
- */
 function removeImageElement(imageId) {
     const elements = imageElements.get(imageId);
     if (elements && elements.container) {
@@ -341,9 +300,6 @@ function removeImageElement(imageId) {
     }
 }
 
-/**
- * Atualiza o texto do status da imagem
- */
 function updateInfoViewText(infoview, state) {
     switch (state) {
         case 'queued':
@@ -370,18 +326,12 @@ function updateInfoViewText(infoview, state) {
     }
 }
 
-/**
- * Faz scroll para a área das imagens
- */
 function scrollToImages() {
     setTimeout(() => {
         divImages.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     }, 100);
 }
 
-/**
- * Mostra a seção de compartilhamento
- */
 function showShareSection() {
     document.querySelector('#share-action').classList.remove('hidden');
     setTimeout(() => {
@@ -390,9 +340,6 @@ function showShareSection() {
     }, 250);
 }
 
-/**
- * Faz download da imagem processada
- */
 function downloadImage(result, originalName = 'image-without-background.png') {
     const imageData = result[0].data;
     const imageWidth = result[0].width;
@@ -414,7 +361,6 @@ function downloadImage(result, originalName = 'image-without-background.png') {
     const a = document.createElement('a');
     a.href = imgURL;
     
-    // Usa o nome original se disponível, senão usa o padrão
     const fileName = originalName.includes('.') 
         ? originalName.replace(/\.(jpg|jpeg|webp|png)$/i, '-without-background.png')
         : 'image-without-background.png';
@@ -423,9 +369,6 @@ function downloadImage(result, originalName = 'image-without-background.png') {
     a.click();
 }
 
-/**
- * Normaliza os pixels alpha da imagem
- */
 function normalizeAlphaPixels(imageData) {
     const data = imageData.data;
 
@@ -439,9 +382,6 @@ function normalizeAlphaPixels(imageData) {
     return imageData;
 }
 
-/**
- * Atualiza a quantidade de imagens na interface
- */
 function updateQtyImages(qtd) {
     if (qtd <= 0) {
         document.querySelector('#share-action').classList.add('hidden', 'invisible');

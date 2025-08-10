@@ -4,7 +4,7 @@ section#how-to-use {
     align-items: center;
     justify-content: center;
 
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 
     gap: 24px;

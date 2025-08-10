@@ -4,25 +4,22 @@
  */
 class ImagesProcessor {
     constructor() {
-        this.images = new Map(); // Map<id, ImageItem>
+        this.images = new Map();
         this.processingQueue = [];
         this.currentlyProcessing = null;
         this.nextId = 1;
-        this.onStateChange = null; // Callback para mudanças de estado
-        this.onQueueChange = null; // Callback para mudanças na fila
+        this.onStateChange = null;
+        this.onQueueChange = null;
         this.inferenceWorker = null;
         this.pendingRequests = new Map();
         this.nextRequestId = 1;
         this.isProcessorReady = false;
-        this.preloadedImages = new Map(); // Cache das imagens de exemplo
+        this.preloadedImages = new Map();
         
         this.initializeWorker();
         this.preloadExampleImages();
     }
 
-    /**
-     * Inicializa o Web Worker para processamento de IA
-     */
     initializeWorker() {
         this.inferenceWorker = new Worker('./inference_ai.js', { type: 'module' });
         
@@ -55,9 +52,6 @@ class ImagesProcessor {
         };
     }
 
-    /**
-     * Pré-carrega as imagens de exemplo para melhorar a performance
-     */
     async preloadExampleImages() {
         const exampleUrls = [
             'assets/images/examples/tree.png',
@@ -78,14 +72,10 @@ class ImagesProcessor {
         }
     }
 
-    /**
-     * Adiciona uma nova imagem à fila de processamento
-     */
     addImage(file, originalName = null) {
         const id = this.nextId++;
         const fileName = originalName || file.name;
         
-        // Sempre inicia como 'queued' para garantir fluxo consistente
         const imageItem = {
             id,
             file,
@@ -108,8 +98,6 @@ class ImagesProcessor {
             this.onQueueChange(this.getQueueInfo());
         }
 
-        // Inicia o processamento se não houver nenhuma imagem sendo processada
-        // Adiciona um pequeno delay para garantir que o DOM seja renderizado primeiro
         setTimeout(() => {
             this.processNextInQueue();
         }, 10);
@@ -117,28 +105,21 @@ class ImagesProcessor {
         return id;
     }
 
-    /**
-     * Adiciona uma imagem de exemplo usando URL
-     */
     async addExampleImage(url) {
         try {
             let blob;
             
-            // Verifica se a imagem já foi pré-carregada
             if (this.preloadedImages.has(url)) {
                 blob = this.preloadedImages.get(url);
             } else {
-                // Carrega a imagem se não estiver no cache
                 const fullUrl = new URL(url, window.location.origin).toString();
                 const response = await fetch(fullUrl);
                 blob = await response.blob();
             }
 
-            // Extrai o nome original do arquivo da URL
             const urlParts = url.split('/');
             const originalName = urlParts[urlParts.length - 1];
             
-            // Remove o prefixo "reduced" se existir no nome
             const cleanName = originalName.replace('-reduced', '');
             
             const file = new File([blob], cleanName, { type: blob.type });
@@ -152,19 +133,14 @@ class ImagesProcessor {
         }
     }
 
-    /**
-     * Remove uma imagem (apenas se não estiver sendo processada)
-     */
     removeImage(id) {
         const imageItem = this.images.get(id);
         if (!imageItem) return false;
 
-        // Não permite remover se estiver sendo processada
         if (imageItem.state === 'processing') {
             return false;
         }
 
-        // Remove da fila se ainda não foi processada
         const queueIndex = this.processingQueue.indexOf(id);
         if (queueIndex > -1) {
             this.processingQueue.splice(queueIndex, 1);
@@ -183,9 +159,6 @@ class ImagesProcessor {
         return true;
     }
 
-    /**
-     * Processa a próxima imagem na fila
-     */
     async processNextInQueue() {
         if (this.currentlyProcessing || this.processingQueue.length === 0 || !this.isProcessorReady) {
             return;
@@ -198,7 +171,6 @@ class ImagesProcessor {
 
         this.currentlyProcessing = nextId;
         
-        // Sempre muda o estado para 'processing' e emite o evento
         imageItem.state = 'processing';
         if (this.onStateChange) {
             this.onStateChange('processing-started', { imageItem });
@@ -215,7 +187,6 @@ class ImagesProcessor {
                 this.onStateChange('processing-completed', { imageItem });
             }
 
-            // Processa a próxima imagem na fila
             this.processNextInQueue();
 
         } catch (error) {
@@ -226,7 +197,6 @@ class ImagesProcessor {
                 this.onStateChange('processing-error', { imageItem, error });
             }
 
-            // Continua processando a próxima imagem mesmo com erro
             this.processNextInQueue();
         }
 
@@ -235,9 +205,6 @@ class ImagesProcessor {
         }
     }
 
-    /**
-     * Processa uma imagem usando o Web Worker
-     */
     async processImage(file) {
         return new Promise((resolve, reject) => {
             const id = this.nextRequestId++;
@@ -246,23 +213,14 @@ class ImagesProcessor {
         });
     }
 
-    /**
-     * Obtém informações sobre uma imagem específica
-     */
     getImage(id) {
         return this.images.get(id);
     }
 
-    /**
-     * Obtém todas as imagens
-     */
     getAllImages() {
         return Array.from(this.images.values());
     }
 
-    /**
-     * Obtém informações sobre a fila de processamento
-     */
     getQueueInfo() {
         return {
             queueLength: this.processingQueue.length,
@@ -274,17 +232,11 @@ class ImagesProcessor {
         };
     }
 
-    /**
-     * Verifica se uma imagem pode ser removida
-     */
     canRemoveImage(id) {
         const imageItem = this.images.get(id);
         return imageItem && imageItem.state !== 'processing';
     }
 
-    /**
-     * Obtém o estado do processador
-     */
     getProcessorState() {
         return {
             isReady: this.isProcessorReady,
@@ -293,9 +245,6 @@ class ImagesProcessor {
         };
     }
 
-    /**
-     * Limpa todas as imagens (apenas as que não estão sendo processadas)
-     */
     clearAllImages() {
         const imagesToRemove = [];
         
@@ -310,16 +259,10 @@ class ImagesProcessor {
         return imagesToRemove.length;
     }
 
-    /**
-     * Define o callback para mudanças de estado
-     */
     setStateChangeCallback(callback) {
         this.onStateChange = callback;
     }
 
-    /**
-     * Define o callback para mudanças na fila
-     */
     setQueueChangeCallback(callback) {
         this.onQueueChange = callback;
     }
