@@ -11,11 +11,17 @@ h1 {
     }
 
     &.highlight {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        font-weight: 300;
 
-        margin: 0;
+        margin: 32px;
+        margin-bottom: 0;
 
-        font-weight: 600;
+        &>img {
+            max-height: 3.2rem;
+            width: auto;
+            vertical-align: middle;
+        }
     }
 }
 
