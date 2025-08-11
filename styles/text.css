@@ -17,6 +17,8 @@ h1 {
         margin: 32px;
         margin-bottom: 0;
 
+        text-shadow: 0 4px 16px rgba(112, 112, 182, 0.32);
+
         &>img {
             max-height: 3.2rem;
             width: auto;
