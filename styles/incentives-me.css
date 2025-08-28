@@ -7,7 +7,7 @@ section#incentives-me {
     flex-direction: row;
     flex-wrap: wrap;
 
-    gap: 24px;
+    gap: 6px 24px;
 
     width: 100%;
 

@@ -5,9 +5,9 @@ section#how-it-works {
     justify-content: center;
 
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 
-    gap: 24px;
+    gap: 6px 24px;
 
     width: 100%;
 

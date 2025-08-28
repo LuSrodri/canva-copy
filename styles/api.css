@@ -1,4 +1,4 @@
-section#how-to-use {
+section#api {
     display: flex;
 
     align-items: center;
@@ -15,22 +15,13 @@ section#how-to-use {
         width: 400px;
         max-width: 90dvw;
 
-        &>video {
-            width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        &>img {
+            width: 80%;
             height: auto;
-
-            border-radius: 12px;
-            border: 4px solid #fff;
-
-            box-sizing: border-box;
-
-            box-shadow: 0 4px 16px rgba(112, 112, 182, 0.32);
-
-            transition: box-shadow 300ms ease-in-out !important;
-
-            &:hover {
-                box-shadow: 0 6px 20px rgba(112, 112, 182, 0.48);
-            }
         }
     }
 
@@ -39,7 +30,8 @@ section#how-to-use {
         max-width: 90dvw;
         min-height: 275px;
 
-        & ol {
+        & ul {
+            list-style: none;
             padding: 0;
 
             & li {
@@ -51,7 +43,7 @@ section#how-to-use {
                 margin: 3px 0;
 
                 &::before {
-                    content: '🔹';
+                    content: '✅';
                     font-size: 18px;
                 }
 
