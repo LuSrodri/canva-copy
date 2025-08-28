@@ -66,10 +66,8 @@ queued → processing → ready
 - ✅ Suporte a WEBP, JPEG, PNG
 
 ## Próximos passos
-- ⚒️ Garantir que o modelo de IA para remoção de fundo de imagens funcione em outros ambientes, como Linux, MacOS, Android, IOS, e outros.
 - ⚒️ Implementar um módulo de trocar o fundo da imagem por cores sólidas.
 - ⚒️ Adicionar histórico de imagens processadas
-- ⚒️ Implementar processamento em lote otimizado
 - 🚀 E expandir cada vez mais, aqui a imaginação é o limite.
 
 ---
