@@ -70,7 +70,7 @@ section.images-container {
             max-width: 100%;
             height: auto;
 
-            padding: 4px;
+            padding: 6px;
 
             text-align: center;
 
@@ -90,7 +90,7 @@ section.images-container {
                 max-width: 100%;
                 height: auto;
 
-                border-radius: 8px;
+                border-radius: 22px;
 
                 position: relative;
 
@@ -113,7 +113,7 @@ section.images-container {
                     max-height: 350px;
                     height: auto;
 
-                    border-radius: 8px;
+                    border-radius: 22px;
 
                     &.loading {
                         animation: loading 1500ms infinite alternate ease-in-out;
