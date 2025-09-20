@@ -13,10 +13,14 @@ const imageElements = new Map();
 imagesProcessor.setStateChangeCallback(handleStateChange);
 imagesProcessor.setQueueChangeCallback(handleQueueChange);
 
+// Habilitar interface imediatamente
+enableInterface();
+
 function handleStateChange(eventType, data) {
     switch (eventType) {
         case 'processor-ready':
-            enableInterface();
+            // Modelo pronto - interface já estava habilitada
+            console.log('AI model ready for processing');
             break;
             
         case 'processor-error':
@@ -62,7 +66,6 @@ function enableInterface() {
     addFilesButton.addEventListener('click', () => {
         fileInput.click();
     });
-    addFilesButton.disabled = false;
 
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -84,8 +87,6 @@ function enableInterface() {
         }
     });
 
-    dropZone.removeAttribute('aria-disabled');
-
     fileInput.addEventListener('change', (e) => {
         const files = e.target.files;
         if (files.length) {
@@ -93,7 +94,6 @@ function enableInterface() {
             e.target.value = '';
         }
     });
-    fileInput.disabled = false;
 
     imagesExamples.forEach((image) => {
         image.addEventListener('click', () => {
@@ -104,8 +104,6 @@ function enableInterface() {
                 console.error('URL not found for the example image:', partialUrl);
             }
         });
-
-        image.removeAttribute('aria-disabled');
     });
 
     document.addEventListener('paste', async (event) => {

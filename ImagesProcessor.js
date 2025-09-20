@@ -160,7 +160,16 @@ class ImagesProcessor {
     }
 
     async processNextInQueue() {
-        if (this.currentlyProcessing || this.processingQueue.length === 0 || !this.isProcessorReady) {
+        if (this.currentlyProcessing || this.processingQueue.length === 0) {
+            return;
+        }
+
+        // Aguardar até que o modelo esteja pronto
+        if (!this.isProcessorReady) {
+            // Aguarda um pouco e tenta novamente
+            setTimeout(() => {
+                this.processNextInQueue();
+            }, 100);
             return;
         }
 
