@@ -141,6 +141,123 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "@id": "https://ihatebackground.com/en#webapp",
+                "name": "I Hate Background",
+                "alternateName": "IHB",
+                "url": "https://ihatebackground.com/en",
+                "description": "Remove multiple image backgrounds for free, fast and securely. No uploads — everything happens in your browser. 100% private.",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "Web Browser",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "featureList": [
+                    "Free background removal",
+                    "Browser-based processing",
+                    "Multiple images at once",
+                    "100% private and secure",
+                    "No uploads required"
+                ],
+                "author": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://lusrodri.me/#person",
+                "name": "Lucas Santos Rodrigues",
+                "url": "https://lusrodri.me",
+                "jobTitle": "Computer Engineer",
+                "description": "Computer engineer and AI enthusiast, passionate about technology and innovation.",
+                "sameAs": [
+                    "https://github.com/lusrodri",
+                    "https://www.linkedin.com/in/lucas-santos-rodrigues/"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://ihatebackground.com/en#website",
+                "url": "https://ihatebackground.com/en",
+                "name": "I Hate Background",
+                "description": "A New Way to Remove Image Backgrounds!",
+                "inLanguage": "en-US",
+                "publisher": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://ihatebackground.com/en"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://ihatebackground.com/en#software",
+                "name": "I Hate Background API",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Any",
+                "description": "Fast, economical API powered by Nvidia processors for image background removal.",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://rapidapi.com/LuSrodri/api/i-hate-background-api"
+                },
+                "author": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                }
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to use I Hate Background",
+                "description": "Step-by-step guide to remove image backgrounds",
+                "image": "https://ihatebackground.com/assets/videos/how-to-use.mp4",
+                "totalTime": "PT30S",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Go to I Hate Background",
+                        "text": "Access the I Hate Background website"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Select an image",
+                        "text": "Select one or multiple images from your device"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Wait for processing",
+                        "text": "Wait a few seconds while AI processes the image"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Save image",
+                        "text": "Save your image with transparent background"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
 </head>
 
 <body>

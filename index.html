@@ -141,6 +141,122 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "@id": "https://ihatebackground.com/#webapp",
+                "name": "I Hate Background",
+                "alternateName": "IHB",
+                "url": "https://ihatebackground.com",
+                "description": "Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado.",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "Web Browser",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "BRL"
+                },
+                "featureList": [
+                    "Remoção de fundo gratuita",
+                    "Processamento no navegador",
+                    "Múltiplas imagens simultaneamente",
+                    "100% privado e seguro",
+                    "Sem uploads necessários"
+                ],
+                "author": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://lusrodri.me/#person",
+                "name": "Lucas Santos Rodrigues",
+                "url": "https://lusrodri.me",
+                "jobTitle": "Engenheiro da Computação",
+                "description": "Engenheiro da computação e entusiasta de IA, apaixonado por tecnologia e inovação.",
+                "sameAs": [
+                    "https://github.com/lusrodri",
+                    "https://www.linkedin.com/in/lucas-santos-rodrigues/"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://ihatebackground.com/#website",
+                "url": "https://ihatebackground.com",
+                "name": "I Hate Background",
+                "description": "Uma Nova Forma de Remover Background de Imagens!",
+                "publisher": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://ihatebackground.com"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://ihatebackground.com/#software",
+                "name": "I Hate Background API",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Any",
+                "description": "API rápida, econômica e suportada por processadores Nvidia para remoção de fundo de imagens.",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://rapidapi.com/LuSrodri/api/i-hate-background-api"
+                },
+                "author": {
+                    "@type": "Person",
+                    "@id": "https://lusrodri.me/#person"
+                }
+            },
+            {
+                "@type": "HowTo",
+                "name": "Como usar o I Hate Background",
+                "description": "Guia passo-a-passo para remover fundo de imagens",
+                "image": "https://ihatebackground.com/assets/videos/how-to-use.mp4",
+                "totalTime": "PT30S",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Acesse o I Hate Background",
+                        "text": "Acesse o site I Hate Background"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Selecione uma imagem",
+                        "text": "Selecione uma ou várias imagens do seu dispositivo"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Aguarde o processamento",
+                        "text": "Aguarde alguns segundos enquanto a IA processa a imagem"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Salve a imagem",
+                        "text": "Salve sua imagem com fundo transparente"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
 </head>
 
 <body>
