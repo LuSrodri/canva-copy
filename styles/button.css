@@ -12,7 +12,7 @@ button {
 
         gap: 0.2rem;
 
-        background-color: rgb(15, 112, 230);
+        background-color: rgb(12, 100, 210);
 
         color: #f9f9f9;
 
@@ -43,7 +43,7 @@ button {
         }
 
         &:hover {
-            background-color: rgb(25, 135, 255);
+            background-color: rgb(15, 112, 230);
             transform: translateY(-2px) scale(1.02);
         }
 

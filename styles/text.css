@@ -121,7 +121,7 @@ a {
 
 a {
     &.highlight {
-        color: rgb(15, 112, 230);
+        color: rgb(12, 100, 210);
 
         text-decoration: none;
 
@@ -134,7 +134,7 @@ a {
         }
 
         & * {
-            color: rgb(15, 112, 230);
+            color: rgb(12, 100, 210);
         }
     }
 }

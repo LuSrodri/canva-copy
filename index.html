@@ -137,9 +137,10 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -262,14 +263,14 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 <body>
 
     <h1 class="highlight">
-        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background"> Background!
+        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high"> Background!
     </h1>
 
     <main>
         <section id="call-to-action" class="section">
             <div class="call">
                 <img class="hero" id="teste" src="assets/images/logo-1-i-hate-background.webp"
-                    alt="Ilustração alusivo de remoção de fundo">
+                    alt="Ilustração alusivo de remoção de fundo" fetchpriority="high" />
                 <a href="https://www.producthunt.com/products/i-hate-background?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-i&#0045;hate&#0045;background"
                     target="_blank"><img
                         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1007550&theme=neutral&t=1756408639391"
@@ -310,7 +311,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             data-url="assets/images/examples/beside-pool.jpg">
                     </div>
                 </div>
-                <img src="assets/images/star.webp" alt="star" class="star">
+                <img src="assets/images/star.webp" alt="star" class="star" fetchpriority="high">
             </div>
         </section>
 
