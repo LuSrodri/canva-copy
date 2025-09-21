@@ -34,6 +34,7 @@ section#call-to-action {
     }
 
     &>div.action {
+        position: relative;
 
         &>div#drop-zone {
             width: 400px;
@@ -135,6 +136,24 @@ section#call-to-action {
                     }
                 }
             }
+        }
+
+        &>img.star {
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            top: 80px;
+            right: -100px;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            user-select: none;
+
+            transform: rotate(30deg);
         }
     }
 }

@@ -51,6 +51,11 @@ section.images-container {
 
         box-sizing: border-box;
 
+        background-image: url('../assets/images/i-hate-background-background.webp');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+
         &:empty {
             display: none !important;
         }
@@ -156,7 +161,7 @@ section.images-container {
 
         max-width: 100%;
 
-        padding: 4px;
+        padding: 6px;
         margin: 0 4px;
 
         box-sizing: border-box;
@@ -191,7 +196,7 @@ section.images-container {
             width: 100%;
             height: 0;
 
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(112, 112, 182, 0.32);
             border-radius: 4px;
 
             margin: 0;
