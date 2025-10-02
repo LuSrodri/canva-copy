@@ -16,12 +16,13 @@
     font-family: "Manrope", sans-serif;
 }
 
-html, body {
-    overflow-x: hidden;
+html,
+body {
+    overflow-x: clip;
 }
 
 body {
-    width: 100dvw;
+    width: auto;
     min-height: 100vh;
 
     margin: 0;
@@ -40,6 +41,10 @@ body {
 }
 
 .highlight-ads {
+    position: sticky;
+
+    top: 12px;
+
     width: auto;
     max-width: 100dvw;
 
@@ -52,7 +57,7 @@ body {
 
     gap: 6px;
 
-    z-index: 2;
+    z-index: 1000;
 
     padding: 6px;
     margin: 16px;
@@ -140,4 +145,9 @@ footer {
 
         user-select: none;
     }
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
 }
