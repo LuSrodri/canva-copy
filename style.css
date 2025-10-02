@@ -55,11 +55,11 @@ body {
 
     flex-direction: row;
 
-    gap: 6px;
+    gap: 8px;
 
     z-index: 1000;
 
-    padding: 6px;
+    padding: 8px;
     margin: 16px;
 
     box-sizing: border-box;

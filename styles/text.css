@@ -58,10 +58,10 @@ h4 {
 
         margin: 0;
 
-        padding: 6px;
+        padding: 0.4rem;
 
-        border: 1px solid rgba(112, 112, 182, 0.32);
-        border-radius: 24px;
+        border: 1px solid #36454F38;
+        border-radius: 20px;
 
         text-align: center;
         text-transform: uppercase;
@@ -114,20 +114,17 @@ a {
         font-weight: 500;
     }
 
-    &.glass-text {
+    &.glass-text.dark {
         color: #fff;
 
-        background: #00000075;
+        background: #36454F76;
 
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
 
-        border-radius: 28px;
-        border: 2px solid #C0C0C060;
+        border-radius: 20px;
 
         padding: 0.8rem;
-
-        box-sizing: border-box;
     }
 
     & * {
