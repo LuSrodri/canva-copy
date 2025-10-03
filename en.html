@@ -263,8 +263,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 
 <body>
 
-    <h1 class="highlight">
-        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high"> Background!
+    <h1 class="highlight mobile">
+        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high">
+        Background!
     </h1>
 
     <main>
@@ -280,22 +281,25 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             </div>
             <div class="action">
                 <p class="blur overlap center bold">
-                    ✨ Remove backgrounds from <i>multiple images</i> <br>
-                    — just select everything at once and you're done!
+                    ✨ One click and done! <br> <i>Your images</i> without background.
                 </p>
                 <div id="drop-zone" class="glass">
                     <button id="add-files" class="btn small">
                         <h2>Click or Tap to Start</h2>
                         <h2><i class="fa-regular fa-images"></i></h2>
                     </button>
-                    <p>
-                        Or drag and drop <i>images</i> here
-                        <br>
-                        <i>or paste with</i> <span class="key">CTRL</span> <strong>+</strong> <span class="key">V</span>
-                    </p>
-                    <p>
-                        <i>Supported files: <strong>WEBP</strong>, <strong>JPEG</strong>, <strong>PNG</strong></i>
-                    </p>
+
+                    <div>
+                        <p>
+                            Or drag and drop <i>images</i> here
+                            <br>
+                            <i>or paste with</i> <span class="key">CTRL</span> <strong>+</strong> <span
+                                class="key">V</span>
+                        </p>
+                        <p>
+                            <i>Supported files: <strong>WEBP</strong>, <strong>JPEG</strong>, <strong>PNG</strong></i>
+                        </p>
+                    </div>
                     <input type="file" multiple id="file-input" accept="image/webp, image/jpeg, image/png"
                         style="display: none;" />
                 </div>
@@ -315,16 +319,6 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 <img src="assets/images/star.webp" alt="star" class="star" fetchpriority="high">
             </div>
         </section>
-
-        <div class="highlight-ads glass">
-            <p class="small bold glass-text dark">
-                Building a website? Use AI with Hostinger Horizons to help!
-            </p>
-            <button class="btn small"
-                onclick="window.open('https://www.hostg.xyz/SHHn7', '_blank'); gtag_report_ads_clicked_conversion(undefined);">
-                <p class="small bold">See now <i class="fa-solid fa-arrow-up-right-from-square"></i></p class="small bold">
-            </button>
-        </div>
 
         <section class="images-container">
             <div class="images" id="images"></div>
@@ -350,7 +344,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             <div class="text">
                 <h2>API for developers</h2>
                 <p>
-                    Bring the power of I Hate Background to your project. Fast, economical API powered by Nvidia © processors.
+                    Bring the power of I Hate Background to your project. Fast, economical API powered by Nvidia ©
+                    processors.
                 </p>
                 <ul>
                     <li>
@@ -464,7 +459,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     <h4>See the magic</h4>
                 </button>
                 <p>
-                    <i>💡Tip:</i> You can also <strong>remove backgrounds from multiple images at the same time</strong>. Drag and
+                    <i>💡Tip:</i> You can also <strong>remove backgrounds from multiple images at the same
+                        time</strong>. Drag and
                     drop all of them and get the files ready to use.
                 </p>
             </div>
@@ -506,7 +502,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     <li>
                         <h4>Supporting via BMC ©</h4>
                         <p>
-                            If you want to contribute with support, consider accessing my <strong>Buy Me A Coffee ©</strong>.
+                            If you want to contribute with support, consider accessing my <strong>Buy Me A Coffee
+                                ©</strong>.
                             Your support is welcome and helps keep the project active and constantly evolving.
                         </p>
                         <button id="donation2" class="btn small"
@@ -518,12 +515,14 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         <h4>Contributing</h4>
                         <p>
                             If you are a developer and want to contribute to the project, feel free to
-                            send pull requests, report issues on GitHub, suggest improvements or become a <strong><i>Sponsor</i></strong>.
+                            send pull requests, report issues on GitHub, suggest improvements or become a
+                            <strong><i>Sponsor</i></strong>.
                             Your contribution is much appreciated and helps make I Hate Background even better.
                         </p>
                         <button class="btn small"
                             onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')">
-                            <h3>Contribute on GitHub <i class="fa-brands fa-github-alt"></i> <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                            <h3>Contribute on GitHub <i class="fa-brands fa-github-alt"></i> <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></h3>
                         </button>
                     </li>
                 </ol>
@@ -570,10 +569,14 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 </li>
             </ul>
         </section>
+        
+        <hr>
+
     </main>
 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
+        
         <div class="glass" style="padding: 8px;">
             <a class="highlight" href="/">
                 <h4 class="infoview">
@@ -581,6 +584,12 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 </h4>
             </a>
         </div>
+
+        <h1 class="highlight blur">
+            I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high">
+            Background!
+        </h1>
+
         <p class="bold center blur overlap">
             <span id="year"></span> I Hate Background <br> LuSRodri
         </p>

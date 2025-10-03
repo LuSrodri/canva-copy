@@ -262,8 +262,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 
 <body>
 
-    <h1 class="highlight">
-        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high"> Background!
+    <h1 class="highlight mobile">
+        I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high">
+        Background!
     </h1>
 
     <main>
@@ -279,22 +280,26 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             </div>
             <div class="action">
                 <p class="blur overlap center bold">
-                    ✨ Remova o fundo de <i>várias imagens</i> <br>
-                    — basta selecionar tudo de uma vez e pronto!
+                    ✨ Um clique e pronto! <br> <i>Suas imagens</i> com fundo transparente.
                 </p>
                 <div id="drop-zone" class="glass">
                     <button id="add-files" class="btn small">
                         <h2>Selecionar imagem</h2>
                         <h2><i class="fa-regular fa-images"></i></h2>
                     </button>
-                    <p>
-                        Ou arraste e solte <i>imagens</i> aqui
-                        <br>
-                        <i>ou cole com</i> <span class="key">CTRL</span> <strong>+</strong> <span class="key">V</span>
-                    </p>
-                    <p>
-                        <i>Arquivos permitidos: <strong>WEBP</strong>, <strong>JPEG</strong>, <strong>PNG</strong></i>
-                    </p>
+
+                    <div>
+                        <p>
+                            Ou arraste e solte <i>imagens</i> aqui
+                            <br>
+                            <i>ou cole com</i> <span class="key">CTRL</span> <strong>+</strong> <span
+                                class="key">V</span>
+                        </p>
+                        <p>
+                            <i>Arquivos permitidos: <strong>WEBP</strong>, <strong>JPEG</strong>,
+                                <strong>PNG</strong></i>
+                        </p>
+                    </div>
                     <input type="file" multiple id="file-input" accept="image/webp, image/jpeg, image/png"
                         style="display: none;" />
                 </div>
@@ -314,16 +319,6 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 <img src="assets/images/star.webp" alt="star" class="star" fetchpriority="high">
             </div>
         </section>
-
-        <div class="highlight-ads glass">
-            <p class="small bold glass-text dark">
-                Criando um site? Use a IA da Hostinger Horizons para ajudar!
-            </p>
-            <button class="btn small"
-                onclick="window.open('https://www.hostg.xyz/SHHn7', '_blank'); gtag_report_ads_clicked_conversion(undefined);">
-                <p class="small bold">Ver mais <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
-            </button>
-        </div>
 
         <section class="images-container">
             <div class="images" id="images"></div>
@@ -531,7 +526,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         </p>
                         <button class="btn small"
                             onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')">
-                            <h3>Contribuir no GitHub <i class="fa-brands fa-github-alt"></i> <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                            <h3>Contribuir no GitHub <i class="fa-brands fa-github-alt"></i> <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></h3>
                         </button>
                     </li>
                 </ol>
@@ -578,10 +574,14 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 </li>
             </ul>
         </section>
+
+        <hr>
+
     </main>
 
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
+
         <div class="glass" style="padding: 8px;">
             <a class="highlight" href="/en.html">
                 <h4 class="infoview">
@@ -589,6 +589,12 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 </h4>
             </a>
         </div>
+
+        <h1 class="highlight blur">
+            I <img src="assets/images/logo-2-i-hate-background.webp" alt="Logo I Hate Background" fetchpriority="high">
+            Background!
+        </h1>
+
         <p class="bold center blur overlap">
             <span id="year"></span> I Hate Background <br> LuSRodri
         </p>

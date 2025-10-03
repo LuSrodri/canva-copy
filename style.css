@@ -40,6 +40,14 @@ body {
     position: relative;
 }
 
+.mobile {
+    display: none;
+
+    @media (max-width: 915px) {
+        display: unset;
+    }
+}
+
 .highlight-ads {
     position: sticky;
 
@@ -60,7 +68,7 @@ body {
     z-index: 1000;
 
     padding: 8px;
-    margin: 16px;
+    margin: 8px 0;
 
     box-sizing: border-box;
 

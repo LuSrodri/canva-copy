@@ -12,6 +12,7 @@ button {
 
         gap: 0.2rem;
 
+        border: 1px solid rgb(12, 100, 210);
         background-color: rgb(12, 100, 210);
 
         color: #f9f9f9;
@@ -29,9 +30,11 @@ button {
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
         &.red {
+            border: 1px solid rgb(230, 15, 15);
             background-color: rgb(230, 15, 15);
 
             &:hover {
+                border: 1px solid rgb(255, 25, 25);
                 background-color: rgb(255, 25, 25);
             }
         }
@@ -43,6 +46,7 @@ button {
         }
 
         &:hover {
+            border: 1px solid rgb(15, 112, 230);
             background-color: rgb(15, 112, 230);
             transform: translateY(-2px) scale(1.02);
         }
