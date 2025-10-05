@@ -12,6 +12,7 @@
     <title>Uma Nova Forma de Remover Background de Imagens! — I Hate Background</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer type="module"></script>
+    <script src="ui-handlers.js" defer></script>
     <link rel="icon" href="logo-1-i-hate-background.ico" type="image/x-icon" />
     <meta name="description"
         content="Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado. Experimente agora!" />
@@ -29,109 +30,7 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQFNE3CH9D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-XQFNE3CH9D');
-    </script>
-
-    <!-- Event snippet for imagem processada com sucesso conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_conversion(url) {
-            var callback = function () {
-                if (typeof (url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10837733837/ZxxLCL7U2OQaEM3j6q8o',
-                'event_callback': callback
-            });
-
-            gtag('event', 'background_removed', {
-                'send_to': 'G-XQFNE3CH9D',
-                'value': 1.0
-            });
-
-            return false;
-        }
-    </script>
-
-    <!-- Event snippet for compartilhamento iniciado conversion page
-In your html page, add the snippet and call gtag_report_shared_action_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_shared_action_conversion(url) {
-            var callback = function () {
-                if (typeof (url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10837733837/OeNiCIijxvcaEM3j6q8o',
-                'event_callback': callback
-            });
-
-            gtag('event', 'shared_action', {
-                'send_to': 'G-XQFNE3CH9D',
-                'value': 2.0
-            });
-
-            return false;
-        }
-    </script>
-
-    <!-- Event snippet for doação iniciada conversion page
-In your html page, add the snippet and call gtag_report_donation_started_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_donation_started_conversion(url) {
-            var callback = function () {
-                if (typeof (url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10837733837/v1JGCIujxvcaEM3j6q8o',
-                'event_callback': callback
-            });
-
-            gtag('event', 'donation_started', {
-                'send_to': 'G-XQFNE3CH9D',
-                'value': 3.0
-            });
-
-            return false;
-        }
-    </script>
-
-    <!-- Event snippet for anúncio clicado conversion page
-In your html page, add the snippet and call gtag_report_ads_clicked_conversion when someone clicks on the chosen link or button. -->
-    <script>
-        function gtag_report_ads_clicked_conversion(url) {
-            var callback = function () {
-                if (typeof (url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10837733837/83rNCKSkxvcaEM3j6q8o',
-                'event_callback': callback
-            });
-
-            gtag('event', 'ads_clicked', {
-                'send_to': 'G-XQFNE3CH9D',
-                'value': 4.0
-            });
-
-            return false;
-        }
-    </script>
+    <script src="analytics.js" defer></script>
 
     <!-- Pre connect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -336,7 +235,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     target="_blank"><img
                         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1007550&theme=neutral&t=1756408639391"
                         alt="I&#0032;Hate&#0032;Background - AI&#0032;background&#0032;remover&#0032;that&#0032;runs&#0032;fully&#0032;in&#0032;your&#0032;browser | Product Hunt"
-                        style="width: 240px; height: 54px;" width="240" height="54" /></a>
+                        class="product-hunt-badge" width="240" height="54" /></a>
             </div>
             <div class="action">
                 <p class="blur overlap center bold">
@@ -361,7 +260,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         </p>
                     </div>
                     <input type="file" multiple id="file-input" accept="image/webp, image/jpeg, image/png"
-                        style="display: none;" />
+                        class="hidden-input" />
                 </div>
                 <div class="examples">
                     <p class="blur overlap bold center"><i>Não tem imagem?</i> Use uma dessas!</p>
@@ -387,8 +286,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     <p class="infoview bold">Isso te ajudou? 🧰</p>
                 </div>
                 <hr>
-                <button id="donation2" class="btn small"
-                    onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })"
+                <button id="donation2" class="btn small" data-scroll-to="incentives-me"
                     aria-label="Contribuir com o projeto">
                     <span class="btn-text">Contribuir com o projeto <i class="fa-regular fa-heart"></i></span>
                 </button>
@@ -423,8 +321,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             comprovado.</p>
                     </li>
                 </ul>
-                <button id="donation2" class="btn small"
-                    onclick="window.open('https://rapidapi.com/LuSrodri/api/i-hate-background-api', '_blank'); gtag_report_donation_started_conversion(undefined);"
+                <button class="btn small" data-action="open-api"
                     aria-label="Usar API agora">
                     <span class="btn-text">Usar API agora <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                 </button>
@@ -460,8 +357,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         <p>Várias imagens ao mesmo tempo</p>
                     </li>
                 </ul>
-                <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                <button class="btn small" data-scroll-to="drop-zone"
                     aria-label="Usar agora">
                     <span class="btn-text">Usar agora</span>
                 </button>
@@ -497,8 +393,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 <p>
                     Basta aproveitar a sua imagem com background transparente.
                 </p>
-                <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                <button class="btn small" data-scroll-to="drop-zone"
                     aria-label="Testar agora">
                     <span class="btn-text">Testar agora</span>
                 </button>
@@ -524,8 +419,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         sobre a
                         tecnologia para rodar modelos de IA localmente.</a>
                 </p>
-                <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                <button class="btn small" data-scroll-to="drop-zone"
                     aria-label="Ver a magia">
                     <span class="btn-text">Ver a magia</span>
                 </button>
@@ -577,8 +471,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                                 ©</strong>.
                             O seu apoio é bem-vindo e ajuda a manter o projeto ativo e em constante evolução.
                         </p>
-                        <button id="donation2" class="btn small"
-                            onclick="window.open('https://buymeacoffee.com/lusrodri', '_blank'); gtag_report_donation_started_conversion(undefined);"
+                        <button class="btn small" data-action="open-bmc"
                             aria-label="Buy Me A Coffee">
                             <span class="btn-text">Buy Me A Coffee © <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                         </button>
@@ -591,8 +484,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             <strong><i>Sponsor</i></strong>.
                             Sua contribuição é muito apreciada e ajuda a tornar o I Hate Background ainda melhor.
                         </p>
-                        <button class="btn small"
-                            onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')"
+                        <button class="btn small" data-action="open-github"
                             aria-label="Contribuir no GitHub">
                             <span class="btn-text">Contribuir no GitHub <i class="fa-brands fa-github-alt"></i> <i
                                     class="fa-solid fa-arrow-up-right-from-square"></i></span>
@@ -678,7 +570,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
     <footer>
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
 
-        <div class="glass" style="padding: 8px;">
+        <div class="glass footer-glass-padding">
             <a class="highlight" href="/en.html" lang="en" hreflang="en">
                 <p class="infoview bold">
                     Also available in 🇬🇧 English
@@ -695,53 +587,6 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             <span id="year"></span> I Hate Background <br> LuSRodri
         </p>
     </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const shareButton = document.querySelector('#share');
-        shareButton.addEventListener('click', async () => {
-            shareButton.innerHTML = '<span class="btn-text">Compartilhando... <i class="fa-regular fa-clock"></i></span>';
-
-            const shareData = {
-                title: 'Uma Nova Forma de Remover Background de Imagens! — I Hate Background',
-                text: 'Remova o fundo de imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado. Experimente agora!',
-                url: 'https://ihatebackground.com'
-            };
-
-            try {
-                await navigator.share(shareData);
-                shareButton.innerHTML = '<span class="btn-text">Compartilhado com sucesso! <i class="fa-solid fa-check"></i></span>';
-                setTimeout(() => {
-                    shareButton.innerHTML = '<span class="btn-text">Compartilhar o site <i class="fa-solid fa-share-nodes"></i></span>';
-                }, 2000);
-                gtag_report_shared_action_conversion(undefined);
-            } catch {
-
-                try {
-                    await navigator.clipboard.writeText(shareData.url);
-
-                    shareButton.innerHTML = '<span class="btn-text">Link copiado para a área de transferência! <i class="fa-solid fa-check"></i></span>';
-                    setTimeout(() => {
-                        shareButton.innerHTML = '<span class="btn-text">Compartilhar o site <i class="fa-solid fa-share-nodes"></i></span>';
-                    }, 2000);
-                    gtag_report_shared_action_conversion(undefined);
-                } catch {
-                    shareButton.innerHTML = '<span class="btn-text">Erro ao compartilhar! <i class="fa-regular fa-xmark"></i></span>';
-                    setTimeout(() => {
-                        shareButton.innerHTML = '<span class="btn-text">Compartilhar o site <i class="fa-solid fa-share-nodes"></i></span>';
-                    }, 2000);
-                }
-            }
-        });
-    </script>
-
-    <script>
-        const SAVE_IMAGE_TEXT = 'Salvar';
-        const ADDED_TO_QUEUE_IMAGE_TEXT = 'Adicionado à fila ⏳';
-        const PROCESSING_IMAGE_TEXT = 'Pensando 🔄';
-        const READY_IMAGE_TEXT = 'Imagem pronta ✅';
-    </script>
 
 </body>
 

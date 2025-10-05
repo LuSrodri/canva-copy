@@ -165,3 +165,17 @@ img {
     pointer-events: none;
     user-select: none;
 }
+
+/* Utility classes for removing inline styles */
+.product-hunt-badge {
+    width: 240px;
+    height: 54px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.footer-glass-padding {
+    padding: 8px;
+}
