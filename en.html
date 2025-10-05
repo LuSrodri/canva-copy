@@ -344,9 +344,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     ✨ One click and done! <br> <i>Your images</i> without background.
                 </p>
                 <div id="drop-zone" class="glass">
-                    <button id="add-files" class="btn small">
-                        <h2>Click or Tap to Start</h2>
-                        <h2><i class="fa-regular fa-images"></i></h2>
+                    <button id="add-files" class="btn bigger" aria-label="Click or Tap to Start">
+                        <span class="btn-text">Click or Tap to Start</span>
+                        <span class="btn-icon" aria-hidden="true"><i class="fa-regular fa-images"></i></span>
                     </button>
 
                     <div>
@@ -384,12 +384,13 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             <div class="images" id="images"></div>
             <div id="share-action" class="hidden invisible glass">
                 <div>
-                    <h3 class="infoview">Was this helpful? 🧰</h3>
+                    <p class="infoview bold">Was this helpful? 🧰</p>
                 </div>
                 <hr>
                 <button id="donation2" class="btn small"
-                    onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })">
-                    <h3>Support the project <i class="fa-regular fa-heart"></i></h3>
+                    onclick="document.querySelector('#incentives-me').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })"
+                    aria-label="Support the project">
+                    <span class="btn-text">Support the project <i class="fa-regular fa-heart"></i></span>
                 </button>
             </div>
         </section>
@@ -422,8 +423,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     </li>
                 </ul>
                 <button id="donation2" class="btn small"
-                    onclick="window.open('https://rapidapi.com/LuSrodri/api/i-hate-background-api', '_blank'); gtag_report_donation_started_conversion(undefined);">
-                    <h3>Use API now <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                    onclick="window.open('https://rapidapi.com/LuSrodri/api/i-hate-background-api', '_blank'); gtag_report_donation_started_conversion(undefined);"
+                    aria-label="Use API now">
+                    <span class="btn-text">Use API now <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                 </button>
             </div>
         </section>
@@ -458,8 +460,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     </li>
                 </ul>
                 <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
-                    <h4>Use now</h4>
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                    aria-label="Use now">
+                    <span class="btn-text">Use now</span>
                 </button>
             </div>
         </section>
@@ -492,8 +495,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 </ol>
                 <p>Now enjoy your image with a transparent background</p>
                 <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
-                    <h4>Try now</h4>
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                    aria-label="Try now">
+                    <span class="btn-text">Try now</span>
                 </button>
             </div>
         </section>
@@ -515,8 +519,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                         class="highlight">Learn more about the technology for running AI models locally.</a>
                 </p>
                 <button class="btn small"
-                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })">
-                    <h4>See the magic</h4>
+                    onclick="document.querySelector('#drop-zone').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })"
+                    aria-label="See the magic">
+                    <span class="btn-text">See the magic</span>
                 </button>
                 <p>
                     <i>💡Tip:</i> You can also <strong>remove backgrounds from multiple images at the same
@@ -555,8 +560,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             Post about the project on social media, forums, communities, groups, and help spread the
                             word.
                         </p>
-                        <button id="share" class="btn small">
-                            <h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>
+                        <button id="share" class="btn small" aria-label="Share the website">
+                            <span class="btn-text">Share the website <i class="fa-solid fa-share-nodes"></i></span>
                         </button>
                     </li>
                     <li>
@@ -567,8 +572,9 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             Your support is welcome and helps keep the project active and constantly evolving.
                         </p>
                         <button id="donation2" class="btn small"
-                            onclick="window.open('https://buymeacoffee.com/lusrodri', '_blank'); gtag_report_donation_started_conversion(undefined);">
-                            <h3>Buy Me A Coffee © <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                            onclick="window.open('https://buymeacoffee.com/lusrodri', '_blank'); gtag_report_donation_started_conversion(undefined);"
+                            aria-label="Buy Me A Coffee">
+                            <span class="btn-text">Buy Me A Coffee © <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                         </button>
                     </li>
                     <li>
@@ -580,9 +586,10 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                             Your contribution is much appreciated and helps make I Hate Background even better.
                         </p>
                         <button class="btn small"
-                            onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')">
-                            <h3>Contribute on GitHub <i class="fa-brands fa-github-alt"></i> <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                            onclick="window.open(`https://github.com/lusrodri/canva-copy`, '_blank')"
+                            aria-label="Contribute on GitHub">
+                            <span class="btn-text">Contribute on GitHub <i class="fa-brands fa-github-alt"></i> <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></span>
                         </button>
                     </li>
                 </ol>
@@ -597,60 +604,62 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
             <ul>
                 <li>
                     <a href="https://www.tabnews.com.br/LusRodri/pitch-i-hate-background-o-que-voces-sentem-falta-do-remove-bg"
-                        target="_blank" class="highlight">
-                        <h4>[PITCH] I Hate Background! O que vocês sentem falta do remove.bg?</h4>
+                        target="_blank" class="highlight" aria-label="Read article about I Hate Background on TabNews">
+                        <h3>[PITCH] I Hate Background! O que vocês sentem falta do remove.bg?</h3>
                         <p>
                             I Hate Background (IHB) is a platform for background removal that runs entirely
                             in your browser, without needing to send images to external servers, respecting
                             privacy.
                         </p>
-                        <p>(tabnews)</p>
+                        <p class="small"><em>(tabnews)</em></p>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.tabnews.com.br/LusRodri/i-hate-background" target="_blank" class="highlight">
-                        <h4>I Hate Background!</h4>
+                    <a href="https://www.tabnews.com.br/LusRodri/i-hate-background" target="_blank" class="highlight"
+                        aria-label="Read I Hate Background article on TabNews">
+                        <h3>I Hate Background!</h3>
                         <p>
                             Since the last post, I decided to focus on promoting the project. So I published on
                             several sites like dev.to, reddit, and others. I also focused part on paid search.
                         </p>
-                        <p>(tabnews)</p>
+                        <p class="small"><em>(tabnews)</em></p>
                     </a>
                 </li>
                 <li>
-                    <a href="https://dev.to/lusrodri/i-hate-background-35h0" target="_blank" class="highlight">
-                        <h4>I Hate Background!</h4>
+                    <a href="https://dev.to/lusrodri/i-hate-background-35h0" target="_blank" class="highlight"
+                        aria-label="Read I Hate Background article on Dev.to">
+                        <h3>I Hate Background!</h3>
                         <p>
                             Some time ago, I started exploring AI models for image processing. One of my biggest
                             frustrations was always: "why is it so complicated to remove an image background in a simple
                             and free way?"
                         </p>
-                        <p>(dev.to)</p>
+                        <p class="small"><em>(dev.to)</em></p>
                     </a>
                 </li>
                 <li>
                     <a href="https://dev.to/lusrodri/the-alternative-to-removebg-api-5a7b" target="_blank"
-                        class="highlight">
-                        <h4>The Alternative to remove.bg API</h4>
+                        class="highlight" aria-label="Read article about alternative to remove.bg on Dev.to">
+                        <h3>The Alternative to remove.bg API</h3>
                         <p>
                             For developers looking for a fast, reliable, and more flexible option, let me introduce you
                             to I Hate Background API: an AI-powered background removal service designed with scalability
                             and performance in mind.
                         </p>
-                        <p>(dev.to)</p>
+                        <p class="small"><em>(dev.to)</em></p>
                     </a>
                 </li>
                 <li>
                     <a href="https://dev.to/lusrodri/why-i-built-i-hate-background-a-privacy-first-background-removal-service-1f6a"
-                        target="_blank" class="highlight">
-                        <h4>Why I Built "I Hate Background" — a Privacy-First Background Removal Service</h4>
+                        target="_blank" class="highlight" aria-label="Read article about building I Hate Background on Dev.to">
+                        <h3>Why I Built "I Hate Background" — a Privacy-First Background Removal Service</h3>
                         <p>
                             So I built I Hate Background – a privacy-first, AI-first tool that runs directly in your
                             browser.
                             Nothing is uploaded. Your image never leaves your computer.
                             And it's totally free to use on the website.
                         </p>
-                        <p>(dev.to)</p>
+                        <p class="small"><em>(dev.to)</em></p>
                     </a>
                 </li>
             </ul>
@@ -664,10 +673,10 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
         <img src="assets/images/rocket_rising_up.webp" alt="rocket rising" class="rocket-rising">
         
         <div class="glass" style="padding: 8px;">
-            <a class="highlight" href="/">
-                <h4 class="infoview">
+            <a class="highlight" href="/" lang="pt-BR" hreflang="pt-BR">
+                <p class="infoview bold">
                     Também disponível em 🇧🇷 Português
-                </h4>
+                </p>
             </a>
         </div>
 
@@ -686,7 +695,7 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 
         const shareButton = document.querySelector('#share');
         shareButton.addEventListener('click', async () => {
-            shareButton.innerHTML = '<h3>Sharing... <i class="fa-regular fa-clock"></i></h3>';
+            shareButton.innerHTML = '<span class="btn-text">Sharing... <i class="fa-regular fa-clock"></i></span>';
 
             const shareData = {
                 title: 'A New Way to Remove Image Backgrounds! — I Hate Background',
@@ -696,23 +705,23 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
 
             try {
                 await navigator.share(shareData);
-                shareButton.innerHTML = '<h3>Successfully shared! <i class="fa-solid fa-check"></i></h3>';
+                shareButton.innerHTML = '<span class="btn-text">Successfully shared! <i class="fa-solid fa-check"></i></span>';
                 setTimeout(() => {
-                    shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
+                    shareButton.innerHTML = '<span class="btn-text">Share the website <i class="fa-solid fa-share-nodes"></i></span>';
                 }, 2000);
                 gtag_report_shared_action_conversion(undefined);
             } catch {
                 try {
                     await navigator.clipboard.writeText(shareData.url);
-                    shareButton.innerHTML = '<h3>Link copied to clipboard! <i class="fa-solid fa-check"></i></h3>';
+                    shareButton.innerHTML = '<span class="btn-text">Link copied to clipboard! <i class="fa-solid fa-check"></i></span>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<span class="btn-text">Share the website <i class="fa-solid fa-share-nodes"></i></span>';
                     }, 2000);
                     gtag_report_shared_action_conversion(undefined);
                 } catch {
-                    shareButton.innerHTML = '<h3>Sharing failed! <i class="fa-regular fa-xmark"></i></h3>';
+                    shareButton.innerHTML = '<span class="btn-text">Sharing failed! <i class="fa-regular fa-xmark"></i></span>';
                     setTimeout(() => {
-                        shareButton.innerHTML = '<h3>Share the website <i class="fa-solid fa-share-nodes"></i></h3>';
+                        shareButton.innerHTML = '<span class="btn-text">Share the website <i class="fa-solid fa-share-nodes"></i></span>';
                     }, 2000);
                 }
             }

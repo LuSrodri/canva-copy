@@ -145,7 +145,7 @@ function showImage(imageItem) {
         divShowImage.classList.add('show-image');
         divShowImage.appendChild(img);
 
-        const infoview = document.createElement('h3');
+        const infoview = document.createElement('p');
         infoview.classList.add('infoview');
         updateInfoViewText(infoview, imageItem.state);
         divShowImage.appendChild(infoview);
@@ -157,7 +157,8 @@ function showImage(imageItem) {
 
         const buttonToDelete = document.createElement('button');
         buttonToDelete.classList.add('btn', 'remove-file', 'small', 'red');
-        buttonToDelete.innerHTML = '<h3><i class="fa-solid fa-ban"></i></h3>';
+        buttonToDelete.innerHTML = '<span class="btn-icon" aria-hidden="true"><i class="fa-solid fa-ban"></i></span>';
+        buttonToDelete.setAttribute('aria-label', 'Remove image');
         buttonToDelete.addEventListener('click', () => {
             if (imagesProcessor.canRemoveImage(imageItem.id)) {
                 imagesProcessor.removeImage(imageItem.id);
@@ -281,7 +282,8 @@ function addDownloadButton(imageId, result) {
     const downloadButton = document.createElement('button');
     downloadButton.classList.add('btn', 'download-file', 'small');
     const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
-    downloadButton.innerHTML = `<h3><i class="fa-regular fa-floppy-disk"></i> ${saveText}</h3>`;
+    downloadButton.innerHTML = `<span class="btn-text">${saveText}</span><span class="btn-icon" aria-hidden="true"><i class="fa-regular fa-floppy-disk"></i></span>`;
+    downloadButton.setAttribute('aria-label', `Download processed image`);
 
     downloadButton.addEventListener('click', () => {
         downloadImage(result, imageItem.originalName);

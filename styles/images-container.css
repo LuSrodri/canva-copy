@@ -100,7 +100,7 @@ section.images-container {
 
                 position: relative;
 
-                &>h3.infoview {
+                &>.infoview {
                     white-space: nowrap;
 
                     position: absolute;
