@@ -1,6 +1,6 @@
 section.ihb-media {
-    width: 800px;
-    max-width: 90dvw;
+    width: 1200px;
+    max-width: 95dvw;
 
     padding: 32px;
 
@@ -10,46 +10,100 @@ section.ihb-media {
         list-style: none;
         padding: 0;
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
 
         & > li {
-            border-radius: 28px;
+            border-radius: 12px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(112, 112, 182, 0.2);
-            transition: all 250ms ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 255, 0.9) 100%);
+            border: 2px solid rgba(112, 112, 182, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+
+            /* Efeito de dobra de jornal no canto */
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 30px 30px 0;
+                border-color: transparent rgba(112, 112, 182, 0.15) transparent transparent;
+                transition: all 300ms ease;
+            }
 
             &:hover {
-                background: rgba(255, 255, 255, 0.8);
-                border-color: rgba(15, 112, 230, 0.3);
-                transform: translateX(8px);
-                box-shadow: 0 8px 25px rgba(112, 112, 182, 0.15);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 255, 1) 100%);
+                border-color: rgba(15, 112, 230, 0.4);
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 12px 35px rgba(15, 112, 230, 0.2);
+
+                &::before {
+                    border-width: 0 45px 45px 0;
+                    border-color: transparent rgba(15, 112, 230, 0.25) transparent transparent;
+                }
             }
 
             & > a.highlight {
-                display: block;
-                padding: 20px 24px;
+                display: flex;
+                flex-direction: column;
+                padding: 24px;
                 text-decoration: none;
                 transition: all 250ms ease;
+                min-height: 100%;
+                gap: 12px;
+
+                /* Linha decorativa estilo jornal */
+                &::after {
+                    content: '';
+                    width: 60px;
+                    height: 3px;
+                    background: linear-gradient(90deg, rgb(12, 100, 210), transparent);
+                    margin-top: auto;
+                    transition: all 300ms ease;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
 
                 & > h4 {
-                    color: #36454F;
-                    margin: 0 0 8px 0;
-                    font-size: 1.1rem;
-                    font-weight: 600;
+                    color: #1a1a2e;
+                    margin: 0 0 12px 0;
+                    font-size: 1.15rem;
+                    font-weight: 700;
                     line-height: 1.4;
                     transition: color 250ms ease;
+                    font-family: 'Georgia', serif;
+                    letter-spacing: -0.3px;
+                    border-bottom: 2px solid rgba(112, 112, 182, 0.1);
+                    padding-bottom: 10px;
                 }
 
                 & > p {
-                    color: rgb(12, 100, 210);
-                    margin: 0;
-                    font-size: 0.9rem;
-                    font-weight: 600;
-                    opacity: 0.8;
+                    color: #4a4a5e;
+                    margin: 0 0 8px 0;
+                    font-size: 0.92rem;
+                    line-height: 1.6;
                     transition: all 250ms ease;
+                    flex-grow: 1;
+
+                    &:last-of-type {
+                        color: rgb(12, 100, 210);
+                        font-weight: 600;
+                        font-size: 0.85rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        margin-top: auto;
+                        padding-top: 8px;
+                        opacity: 0.8;
+                        font-family: 'Arial', sans-serif;
+                    }
                 }
 
                 &:hover {
@@ -57,12 +111,19 @@ section.ihb-media {
                         color: rgb(12, 100, 210);
                     }
 
-                    & > p {
+                    & > p:last-of-type {
                         opacity: 1;
                         transform: translateX(4px);
                     }
                 }
             }
+        }
+    }
+
+    @media (max-width: 768px) {
+        & > ul {
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
     }
 }

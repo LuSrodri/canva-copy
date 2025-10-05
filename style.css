@@ -48,6 +48,12 @@ body {
     }
 }
 
+.no-mobile {
+    @media (max-width: 915px) {
+        display: none;
+    }
+}
+
 .highlight-ads {
     position: sticky;
 
