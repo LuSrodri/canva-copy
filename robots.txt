@@ -1,0 +1,146 @@
+# Robots.txt for ihatebackground.com
+# MAXIMUM VISIBILITY: Allow ALL crawlers (search engines, LLMs, AI bots) to access ALL content
+# This site WANTS to be indexed and crawled by everyone!
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ihatebackground.com/sitemap.xml
+
+# ========================================
+# TRADITIONAL SEARCH ENGINES
+# ========================================
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ========================================
+# AI & LLM CRAWLERS (OpenAI, Anthropic, Google, etc.)
+# ========================================
+
+# OpenAI (ChatGPT, GPT-4, etc.)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI (Bard, Gemini)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Bytespider (ByteDance/TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# Anthropic's research crawler
+User-agent: anthropic-ai
+Allow: /
+
+# Other AI/ML crawlers
+User-agent: omgili
+Allow: /
+
+User-agent: omgilibot
+Allow: /
+
+# ========================================
+# ACADEMIC & RESEARCH CRAWLERS
+# ========================================
+
+User-agent: Scrapy
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+# ========================================
+# SOCIAL MEDIA CRAWLERS
+# ========================================
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# ========================================
+# NOTE: No Disallow rules - everything is allowed!
+# Crawl-delay removed for maximum accessibility
+# ========================================
