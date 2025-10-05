@@ -161,6 +161,57 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     "price": "0",
                     "priceCurrency": "USD"
                 },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "ratingCount": "16",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "interactionStatistic": [
+                    {
+                        "@type": "InteractionCounter",
+                        "interactionType": {
+                            "@type": "VoteAction",
+                            "name": "Upvote"
+                        },
+                        "userInteractionCount": 3,
+                        "interactionService": {
+                            "@type": "Organization",
+                            "name": "Product Hunt",
+                            "url": "https://www.producthunt.com/products/i-hate-background"
+                        },
+                        "url": "https://www.producthunt.com/products/i-hate-background/launches/i-hate-background",
+                        "description": "Upvotes on Product Hunt"
+                    },
+                    {
+                        "@type": "InteractionCounter",
+                        "interactionType": {
+                            "@type": "FollowAction",
+                            "name": "Follow"
+                        },
+                        "userInteractionCount": 13,
+                        "interactionService": {
+                            "@type": "Organization",
+                            "name": "Product Hunt",
+                            "url": "https://www.producthunt.com/products/i-hate-background"
+                        },
+                        "url": "https://www.producthunt.com/products/i-hate-background",
+                        "description": "Followers on Product Hunt"
+                    }
+                ],
+                "additionalProperty": [
+                    {
+                        "@type": "PropertyValue",
+                        "name": "Product Hunt Upvotes",
+                        "value": 3
+                    },
+                    {
+                        "@type": "PropertyValue",
+                        "name": "Product Hunt Followers",
+                        "value": 13
+                    }
+                ],
                 "featureList": [
                     "Free background removal",
                     "Browser-based processing",
@@ -218,6 +269,18 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 "description": "Fast, economical API powered by Nvidia processors for image background removal.",
                 "offers": {
                     "@type": "Offer",
+                    "price": "9.99",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "9.99",
+                        "priceCurrency": "USD",
+                        "referenceQuantity": {
+                            "@type": "QuantitativeValue",
+                            "value": "50",
+                            "unitText": "requests"
+                        }
+                    },
                     "availability": "https://schema.org/InStock",
                     "url": "https://rapidapi.com/LuSrodri/api/i-hate-background-api"
                 },

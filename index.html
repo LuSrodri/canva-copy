@@ -161,6 +161,57 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     "price": "0",
                     "priceCurrency": "BRL"
                 },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "ratingCount": "16",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "interactionStatistic": [
+                    {
+                        "@type": "InteractionCounter",
+                        "interactionType": {
+                            "@type": "VoteAction",
+                            "name": "Upvote"
+                        },
+                        "userInteractionCount": 3,
+                        "interactionService": {
+                            "@type": "Organization",
+                            "name": "Product Hunt",
+                            "url": "https://www.producthunt.com/products/i-hate-background"
+                        },
+                        "url": "https://www.producthunt.com/products/i-hate-background/launches/i-hate-background",
+                        "description": "Upvotes no Product Hunt"
+                    },
+                    {
+                        "@type": "InteractionCounter",
+                        "interactionType": {
+                            "@type": "FollowAction",
+                            "name": "Follow"
+                        },
+                        "userInteractionCount": 13,
+                        "interactionService": {
+                            "@type": "Organization",
+                            "name": "Product Hunt",
+                            "url": "https://www.producthunt.com/products/i-hate-background"
+                        },
+                        "url": "https://www.producthunt.com/products/i-hate-background",
+                        "description": "Seguidores no Product Hunt"
+                    }
+                ],
+                "additionalProperty": [
+                    {
+                        "@type": "PropertyValue",
+                        "name": "Product Hunt Upvotes",
+                        "value": 3
+                    },
+                    {
+                        "@type": "PropertyValue",
+                        "name": "Product Hunt Followers",
+                        "value": 13
+                    }
+                ],
                 "featureList": [
                     "Remoção de fundo gratuita",
                     "Processamento no navegador",
@@ -217,6 +268,18 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                 "description": "API rápida, econômica e suportada por processadores Nvidia para remoção de fundo de imagens.",
                 "offers": {
                     "@type": "Offer",
+                    "price": "9.99",
+                    "priceCurrency": "USD",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "9.99",
+                        "priceCurrency": "USD",
+                        "referenceQuantity": {
+                            "@type": "QuantitativeValue",
+                            "value": "50",
+                            "unitText": "requisições"
+                        }
+                    },
                     "availability": "https://schema.org/InStock",
                     "url": "https://rapidapi.com/LuSrodri/api/i-hate-background-api"
                 },
@@ -455,7 +518,8 @@ In your html page, add the snippet and call gtag_report_ads_clicked_conversion w
                     identificar e remover o fundo de imagens diretamente no seu navegador. Isso significa que:
                     <strong>nenhuma imagem é enviada para servidores externos</strong>, garantindo a sua privacidade e
                     segurança. Desta forma o processo é rápido, eficiente e totalmente gratuito. <a
-                        href="https://huggingface.co/docs/transformers.js/index" target="_blank" class="highlight">Veja mais
+                        href="https://huggingface.co/docs/transformers.js/index" target="_blank" class="highlight">Veja
+                        mais
                         sobre a
                         tecnologia para rodar modelos de IA localmente.</a>
                 </p>
