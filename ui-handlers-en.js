@@ -113,5 +113,5 @@ async function handleShare() {
 // Text constants for image processing (English)
 window.SAVE_IMAGE_TEXT = 'Save';
 window.ADDED_TO_QUEUE_IMAGE_TEXT = 'Added to queue ⏳';
-window.PROCESSING_IMAGE_TEXT = 'Processing 🔄';
+window.PROCESSING_IMAGE_TEXT = 'Thinking 🔄';
 window.READY_IMAGE_TEXT = 'Image ready ✅';
