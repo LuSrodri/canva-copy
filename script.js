@@ -157,7 +157,7 @@ function showImage(imageItem) {
 
         const buttonToDelete = document.createElement('button');
         buttonToDelete.classList.add('btn', 'remove-file', 'small', 'red');
-        buttonToDelete.innerHTML = '<span class="btn-icon" aria-hidden="true"><i class="fa-solid fa-ban"></i></span>';
+        buttonToDelete.innerHTML = '<span class="btn-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M431.2 476.5L163.5 208.8C141.1 240.2 128 278.6 128 320C128 426 214 512 320 512C361.5 512 399.9 498.9 431.2 476.5zM476.5 431.2C498.9 399.8 512 361.4 512 320C512 214 426 128 320 128C278.5 128 240.1 141.1 208.8 163.5L476.5 431.2zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg></span>';
         buttonToDelete.setAttribute('aria-label', 'Remove image');
         buttonToDelete.addEventListener('click', () => {
             if (imagesProcessor.canRemoveImage(imageItem.id)) {
@@ -282,7 +282,7 @@ function addDownloadButton(imageId, result) {
     const downloadButton = document.createElement('button');
     downloadButton.classList.add('btn', 'download-file', 'small');
     const saveText = typeof SAVE_IMAGE_TEXT !== 'undefined' ? SAVE_IMAGE_TEXT : 'Save';
-    downloadButton.innerHTML = `<span class="btn-text">${saveText}</span><span class="btn-icon" aria-hidden="true"><i class="fa-regular fa-floppy-disk"></i></span>`;
+    downloadButton.innerHTML = `<span class="btn-text">${saveText}</span><span class="btn-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 237.3C496 233.1 494.3 229 491.3 226L416 150.6L416 240C416 257.7 401.7 272 384 272L224 272C206.3 272 192 257.7 192 240L192 144L160 144zM240 144L240 224L368 224L368 144L240 144zM96 160C96 124.7 124.7 96 160 96L402.7 96C419.7 96 436 102.7 448 114.7L525.3 192C537.3 204 544 220.3 544 237.3L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160zM256 384C256 348.7 284.7 320 320 320C355.3 320 384 348.7 384 384C384 419.3 355.3 448 320 448C284.7 448 256 419.3 256 384z"/></svg></span>`;
     downloadButton.setAttribute('aria-label', `Download processed image`);
 
     downloadButton.addEventListener('click', () => {

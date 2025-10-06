@@ -23,12 +23,9 @@
     --font-size-key: 0.75rem;
     
     /* Font Weights */
-    --font-weight-light: 300;
     --font-weight-regular: 400;
-    --font-weight-medium: 500;
     --font-weight-semibold: 600;
-    --font-weight-bold: 800;
-    --font-weight-black: 900;
+    --font-weight-bold: 700;
     
     /* Line Heights */
     --line-height-tight: 1.2;
@@ -71,7 +68,7 @@ h6 {
 
 h1 {
     font-size: var(--font-size-h1);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-regular);
     z-index: 2;
 }
 
@@ -137,7 +134,7 @@ h4.stroke {
     text-transform: uppercase;
     -webkit-text-stroke: 1px var(--color-text-primary);
     letter-spacing: var(--letter-spacing-wide);
-    font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-bold);
 }
 
 /* ============================================
@@ -171,7 +168,7 @@ p:last-child {
 }
 
 p strong {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
 }
 
 /* ============================================
@@ -190,7 +187,7 @@ p.uppercase {
 }
 
 p.bold {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
     letter-spacing: var(--letter-spacing-tight);
 }
 

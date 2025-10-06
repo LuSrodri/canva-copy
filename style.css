@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
 
 @import url('styles/text.css');
 @import url('styles/button.css');
@@ -14,7 +14,6 @@
 
 * {
     font-family: "Manrope", sans-serif;
-    font-display: swap;
 }
 
 html,

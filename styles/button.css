@@ -75,6 +75,12 @@ button.btn.red:hover {
     margin: 0;
 }
 
+.btn-icon svg {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+}
+
 /* Size Modifiers */
 button.btn.small .btn-text {
     font-size: 0.9rem;
@@ -82,6 +88,11 @@ button.btn.small .btn-text {
 
 button.btn.small .btn-icon {
     font-size: 1.1rem;
+}
+
+button.btn.small .btn-icon svg {
+    width: 1.1em;
+    height: 1.1em;
 }
 
 button.btn.bigger {
@@ -100,6 +111,11 @@ button.btn.bigger .btn-text {
 
 button.btn.bigger .btn-icon {
     font-size: 1.5rem;
+}
+
+button.btn.bigger .btn-icon svg {
+    width: 1.5em;
+    height: 1.5em;
 }
 
 button.btn.bigger:hover {
@@ -132,6 +148,5 @@ button.btn:disabled {
 
 button:disabled:hover,
 button.btn:disabled:hover {
-    background-color: rgb(12, 100, 210);
     transform: none;
 }
