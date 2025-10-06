@@ -84,7 +84,7 @@ h2 {
 h3 {
     font-size: var(--font-size-h3);
     letter-spacing: var(--letter-spacing-tight);
-    margin-bottom: var(--spacing-sm);
+    margin: var(--spacing-lg) 0;
 }
 
 h4 {
