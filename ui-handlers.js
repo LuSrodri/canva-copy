@@ -26,17 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // API button handler
-    const apiButton = document.querySelector('[data-action="open-api"]');
-    if (apiButton) {
-        apiButton.addEventListener('click', () => {
-            window.open('https://rapidapi.com/LuSrodri/api/i-hate-background-api', '_blank');
-            if (window.gtag_report_donation_started_conversion) {
-                gtag_report_donation_started_conversion(undefined);
-            }
-        });
-    }
-
     // Scroll to drop-zone buttons
     const scrollToDropZoneButtons = document.querySelectorAll('[data-scroll-to="drop-zone"]');
     scrollToDropZoneButtons.forEach(button => {

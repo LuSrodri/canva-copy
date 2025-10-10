@@ -72,4 +72,4 @@ queued → processing → ready
 
 ---
 
-Acesse o repositório da [API](https://github.com/LuSrodri/canva-copy-api) também.
+Quer saber como rodar a melhor IA de remoção de fundo de imagens com alto desempenho? Acesse [Canva Copy API repo GitHub](https://github.com/lusrodri/canva-copy-api)!
