@@ -73,3 +73,7 @@ queued → processing → ready
 ---
 
 Quer saber como rodar a melhor IA de remoção de fundo de imagens com alto desempenho? Acesse [Canva Copy API repo GitHub](https://github.com/lusrodri/canva-copy-api)!
+
+---
+
+**⭐ Se este projeto foi útil para você, considere dar uma estrela no repositório!**
