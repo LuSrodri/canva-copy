@@ -98,23 +98,19 @@ main {
 }
 
 section {
-    margin-bottom: 8px;
-
     &:not(#call-to-action) {
-        padding: 8px 0;
+        padding: 24px 0;
     }
 }
 
 main>hr {
-    width: 750px;
-    max-width: 90%;
+    width: 320px;
+    max-width: 80%;
 
     height: 0;
 
     border: 1px solid rgba(112, 112, 182, 0.32);
     border-radius: 4px;
-
-    margin: 12px 0;
 }
 
 footer {
