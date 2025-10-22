@@ -11,12 +11,6 @@ section#call-to-action {
 
     width: 100%;
 
-    margin-top: 8dvh;
-
-    @media (max-width: 915px) {
-        margin-top: unset;
-    }
-
     &>div {
         width: 400px;
         max-width: 90dvw;

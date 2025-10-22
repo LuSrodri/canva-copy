@@ -121,6 +121,9 @@ section.images-container {
 
                     border-radius: 20px;
 
+                    user-select: unset !important;
+                    pointer-events: unset !important;
+
                     &.loading {
                         animation: loading 1500ms infinite alternate ease-in-out;
                         will-change: opacity, box-shadow, filter;

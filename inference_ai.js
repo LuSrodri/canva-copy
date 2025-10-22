@@ -1,9 +1,9 @@
-import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.4.0';
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6';
 
 let segmenter = undefined;
 
 try {
-    segmenter = await pipeline('background-removal', 'briaai/RMBG-1.4', { dtype: 'fp32' });
+    segmenter = await pipeline('background-removal', 'onnx-community/ormbg-ONNX');
     postMessage({
         success: 'Background removal model loaded successfully using CPU.'
     });

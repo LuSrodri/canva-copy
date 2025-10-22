@@ -39,20 +39,6 @@ body {
     position: relative;
 }
 
-.mobile {
-    display: none;
-
-    @media (max-width: 915px) {
-        display: unset;
-    }
-}
-
-.no-mobile {
-    @media (max-width: 915px) {
-        display: none;
-    }
-}
-
 .highlight-ads {
     position: sticky;
 
