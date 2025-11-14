@@ -1,0 +1,94 @@
+/* UseNow Page - Minimal & Direct Design */
+
+.usenow-main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+}
+
+.usenow-hero {
+    padding: 0 !important;
+    margin-bottom: 32px;
+}
+
+.usenow-tagline {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.usenow-action {
+    padding: 0 !important;
+}
+
+.usenow-action #drop-zone {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 336px;
+    padding: 4px;
+    text-align: center;
+    transition: 500ms;
+    box-sizing: border-box;
+    animation: waiting 2.5s infinite alternate ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.usenow-action #drop-zone[aria-disabled="true"] {
+    pointer-events: none;
+    box-shadow: none !important;
+}
+
+.usenow-action #drop-zone.dragover {
+    border: 4px solid rgb(15, 112, 230);
+    box-shadow: 0 0 10px rgba(15, 112, 230, 0.5);
+}
+
+@keyframes waiting {
+    from {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        box-shadow: 0 8px 40px rgba(12, 100, 210, 0.2);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .usenow-hero {
+        margin-top: 32px;
+    }
+    
+    .usenow-tagline {
+        font-size: 20px;
+    }
+    
+    .usenow-action {
+        margin-bottom: 32px;
+    }
+    
+    .usenow-action #drop-zone {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .usenow-hero {
+        margin-top: 24px;
+    }
+    
+    .usenow-tagline {
+        font-size: 18px;
+    }
+    
+    .usenow-action {
+        margin-bottom: 24px;
+    }
+    
+    .usenow-action #drop-zone {
+        height: 280px;
+    }
+}
