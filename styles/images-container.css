@@ -48,7 +48,8 @@ section.images-container {
         scrollbar-width: none;
         overflow-x: auto;
 
-        padding: 4px 12px;
+        padding: 24px 12px;
+        padding-bottom: 56px;
 
         box-sizing: border-box;
 

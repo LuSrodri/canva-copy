@@ -22,36 +22,38 @@ function handleStateChange(eventType, data) {
             // Modelo pronto - interface já estava habilitada
             console.log('AI model ready for processing');
             break;
-            
+
         case 'processor-error':
             alert(`Error: ${data.error}`);
             break;
-            
+
         case 'image-added':
             showImage(data.imageItem);
             scrollToImages();
             break;
-            
+
         case 'processing-started':
             updateImageUI(data.imageItem.id, 'processing');
             scrollToImages();
             break;
-            
+
         case 'processing-completed':
             updateImageUI(data.imageItem.id, 'ready', data.imageItem.processedResult);
             gtag_report_conversion(undefined);
-            showShareSection();
+            setTimeout(() => {
+                document.querySelector('.images-container').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+            }, 250);
             break;
-            
+
         case 'processing-error':
             updateImageUI(data.imageItem.id, 'error');
             alert(`Error processing image: ${data.error.message}`);
             break;
-            
+
         case 'image-removed':
             removeImageElement(data.id);
             break;
-            
+
         case 'error':
             alert(`Error: ${data.error}`);
             break;
@@ -303,20 +305,20 @@ function removeImageElement(imageId) {
 function updateInfoViewText(infoview, state) {
     switch (state) {
         case 'queued':
-            const queuedText = typeof ADDED_TO_QUEUE_IMAGE_TEXT !== 'undefined' 
+            const queuedText = typeof ADDED_TO_QUEUE_IMAGE_TEXT !== 'undefined'
                 ? ADDED_TO_QUEUE_IMAGE_TEXT
                 : 'Queued for processing ⏳';
             infoview.textContent = queuedText;
             break;
         case 'processing':
-            const processingText = typeof PROCESSING_IMAGE_TEXT !== 'undefined' 
-                ? PROCESSING_IMAGE_TEXT 
+            const processingText = typeof PROCESSING_IMAGE_TEXT !== 'undefined'
+                ? PROCESSING_IMAGE_TEXT
                 : 'Processing image 🔄';
             infoview.textContent = processingText;
             break;
         case 'ready':
-            const readyText = typeof READY_IMAGE_TEXT !== 'undefined' 
-                ? READY_IMAGE_TEXT 
+            const readyText = typeof READY_IMAGE_TEXT !== 'undefined'
+                ? READY_IMAGE_TEXT
                 : 'Ready image ✅';
             infoview.textContent = readyText;
             break;
@@ -330,14 +332,6 @@ function scrollToImages() {
     setTimeout(() => {
         divImages.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     }, 100);
-}
-
-function showShareSection() {
-    document.querySelector('#share-action').classList.remove('hidden');
-    setTimeout(() => {
-        document.querySelector('#share-action').classList.remove('invisible');
-        document.querySelector('.images-container').scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-    }, 250);
 }
 
 function downloadImage(result, originalName = 'image-without-background.png') {
@@ -360,11 +354,11 @@ function downloadImage(result, originalName = 'image-without-background.png') {
 
     const a = document.createElement('a');
     a.href = imgURL;
-    
-    const fileName = originalName.includes('.') 
+
+    const fileName = originalName.includes('.')
         ? originalName.replace(/\.(jpg|jpeg|webp|png)$/i, '-without-background.png')
         : 'image-without-background.png';
-    
+
     a.download = fileName;
     a.click();
 }
@@ -383,7 +377,5 @@ function normalizeAlphaPixels(imageData) {
 }
 
 function updateQtyImages(qtd) {
-    if (qtd <= 0) {
-        document.querySelector('#share-action').classList.add('hidden', 'invisible');
-    }
+    return;
 }
