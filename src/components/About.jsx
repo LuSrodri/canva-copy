@@ -74,7 +74,7 @@ export const About = memo(function About() {
           alt="Making donation illustration"
           width={200}
           height={200}
-          className="w-48 h-auto"
+          className="w-max h-auto"
           loading="lazy"
         />
       </div>

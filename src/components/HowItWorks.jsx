@@ -41,6 +41,8 @@ export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
           Saiba mais sobre a tecnologia de IA local
         </a>
 
+        <br/>
+
         <Button size="lg" onClick={onCtaClick}>
           Ver a magia
         </Button>
