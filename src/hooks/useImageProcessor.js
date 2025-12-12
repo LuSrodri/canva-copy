@@ -19,6 +19,18 @@ export function useImageProcessor() {
   const processingQueueRef = useRef([])
   const currentlyProcessingRef = useRef(null)
   const preloadedImagesRef = useRef(new Map())
+  const imagesRef = useRef([])
+  const isProcessorReadyRef = useRef(false)
+  const isProcessingRef = useRef(false)
+
+  // Keep refs in sync with state
+  useEffect(() => {
+    imagesRef.current = images
+  }, [images])
+
+  useEffect(() => {
+    isProcessorReadyRef.current = isProcessorReady
+  }, [isProcessorReady])
 
   // Initialize worker
   useEffect(() => {
@@ -76,16 +88,24 @@ export function useImageProcessor() {
     return () => worker.terminate()
   }, [])
 
-  // Process queue
+  // Process queue - uses refs to avoid stale closures
   const processNextInQueue = useCallback(async () => {
-    if (currentlyProcessingRef.current || processingQueueRef.current.length === 0) {
+    // Prevent concurrent processing
+    if (isProcessingRef.current) {
       return
     }
 
-    if (!isProcessorReady) {
+    if (processingQueueRef.current.length === 0) {
+      return
+    }
+
+    if (!isProcessorReadyRef.current) {
       setTimeout(processNextInQueue, 100)
       return
     }
+
+    // Lock processing
+    isProcessingRef.current = true
 
     const nextId = processingQueueRef.current.shift()
     currentlyProcessingRef.current = nextId
@@ -95,8 +115,17 @@ export function useImageProcessor() {
     ))
 
     try {
-      const image = images.find(img => img.id === nextId)
-      if (!image) return
+      // Use ref to get current images
+      const image = imagesRef.current.find(img => img.id === nextId)
+      if (!image) {
+        isProcessingRef.current = false
+        currentlyProcessingRef.current = null
+        // Continue with next if current image not found
+        if (processingQueueRef.current.length > 0) {
+          processNextInQueue()
+        }
+        return
+      }
 
       const result = await new Promise((resolve, reject) => {
         const requestId = nextRequestIdRef.current++
@@ -110,21 +139,28 @@ export function useImageProcessor() {
           : img
       ))
     } catch (error) {
+      console.error('Error processing image:', error)
       setImages(prev => prev.map(img =>
         img.id === nextId ? { ...img, state: ImageState.ERROR } : img
       ))
     } finally {
       currentlyProcessingRef.current = null
-      processNextInQueue()
+      isProcessingRef.current = false
+      
+      // Process next image if queue is not empty
+      if (processingQueueRef.current.length > 0) {
+        // Use setTimeout to avoid stack overflow with many images
+        setTimeout(processNextInQueue, 0)
+      }
     }
-  }, [isProcessorReady, images])
+  }, [])
 
-  // Watch for queue changes
+  // Watch for processor ready to start processing
   useEffect(() => {
-    if (isProcessorReady && processingQueueRef.current.length > 0 && !currentlyProcessingRef.current) {
+    if (isProcessorReady && processingQueueRef.current.length > 0 && !isProcessingRef.current) {
       processNextInQueue()
     }
-  }, [isProcessorReady, processNextInQueue, images])
+  }, [isProcessorReady, processNextInQueue])
 
   const addImage = useCallback(async (file) => {
     const allowedTypes = ['image/webp', 'image/jpeg', 'image/png']
@@ -155,12 +191,10 @@ export function useImageProcessor() {
     setImages(prev => [...prev, newImage])
     processingQueueRef.current.push(id)
 
-    // Trigger processing
-    setTimeout(() => {
-      if (!currentlyProcessingRef.current) {
-        processNextInQueue()
-      }
-    }, 10)
+    // Trigger processing if not already running
+    if (!isProcessingRef.current) {
+      setTimeout(processNextInQueue, 0)
+    }
 
     return id
   }, [processNextInQueue])
