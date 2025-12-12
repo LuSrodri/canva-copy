@@ -1,0 +1,27 @@
+{
+  "name": "I Hate Background",
+  "short_name": "IHB",
+  "description": "Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1987FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity", "photo"],
+  "lang": "pt-BR",
+  "prefer_related_applications": false
+}
