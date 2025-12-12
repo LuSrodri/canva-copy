@@ -18,7 +18,7 @@ export const Header = memo(function Header() {
               height={40}
               className="h-10 w-auto"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </div>
         </a>
