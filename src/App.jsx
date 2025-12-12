@@ -50,16 +50,14 @@ function App() {
       <Header />
       
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 py-8">
-        <section id="hero" className="pt-8">
-          <Hero />
-        </section>
-
-        <section id="app" ref={dropZoneRef}>
-          <DropZone
-            onFilesAdded={handleFilesAdded}
-            onExampleClick={handleExampleClick}
-            isReady={isProcessorReady}
-          />
+        <section id="hero" ref={dropZoneRef}>
+          <Hero>
+            <DropZone
+              onFilesAdded={handleFilesAdded}
+              onExampleClick={handleExampleClick}
+              isReady={isProcessorReady}
+            />
+          </Hero>
         </section>
 
         {images.length > 0 && (
