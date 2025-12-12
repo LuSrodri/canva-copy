@@ -58,6 +58,9 @@ export default defineConfig({
     reportCompressedSize: true,
     chunkSizeWarningLimit: 1000,
   },
+  worker: {
+    format: 'es',
+  },
   optimizeDeps: {
     include: ['react', 'react-dom', 'lucide-react'],
   },
