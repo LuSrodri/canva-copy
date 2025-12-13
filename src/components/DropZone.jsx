@@ -4,9 +4,9 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { cn } from '@/lib/utils'
 
-import planeThumb from '@/assets/images/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=60'
-import fatherDaughterThumb from '@/assets/images/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=60'
-import besidePoolThumb from '@/assets/images/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=60'
+import planeThumb from '@/assets/images/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=85'
+import fatherDaughterThumb from '@/assets/images/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=85'
+import besidePoolThumb from '@/assets/images/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=85'
 
 const EXAMPLE_IMAGES = [
   { src: '/examples/tree-thumb.webp', full: '/examples/tree.png', alt: 'Árvore' },
