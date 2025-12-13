@@ -1,20 +1,18 @@
 import { memo } from 'react'
 import { Zap, Lock } from 'lucide-react'
 
-import heroImage from '@/assets/images/hero.webp?w=384&quality=80';
-import heroImagePlaceholder from '@/assets/images/hero.webp?w=20&h=20&blur=20&quality=20';
+import heroImage from '@/assets/images/hero.webp?w=384&quality=40&format=webp';
 
 export const Hero = memo(function Hero({ children }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <div className="flex flex-col items-center justify-center space-y-6 text-center lg:text-left order-1 lg:order-1">
         <img
-          src={heroImagePlaceholder}
+          src={heroImage}
           alt="Ilustração de remoção de fundo"
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          onLoad={(el) => el.currentTarget.src = heroImage}
           width={384}
           height={384}
           className="w-96 h-auto"
