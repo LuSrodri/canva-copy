@@ -51,7 +51,7 @@ export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
           <CardContent className="p-4 flex items-start gap-3">
             <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-yellow-800">
-              <strong>💡 Dica:</strong> Também é possível{' '}
+              <strong>Dica:</strong> Também é possível{' '}
               <strong>remover o fundo de várias imagens ao mesmo tempo</strong>.
               Arraste e solte todas elas e receba os arquivos prontos para uso.
             </p>

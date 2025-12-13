@@ -22,29 +22,19 @@ export const Hero = memo(function Hero({ children }) {
           </span>
           {' '}de Imagens!
         </h1>
+      </div>
 
+      <div className="flex flex-col items-center justify-center space-y-4 order-2 lg:order-2">
         <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Zap className="w-4 h-4 text-yellow-500" />
-            Super Rápido
-          </div>
-          <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-green-500" />
-            100% Seguro
+            Eficiente
           </div>
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 text-blue-500" />
             Privacidade Total
           </div>
         </div>
-      </div>
-
-      <div className="flex flex-col items-center justify-center space-y-4 order-2 lg:order-2">
-        <p className="text-base sm:text-lg text-muted-foreground text-center">
-          ✨ Um clique e pronto! <em>Suas imagens</em> com fundo transparente.
-          <br />
-          Sem uploads, tudo no navegador.
-        </p>
 
         {children}
       </div>

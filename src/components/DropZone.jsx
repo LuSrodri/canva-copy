@@ -78,7 +78,8 @@ export const DropZone = memo(function DropZone({ onFilesAdded, onExampleClick, i
           "relative p-8 sm:p-12 border-2 border-dashed transition-all duration-300 cursor-pointer group",
           "bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30",
           "hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5",
-          isDragging && "border-primary bg-primary/5 scale-[1.02] shadow-2xl shadow-primary/10"
+          isDragging && "border-primary bg-primary/5 scale-[1.02] shadow-2xl shadow-primary/10",
+          "max-w-[96dvw]"
         )}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
