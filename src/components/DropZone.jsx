@@ -1,14 +1,14 @@
 import { useState, useCallback, useRef, memo } from 'react'
-import { Upload, Image as ImageIcon, Clipboard } from 'lucide-react'
+import { Upload, Image as ImageIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { cn } from '@/lib/utils'
 
 const EXAMPLE_IMAGES = [
   { src: '/examples/tree-thumb.webp', full: '/examples/tree.png', alt: 'Árvore' },
-  { src: '/examples/plane-thumb.webp', full: '/examples/plane.jpg', alt: 'Avião' },
-  { src: '/examples/father-daughter-thumb.webp', full: '/examples/father-daughter-walking.jpg', alt: 'Pai e filha' },
-  { src: '/examples/beside-pool-thumb.webp', full: '/examples/beside-pool.jpg', alt: 'Piscina' },
+  { src: '/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=85', full: '/examples/plane.jpg', alt: 'Avião' },
+  { src: '/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=85', full: '/examples/father-daughter-walking.jpg', alt: 'Pai e filha' },
+  { src: '/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=85', full: '/examples/beside-pool.jpg', alt: 'Piscina' },
 ]
 
 export const DropZone = memo(function DropZone({ onFilesAdded, onExampleClick, isReady }) {

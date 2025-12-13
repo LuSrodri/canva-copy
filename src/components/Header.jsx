@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Sparkles } from 'lucide-react'
 
-import logoImage from '@/assets/images/logo.webp?w=180&h=180&format=webp&quality=85'
+import logoImage from '@/assets/images/logo.webp?w=40&h=40&format=webp&quality=85'
 
 export const Header = memo(function Header() {
   return (
@@ -17,6 +17,7 @@ export const Header = memo(function Header() {
               src={logoImage}
               alt="I Hate Background Logo"
               className="h-10 w-auto"
+              loading='eager'
               fetchpriority="high"
             />
           </div>
