@@ -4,11 +4,15 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { cn } from '@/lib/utils'
 
+import planeThumb from '@/assets/images/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=60'
+import fatherDaughterThumb from '@/assets/images/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=60'
+import besidePoolThumb from '@/assets/images/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=60'
+
 const EXAMPLE_IMAGES = [
   { src: '/examples/tree-thumb.webp', full: '/examples/tree.png', alt: 'Árvore' },
-  { src: '/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=85', full: '/examples/plane.jpg', alt: 'Avião' },
-  { src: '/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=85', full: '/examples/father-daughter-walking.jpg', alt: 'Pai e filha' },
-  { src: '/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=85', full: '/examples/beside-pool.jpg', alt: 'Piscina' },
+  { src: planeThumb, full: '/examples/plane.jpg', alt: 'Avião' },
+  { src: fatherDaughterThumb, full: '/examples/father-daughter-walking.jpg', alt: 'Pai e filha' },
+  { src: besidePoolThumb, full: '/examples/beside-pool.jpg', alt: 'Piscina' },
 ]
 
 export const DropZone = memo(function DropZone({ onFilesAdded, onExampleClick, isReady }) {
