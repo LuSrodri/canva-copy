@@ -3,6 +3,8 @@ import { Lightbulb, ExternalLink } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
 
+import exampleImage from '@/assets/images/example.webp?w=600&h=400&format=webp&quality=75'
+
 export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
   return (
     <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -64,12 +66,13 @@ export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
         <Card className="relative overflow-hidden border-0 shadow-2xl">
           <CardContent className="p-0">
             <img
-              src="/example.webp"
+              src={exampleImage}
               alt="Exemplo de funcionamento do I Hate Background"
               width={600}
               height={400}
               className="w-full h-auto"
               loading="lazy"
+              decoding="async"
             />
           </CardContent>
         </Card>

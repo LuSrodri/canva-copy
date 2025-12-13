@@ -8,20 +8,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     react(),
-    imagetools({
-      defaultDirectives: (url) => {
-        if (url.searchParams.has('hero')) {
-          return new URLSearchParams('format=webp&quality=85&w=600')
-        }
-        if (url.searchParams.has('thumb')) {
-          return new URLSearchParams('format=webp&quality=75&w=120&h=120')
-        }
-        if (url.searchParams.has('icon')) {
-          return new URLSearchParams('format=webp&quality=90&w=80')
-        }
-        return new URLSearchParams()
-      }
-    }),
+    imagetools(),
     compression({
       algorithm: 'gzip',
       ext: '.gz',

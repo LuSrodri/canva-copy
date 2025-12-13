@@ -3,6 +3,8 @@ import { Share2, Coffee, Github, ExternalLink, Heart } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
 
+import donationImage from '@/assets/images/making-donation.webp?w=200&h=200&format=webp&quality=75'
+
 export const About = memo(function About() {
   const handleShare = useCallback(async () => {
     const shareData = {
@@ -70,12 +72,13 @@ export const About = memo(function About() {
         </div>
 
         <img
-          src="/making-donation.webp"
+          src={donationImage}
           alt="Making donation illustration"
           width={200}
           height={200}
           className="w-max h-auto"
           loading="lazy"
+          decoding="async"
         />
       </div>
 
