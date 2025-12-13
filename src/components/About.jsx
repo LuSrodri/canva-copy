@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react'
-import { Share2, Coffee, Github, ExternalLink, Heart } from 'lucide-react'
+import { Share2, Coffee, Github, ExternalLink } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
 
-import donationImage from '@/assets/images/making-donation.webp?w=200&h=200&format=webp&quality=75'
+import donationImage from '@/assets/images/making-donation.webp?w=512&h=512&format=webp&quality=75'
 
 export const About = memo(function About() {
   const handleShare = useCallback(async () => {
@@ -74,11 +74,8 @@ export const About = memo(function About() {
         <img
           src={donationImage}
           alt="Making donation illustration"
-          width={200}
-          height={200}
           className="w-max h-auto"
           loading="lazy"
-          decoding="async"
         />
       </div>
 

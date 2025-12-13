@@ -3,7 +3,7 @@ import { Lightbulb, ExternalLink } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
 
-import exampleImage from '@/assets/images/example.webp?w=600&h=400&format=webp&quality=75'
+import exampleImage from '@/assets/images/example.webp?w=512&h=512&format=webp&quality=75'
 
 export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
   return (
@@ -68,11 +68,8 @@ export const HowItWorks = memo(function HowItWorks({ onCtaClick }) {
             <img
               src={exampleImage}
               alt="Exemplo de funcionamento do I Hate Background"
-              width={600}
-              height={400}
               className="w-full h-auto"
               loading="lazy"
-              decoding="async"
             />
           </CardContent>
         </Card>

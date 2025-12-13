@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import { Sparkles, Shield, Zap, Lock } from 'lucide-react'
+import { Zap, Lock } from 'lucide-react'
 
-import heroImage from '@/assets/images/hero.webp?w=400&h=300&format=webp&quality=80'
+import heroImage from '@/assets/images/hero.webp?w=512&h=512&format=webp&quality=80'
 
 export const Hero = memo(function Hero({ children }) {
   return (
@@ -10,11 +10,7 @@ export const Hero = memo(function Hero({ children }) {
         <img
           src={heroImage}
           alt="Ilustração de remoção de fundo"
-          width={400}
-          height={300}
-          loading="eager"
           fetchpriority="high"
-          decoding="async"
           className="w-96 h-auto"
         />
 
