@@ -12,6 +12,7 @@ const ImageState = {
 export function useImageProcessor() {
   const [images, setImages] = useState([])
   const [isProcessorReady, setIsProcessorReady] = useState(false)
+  const [processorError, setProcessorError] = useState(null)
   const workerRef = useRef(null)
   const pendingRequestsRef = useRef(new Map())
   const nextIdRef = useRef(1)
@@ -39,17 +40,27 @@ export function useImageProcessor() {
       { type: 'module' }
     )
 
+    // Timeout para detectar falha no carregamento
+    const loadTimeout = setTimeout(() => {
+      if (!isProcessorReadyRef.current) {
+        setProcessorError('Falha ao carregar o modelo de IA. Recarregue a página.')
+      }
+    }, 30000) // 30 segundos
+
     worker.onmessage = (event) => {
       const { id, result, error, success } = event.data
 
       if (success) {
         setIsProcessorReady(true)
+        clearTimeout(loadTimeout)
         return
       }
 
       if (!id) {
         if (error) {
           console.error('Processor error:', error)
+          setProcessorError('Erro ao inicializar o processador de imagens.')
+          clearTimeout(loadTimeout)
         }
         return
       }
@@ -85,7 +96,10 @@ export function useImageProcessor() {
       }
     })
 
-    return () => worker.terminate()
+    return () => {
+      clearTimeout(loadTimeout)
+      worker.terminate()
+    }
   }, [])
 
   // Process queue - uses refs to avoid stale closures
@@ -242,6 +256,7 @@ export function useImageProcessor() {
   return {
     images,
     isProcessorReady,
+    processorError,
     addImage,
     addExampleImage,
     removeImage,

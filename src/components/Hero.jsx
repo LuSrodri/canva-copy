@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Zap, Lock } from 'lucide-react'
 
-import heroImage from '@/assets/images/hero.webp?w=384&quality=85&format=webp';
+import heroImage from '@/assets/images/hero.webp?w=384&quality=100&format=webp';
 
 export const Hero = memo(function Hero({ children }) {
   return (

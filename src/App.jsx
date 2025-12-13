@@ -16,7 +16,7 @@ function App() {
   const dropZoneRef = useRef(null)
   const {
     images,
-    isProcessorReady,
+    processorError,
     addImage,
     addExampleImage,
     removeImage,
@@ -55,7 +55,7 @@ function App() {
             <DropZone
               onFilesAdded={handleFilesAdded}
               onExampleClick={handleExampleClick}
-              isReady={isProcessorReady}
+              processorError={processorError}
             />
           </Hero>
         </section>
