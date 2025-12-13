@@ -15,6 +15,8 @@ export const Hero = memo(function Hero({ children }) {
           fetchPriority="high"
           decoding="async"
           onLoad={(el) => el.currentTarget.src = heroImage}
+          width={384}
+          height={384}
           className="w-96 h-auto"
         />
 

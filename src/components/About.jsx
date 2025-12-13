@@ -74,6 +74,8 @@ export const About = memo(function About() {
         <img
           src={donationImage}
           alt="Making donation illustration"
+          width={512}
+          height={512}
           className="w-max h-auto"
           loading="lazy"
         />

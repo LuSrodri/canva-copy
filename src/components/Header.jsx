@@ -16,8 +16,10 @@ export const Header = memo(function Header() {
             <img
               src={logoImage}
               alt="I Hate Background Logo"
+              width={40}
+              height={40}
               className="h-10 w-auto"
-              loading='eager'
+              loading="eager"
               fetchpriority="high"
             />
           </div>

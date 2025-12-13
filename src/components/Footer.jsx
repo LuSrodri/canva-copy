@@ -11,8 +11,7 @@ export const Footer = memo(function Footer() {
           © {year} I Hate Background
         </p>
         <p className="text-sm text-muted-foreground text-center">
-          <br />
-          Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" /> por{' '}
+          Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" aria-label="amor" /> por{' '}
           <a
             href="https://lusrodri.me"
             target="_blank"

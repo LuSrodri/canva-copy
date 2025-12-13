@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, memo } from 'react'
+import { useState, useCallback, useRef, memo, useEffect } from 'react'
 import { Upload, Image as ImageIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
@@ -70,10 +70,10 @@ export const DropZone = memo(function DropZone({ onFilesAdded, onExampleClick, i
   }, [handleFiles])
 
   // Add paste listener
-  useState(() => {
+  useEffect(() => {
     document.addEventListener('paste', handlePaste)
     return () => document.removeEventListener('paste', handlePaste)
-  })
+  }, [handlePaste])
 
   return (
     <div className="space-y-6">

@@ -22,6 +22,8 @@ export const HowToUse = memo(function HowToUse({ onCtaClick }) {
               loop
               playsInline
               preload="none"
+              width={640}
+              height={360}
               className="w-full h-auto"
               aria-label="Demonstração de como usar o I Hate Background"
             />
