@@ -1,4 +1,9 @@
+# Allow all robots complete access
 User-agent: *
 Allow: /
+Disallow:
 
+# Crawl-delay: 0 (no delay requested)
+
+# Sitemap location
 Sitemap: https://ihatebackground.com/sitemap.xml
