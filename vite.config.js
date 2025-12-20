@@ -40,6 +40,12 @@ export default defineConfig({
           ui: ['lucide-react', 'clsx', 'tailwind-merge', 'class-variance-authority'],
         },
       },
+      assetFileNames: (assetInfo) => {
+        if (assetInfo.name === 'hero.webp') {
+          return 'assets/hero.webp'
+        }
+        return 'assets/[name]-[hash][extname]'
+      },
     },
     cssCodeSplit: true,
     reportCompressedSize: true,
