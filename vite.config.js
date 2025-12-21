@@ -39,12 +39,12 @@ export default defineConfig({
           transformers: ['@huggingface/transformers'],
           ui: ['lucide-react', 'clsx', 'tailwind-merge', 'class-variance-authority'],
         },
-      },
-      assetFileNames: (assetInfo) => {
-        if (assetInfo.name === 'hero.webp') {
-          return 'assets/hero.webp'
-        }
-        return 'assets/[name]-[hash][extname]'
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'hero.webp') {
+            return 'assets/hero.webp'
+          }
+          return 'assets/[name]-[hash][extname]'
+        },
       },
     },
     cssCodeSplit: true,
