@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { AdBanner } from '../components/AdBanner'
 import { Header } from '../components/Header'
 import { Hero } from '../components/Hero'
@@ -50,28 +51,49 @@ export default function HomePage() {
   }, [addExampleImage, scrollToGallery])
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
-      <AdBanner />
-      <Header />
+    <>
+      <Helmet>
+        <title>I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login</title>
+        <meta name="description" content="Remova o fundo de qualquer imagem em segundos com I Hate Background. Ferramenta gratuita, ilimitada, sem login e 100% focada em privacidade. Funciona direto no navegador com inteligência artificial." />
+        <meta name="keywords" content="remover fundo, remover fundo de imagem, remover fundo gratis, remover fundo png, tirar fundo de foto, background remover, removedor de fundo, remover fundo online, remover fundo automatico, i hate background" />
+        <link rel="canonical" href="https://ihatebackground.com/" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="I Hate Background — Removedor de Fundo de Imagens Gratuito" />
+        <meta property="og:description" content="Remova o fundo de qualquer imagem em segundos. 100% gratuito, ilimitado, sem login e focado em privacidade." />
+        <meta property="og:url" content="https://ihatebackground.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ihatebackground.com/og-image.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="I Hate Background — Removedor de Fundo Gratuito" />
+        <meta name="twitter:description" content="Remova o fundo de qualquer imagem em segundos. 100% gratuito, ilimitado e sem login." />
+        <meta name="twitter:image" content="https://ihatebackground.com/og-image.png" />
+      </Helmet>
       
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 py-8">
-        <section id="hero" ref={dropZoneRef}>
-          <Hero>
-            <DropZone
-              onFilesAdded={handleFilesAdded}
-              onExampleClick={handleExampleClick}
-              processorError={processorError}
-            />
-          </Hero>
-        </section>
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
+        <AdBanner />
+        <Header />
+        
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 py-8">
+          <section id="hero" ref={dropZoneRef}>
+            <Hero>
+              <DropZone
+                onFilesAdded={handleFilesAdded}
+                onExampleClick={handleExampleClick}
+                processorError={processorError}
+              />
+            </Hero>
+          </section>
 
-        {images.length > 0 && (
-          <section ref={galleryRef} className="animate-fade-in">
-            <ImageGallery
-              images={images}
-              onRemove={removeImage}
-              canRemove={canRemoveImage}
-            />
+          {images.length > 0 && (
+            <section ref={galleryRef} className="animate-fade-in">
+              <ImageGallery
+                images={images}
+                onRemove={removeImage}
+                canRemove={canRemoveImage}
+              />
           </section>
         )}
 
@@ -119,6 +141,7 @@ export default function HomePage() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }

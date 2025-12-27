@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, Clock, Calendar, Tag, Share2, CheckCircle, Sparkles, ArrowRight } from 'lucide-react'
 import { getArticleBySlug, getAllArticles } from '../data/articles'
 import { Header } from '../components/Header'
@@ -217,59 +218,35 @@ export default function ArticlePage() {
     }
   }, [article])
 
-  // Update meta tags
+  // Scroll to top on page load
   useEffect(() => {
-    if (article) {
-      document.title = article.metaTitle
-      
-      // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', article.metaDescription)
-      }
-
-      // Update meta keywords
-      let metaKeywords = document.querySelector('meta[name="keywords"]')
-      if (metaKeywords) {
-        metaKeywords.setAttribute('content', article.keywords)
-      }
-
-      // Update OG tags
-      let ogTitle = document.querySelector('meta[property="og:title"]')
-      if (ogTitle) ogTitle.setAttribute('content', article.metaTitle)
-      
-      let ogDescription = document.querySelector('meta[property="og:description"]')
-      if (ogDescription) ogDescription.setAttribute('content', article.metaDescription)
-      
-      let ogUrl = document.querySelector('meta[property="og:url"]')
-      if (ogUrl) ogUrl.setAttribute('content', window.location.href)
-    }
-
-    // Scroll to top on page load
     window.scrollTo(0, 0)
-
-    return () => {
-      // Reset to default on unmount
-      document.title = 'I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login'
-    }
-  }, [article])
+  }, [slug])
 
   if (!article) {
     return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <h1 className="text-2xl font-bold">Artigo não encontrado</h1>
-            <Link to="/" className="text-primary hover:underline">
-              Voltar para a página inicial
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
+      <>
+        <Helmet>
+          <title>Artigo não encontrado | I Hate Background</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
+        <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
+          <Header />
+          <main className="flex-1 flex items-center justify-center">
+            <div className="text-center space-y-4">
+              <h1 className="text-2xl font-bold">Artigo não encontrado</h1>
+              <Link to="/" className="text-primary hover:underline">
+                Voltar para a página inicial
+              </Link>
+            </div>
+          </main>
+          <Footer />
+        </div>
+      </>
     )
   }
+
+  const articleUrl = `https://ihatebackground.com/blog/${article.slug}`
 
   const colorClasses = {
     blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200' },
@@ -279,65 +256,86 @@ export default function ArticlePage() {
   const colors = colorClasses[article.color] || colorClasses.blue
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
-      <Header />
+    <>
+      <Helmet>
+        <title>{article.metaTitle}</title>
+        <meta name="description" content={article.metaDescription} />
+        <meta name="keywords" content={article.keywords} />
+        <link rel="canonical" href={articleUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={article.metaTitle} />
+        <meta property="og:description" content={article.metaDescription} />
+        <meta property="og:url" content={articleUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={article.publishedAt} />
+        <meta property="article:section" content={article.category} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.metaTitle} />
+        <meta name="twitter:description" content={article.metaDescription} />
+      </Helmet>
       
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Voltar para a página inicial
-          </Link>
-        </nav>
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
+        <Header />
+        
+        <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Breadcrumb */}
+          <nav className="mb-8">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Voltar para a página inicial
+            </Link>
+          </nav>
 
-        {/* Article Header */}
-        <header className="mb-8 space-y-4">
-          <div className="flex flex-wrap gap-2">
-            <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${colors.bg} ${colors.text}`}>
-              <Tag className="w-3 h-3" />
-              {article.category}
-            </span>
-          </div>
-          
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-            {article.title}
-          </h1>
-          
-          <p className="text-xl text-muted-foreground">
-            {article.summary}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <time dateTime={article.publishedAt}>
-                {new Date(article.publishedAt).toLocaleDateString('pt-BR', { 
-                  day: 'numeric', 
-                  month: 'long', 
-                  year: 'numeric' 
-                })}
-              </time>
+          {/* Article Header */}
+          <header className="mb-8 space-y-4">
+            <div className="flex flex-wrap gap-2">
+              <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${colors.bg} ${colors.text}`}>
+                <Tag className="w-3 h-3" />
+                {article.category}
+              </span>
             </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              {article.readingTime} de leitura
-            </div>
-            <Button variant="ghost" size="sm" onClick={handleShare} className="gap-1">
-              <Share2 className="w-4 h-4" />
-              Compartilhar
-            </Button>
-          </div>
-        </header>
+            
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              {article.title}
+            </h1>
+            
+            <p className="text-xl text-muted-foreground">
+              {article.summary}
+            </p>
 
-        {/* CTA Banner */}
-        <Card className={`mb-8 ${colors.bg} ${colors.border} border`}>
-          <CardContent className="p-4 sm:p-6">
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex-1 text-center sm:text-left">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <time dateTime={article.publishedAt}>
+                  {new Date(article.publishedAt).toLocaleDateString('pt-BR', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })}
+                </time>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                {article.readingTime} de leitura
+              </div>
+              <Button variant="ghost" size="sm" onClick={handleShare} className="gap-1">
+                <Share2 className="w-4 h-4" />
+                Compartilhar
+              </Button>
+            </div>
+          </header>
+
+          {/* CTA Banner */}
+          <Card className={`mb-8 ${colors.bg} ${colors.border} border`}>
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <div className="flex-1 text-center sm:text-left">
                 <p className="font-semibold text-foreground">
                   Quer experimentar agora?
                 </p>
@@ -450,6 +448,7 @@ export default function ArticlePage() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }

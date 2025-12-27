@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { Clock, Tag, ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react'
 import { getAllArticles } from '../data/articles'
 import { Header } from '../components/Header'
@@ -10,21 +10,6 @@ import { Card, CardContent } from '../components/ui/card'
 export default function BlogPage() {
   const articles = getAllArticles()
 
-  useEffect(() => {
-    document.title = 'Blog | I Hate Background — Artigos e Tutoriais sobre Remoção de Fundo'
-    
-    let metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Artigos, tutoriais e dicas sobre remoção de fundo de imagens. Aprenda a usar o I Hate Background, o removedor de fundo 100% gratuito, ilimitado e focado em privacidade.')
-    }
-
-    window.scrollTo(0, 0)
-
-    return () => {
-      document.title = 'I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login'
-    }
-  }, [])
-
   const colorClasses = {
     blue: { bg: 'bg-blue-50', text: 'text-blue-600' },
     green: { bg: 'bg-green-50', text: 'text-green-600' },
@@ -32,8 +17,27 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
-      <Header />
+    <>
+      <Helmet>
+        <title>Blog | I Hate Background — Artigos e Tutoriais sobre Remoção de Fundo</title>
+        <meta name="description" content="Artigos, tutoriais e dicas sobre remoção de fundo de imagens. Aprenda a usar o I Hate Background, o removedor de fundo 100% gratuito, ilimitado e focado em privacidade." />
+        <meta name="keywords" content="blog remover fundo, tutorial remover fundo, como remover fundo de imagem, dicas remover fundo, artigos remoção de fundo" />
+        <link rel="canonical" href="https://ihatebackground.com/blog" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Blog | I Hate Background — Artigos e Tutoriais" />
+        <meta property="og:description" content="Artigos, tutoriais e dicas sobre remoção de fundo de imagens com I Hate Background." />
+        <meta property="og:url" content="https://ihatebackground.com/blog" />
+        <meta property="og:type" content="blog" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog | I Hate Background" />
+        <meta name="twitter:description" content="Artigos e tutoriais sobre remoção de fundo de imagens." />
+      </Helmet>
+      
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
+        <Header />
       
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
@@ -153,6 +157,7 @@ export default function BlogPage() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }
