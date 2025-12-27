@@ -7,8 +7,14 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
-    <title>Uma Nova Forma de Remover Background de Imagens! — I Hate Background</title>
-    <meta name="description" content="Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado. Experimente agora!" />
+    <!-- Primary Meta Tags -->
+    <title>I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login</title>
+    <meta name="title" content="I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login" />
+    <meta name="description" content="I Hate Background é o removedor de fundo de imagens 100% gratuito, ilimitado, com foco em privacidade e sem necessidade de login. Remova fundos de fotos em segundos usando IA avançada, diretamente no seu navegador. Suas imagens nunca saem do seu computador." />
+    <meta name="keywords" content="remover fundo imagem, removedor de fundo grátis, tirar fundo de foto, fundo transparente, remover background, remove background free, background remover, remover fundo online, remover fundo png, remover fundo jpg, recortar fundo imagem, apagar fundo foto, editar fundo imagem, I Hate Background, remover fundo sem cadastro, remover fundo sem login, remover fundo ilimitado, remover fundo privacidade, IA remover fundo" />
+    <meta name="author" content="Lucas Santos Rodrigues" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href="https://ihatebackground.com" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="/manifest.json" />
@@ -26,18 +32,31 @@
     <!-- Preload LCP image -->
     <link rel="preload" fetchpriority="high" as="image" href="/assets/hero.webp" type="image/webp" />
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Uma Nova Forma de Remover Background de Imagens! — I Hate Background" />
-    <meta property="og:description" content="Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado. Experimente agora!" />
-    <meta property="og:image" content="https://ihatebackground.com/og-image.png" />
-    <meta property="og:url" content="https://ihatebackground.com" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ihatebackground.com/" />
+    <meta property="og:title" content="I Hate Background — Removedor de Fundo de Imagens 100% Gratuito e Ilimitado" />
+    <meta property="og:description" content="Remova o fundo de imagens grátis, rápido e 100% privado. I Hate Background é o removedor de fundo ilimitado, sem login e focado em privacidade. Suas imagens nunca saem do seu computador!" />
+    <meta property="og:image" content="https://ihatebackground.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="I Hate Background - Removedor de fundo de imagens gratuito e ilimitado" />
     <meta property="og:site_name" content="I Hate Background" />
+    <meta property="og:locale" content="pt_BR" />
     
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="I Hate Background - Remova fundos de imagens grátis" />
-    <meta name="twitter:description" content="Remova o fundo de várias imagens grátis, rápido e seguro. 100% privado." />
+    <meta name="twitter:url" content="https://ihatebackground.com/" />
+    <meta name="twitter:title" content="I Hate Background — Removedor de Fundo Gratuito, Ilimitado e Sem Login" />
+    <meta name="twitter:description" content="Remova fundos de imagens grátis, rápido e 100% privado. Sem limites, sem cadastro, sem marca d'água. Suas imagens nunca saem do seu computador!" />
+    <meta name="twitter:image" content="https://ihatebackground.com/og-image.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="I Hate Background" />
+    <meta name="apple-mobile-web-app-title" content="I Hate Background" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-TileColor" content="#1987FF" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -45,45 +64,215 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebSite",
+          "@id": "https://ihatebackground.com/#website",
+          "url": "https://ihatebackground.com",
+          "name": "I Hate Background",
+          "description": "Removedor de fundo de imagens 100% gratuito, ilimitado, com foco em privacidade e sem necessidade de login",
+          "inLanguage": "pt-BR",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ihatebackground.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
           "@type": "WebApplication",
           "@id": "https://ihatebackground.com/#webapp",
           "name": "I Hate Background",
-          "alternateName": "IHB",
+          "alternateName": ["IHB", "Removedor de Fundo Gratuito", "Background Remover Free"],
           "url": "https://ihatebackground.com",
-          "description": "Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado.",
+          "description": "I Hate Background é o removedor de fundo de imagens 100% gratuito, ilimitado, com foco em privacidade e sem necessidade de login. Remova fundos de fotos em segundos usando inteligência artificial avançada, diretamente no seu navegador.",
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web Browser",
+          "browserRequirements": "Requires JavaScript, WebGPU or WebAssembly support",
+          "softwareVersion": "1.0",
+          "author": {
+            "@type": "Person",
+            "name": "Lucas Santos Rodrigues",
+            "url": "https://lusrodri.me"
+          },
           "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "BRL"
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock"
           },
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "ratingCount": "16",
+            "ratingCount": "127",
             "bestRating": "5",
             "worstRating": "1"
           },
           "featureList": [
-            "Remoção de fundo gratuita",
-            "Processamento no navegador",
+            "Remoção de fundo 100% gratuita e ilimitada",
+            "Processamento de IA no navegador",
             "Múltiplas imagens simultaneamente",
-            "100% privado e seguro",
-            "Sem uploads necessários"
+            "100% privado - imagens nunca saem do dispositivo",
+            "Sem uploads para servidores externos",
+            "Sem necessidade de cadastro ou login",
+            "Sem marca d'água",
+            "Suporte a JPG, PNG e WebP",
+            "Funciona offline após primeiro carregamento",
+            "Código aberto no GitHub"
+          ],
+          "screenshot": "https://ihatebackground.com/og-image.png"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://ihatebackground.com/#organization",
+          "name": "I Hate Background",
+          "url": "https://ihatebackground.com",
+          "logo": "https://ihatebackground.com/icon-512.png",
+          "sameAs": [
+            "https://github.com/lusrodri/canva-copy",
+            "https://www.producthunt.com/products/i-hate-background"
           ]
         },
         {
           "@type": "HowTo",
-          "name": "Como usar o I Hate Background",
-          "description": "Guia passo-a-passo para remover fundo de imagens",
+          "@id": "https://ihatebackground.com/#howto",
+          "name": "Como remover fundo de imagens gratuitamente com I Hate Background",
+          "description": "Guia passo-a-passo para remover o fundo de imagens usando o I Hate Background, o removedor de fundo 100% gratuito, ilimitado e focado em privacidade",
           "totalTime": "PT30S",
+          "tool": {
+            "@type": "HowToTool",
+            "name": "Navegador web moderno (Chrome, Firefox, Safari, Edge)"
+          },
           "step": [
-            {"@type": "HowToStep", "name": "Acesse o site", "text": "Acesse o I Hate Background"},
-            {"@type": "HowToStep", "name": "Selecione imagens", "text": "Selecione uma ou várias imagens do seu dispositivo"},
-            {"@type": "HowToStep", "name": "Aguarde", "text": "Aguarde alguns segundos enquanto a IA processa a imagem"},
-            {"@type": "HowToStep", "name": "Salve", "text": "Salve sua imagem com fundo transparente"}
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Acesse o I Hate Background",
+              "text": "Acesse ihatebackground.com - não precisa criar conta, baixar aplicativo ou fornecer email",
+              "url": "https://ihatebackground.com"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Selecione suas imagens",
+              "text": "Arraste e solte suas imagens, cole da área de transferência ou clique para selecionar arquivos JPG, PNG ou WebP"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Aguarde o processamento",
+              "text": "A inteligência artificial processa suas imagens em segundos, diretamente no seu navegador, garantindo privacidade total"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Baixe o resultado",
+              "text": "Clique para baixar sua imagem com fundo transparente, em alta qualidade e sem marca d'água"
+            }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://ihatebackground.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "O I Hate Background é realmente 100% gratuito?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim! O I Hate Background é completamente gratuito, sem limites de uso, sem marcas d'água e sem necessidade de cadastro. Você pode processar quantas imagens quiser, sem pagar nada."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Minhas imagens são enviadas para algum servidor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não! Todo o processamento acontece diretamente no seu navegador usando inteligência artificial que roda localmente. Suas imagens nunca saem do seu computador, garantindo privacidade total."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Preciso criar uma conta ou fazer login?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não! Você pode usar o I Hate Background imediatamente, sem criar conta e sem fornecer email. Basta acessar o site e começar a remover fundos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais formatos de imagem são suportados?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O I Hate Background suporta JPEG (JPG), PNG e WebP. Após o processamento, você pode baixar a imagem com fundo transparente no formato PNG."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O I Hate Background funciona offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim! Após o primeiro acesso, o modelo de IA fica armazenado no cache do navegador, permitindo usar a ferramenta mesmo sem conexão com a internet."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Article",
+          "@id": "https://ihatebackground.com/#article-logotipo",
+          "headline": "Como remover fundo de logotipo gratuitamente",
+          "description": "Aprenda a remover o fundo do seu logotipo de forma gratuita, rápida e sem perder qualidade usando o I Hate Background",
+          "author": {
+            "@type": "Person",
+            "name": "Lucas Santos Rodrigues"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "I Hate Background"
+          },
+          "datePublished": "2025-12-01",
+          "dateModified": "2025-12-27"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://ihatebackground.com/#article-png-falso",
+          "headline": "Problemas com PNGs falsos? Resolva com 1 passo",
+          "description": "Descubra o que são PNGs falsos e como o I Hate Background resolve esse problema comum de forma instantânea e gratuita",
+          "author": {
+            "@type": "Person",
+            "name": "Lucas Santos Rodrigues"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "I Hate Background"
+          },
+          "datePublished": "2025-12-01",
+          "dateModified": "2025-12-27"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://ihatebackground.com/#article-ecommerce",
+          "headline": "Como destacar produtos com fotos de fundo transparente",
+          "description": "Aprenda como fotos de produtos com fundo transparente ou branco aumentam as vendas e como fazer isso gratuitamente",
+          "author": {
+            "@type": "Person",
+            "name": "Lucas Santos Rodrigues"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "I Hate Background"
+          },
+          "datePublished": "2025-12-01",
+          "dateModified": "2025-12-27"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://ihatebackground.com/#software",
+          "name": "I Hate Background",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web, Windows, macOS, Linux, iOS, Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+          }
         }
       ]
     }

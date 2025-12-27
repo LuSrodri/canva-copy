@@ -7,6 +7,9 @@ import { ImageGallery } from './components/ImageGallery'
 import { Features } from './components/Features'
 import { HowToUse } from './components/HowToUse'
 import { HowItWorks } from './components/HowItWorks'
+import { SEOContent } from './components/SEOContent'
+import { Articles } from './components/Articles'
+import { FAQ } from './components/FAQ'
 import { About } from './components/About'
 import { Media } from './components/Media'
 import { Footer } from './components/Footer'
@@ -85,6 +88,26 @@ function App() {
         <section id="how-it-works">
           <HowItWorks onCtaClick={scrollToDropZone} />
         </section>
+
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
+
+        <section id="seo-content">
+          <SEOContent />
+        </section>
+
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
+
+        <section id="articles">
+          <Articles onCtaClick={scrollToDropZone} />
+        </section>
+
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
+
+        <section id="faq">
+          <FAQ />
+        </section>
+
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
 
         <section id="about">
           <About />

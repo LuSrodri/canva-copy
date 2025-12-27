@@ -1,7 +1,7 @@
 {
-  "name": "I Hate Background",
-  "short_name": "IHB",
-  "description": "Remova o fundo de várias imagens grátis, rápido e seguro. Sem uploads! Tudo no navegador, 100% privado.",
+  "name": "I Hate Background - Removedor de Fundo Gratuito",
+  "short_name": "I Hate Background",
+  "description": "I Hate Background é o removedor de fundo de imagens 100% gratuito, ilimitado, com foco em privacidade e sem necessidade de login. Remova fundos de fotos em segundos usando IA avançada, diretamente no seu navegador.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -33,7 +33,17 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["utilities", "productivity", "photo"],
+  "categories": ["utilities", "productivity", "photo", "graphics"],
   "lang": "pt-BR",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "I Hate Background - Interface principal"
+    }
+  ],
+  "related_applications": [],
+  "scope": "/"
 }

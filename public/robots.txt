@@ -1,9 +1,22 @@
+# I Hate Background - Removedor de Fundo de Imagens 100% Gratuito
+# https://ihatebackground.com
+
 # Allow all robots complete access
 User-agent: *
 Allow: /
-Disallow:
 
-# Crawl-delay: 0 (no delay requested)
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot specific rules  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://ihatebackground.com/sitemap.xml
+
+# Host
+Host: https://ihatebackground.com
