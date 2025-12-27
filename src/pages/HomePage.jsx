@@ -1,21 +1,21 @@
 import { useCallback, useRef } from 'react'
-import { AdBanner } from './components/AdBanner'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { DropZone } from './components/DropZone'
-import { ImageGallery } from './components/ImageGallery'
-import { Features } from './components/Features'
-import { HowToUse } from './components/HowToUse'
-import { HowItWorks } from './components/HowItWorks'
-import { SEOContent } from './components/SEOContent'
-import { Articles } from './components/Articles'
-import { FAQ } from './components/FAQ'
-import { About } from './components/About'
-import { Media } from './components/Media'
-import { Footer } from './components/Footer'
-import { useImageProcessor } from './hooks/useImageProcessor'
+import { AdBanner } from '../components/AdBanner'
+import { Header } from '../components/Header'
+import { Hero } from '../components/Hero'
+import { DropZone } from '../components/DropZone'
+import { ImageGallery } from '../components/ImageGallery'
+import { Features } from '../components/Features'
+import { HowToUse } from '../components/HowToUse'
+import { HowItWorks } from '../components/HowItWorks'
+import { SEOContent } from '../components/SEOContent'
+import { ArticlesPreview } from '../components/ArticlesPreview'
+import { FAQ } from '../components/FAQ'
+import { About } from '../components/About'
+import { Media } from '../components/Media'
+import { Footer } from '../components/Footer'
+import { useImageProcessor } from '../hooks/useImageProcessor'
 
-function App() {
+export default function HomePage() {
   const galleryRef = useRef(null)
   const dropZoneRef = useRef(null)
   const {
@@ -98,7 +98,7 @@ function App() {
         <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
 
         <section id="articles">
-          <Articles onCtaClick={scrollToDropZone} />
+          <ArticlesPreview />
         </section>
 
         <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
@@ -122,5 +122,3 @@ function App() {
     </div>
   )
 }
-
-export default App

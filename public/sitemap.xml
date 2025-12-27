@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
   <url>
     <loc>https://ihatebackground.com/</loc>
     <lastmod>2025-12-27</lastmod>
@@ -12,40 +13,64 @@
       <image:caption>Remova o fundo de imagens grátis, ilimitado, com foco em privacidade e sem login</image:caption>
     </image:image>
   </url>
+  
+  <!-- Blog Index -->
+  <url>
+    <loc>https://ihatebackground.com/blog</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://ihatebackground.com/blog/remover-fundo-logotipo</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ihatebackground.com/blog/pngs-falsos-resolver</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ihatebackground.com/blog/destacar-produto-remover-fundo</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Sections (anchor links for completeness) -->
   <url>
     <loc>https://ihatebackground.com/#features</loc>
     <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ihatebackground.com/#how-to-use</loc>
     <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ihatebackground.com/#how-it-works</loc>
     <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ihatebackground.com/#articles</loc>
-    <lastmod>2025-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ihatebackground.com/#faq</loc>
     <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ihatebackground.com/#about</loc>
     <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>
