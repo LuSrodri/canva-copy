@@ -54,25 +54,15 @@ const FAQ_ITEMS = [
 
 const FAQItem = memo(function FAQItem({ item, index }) {
   return (
-    <details 
-      className="group border-b border-gray-200 last:border-0"
-      itemScope
-      itemProp="mainEntity"
-      itemType="https://schema.org/Question"
-    >
+    <details className="group border-b border-gray-200 last:border-0">
       <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none hover:text-primary transition-colors">
-        <h3 className="text-left font-medium text-foreground group-open:text-primary" itemProp="name">
+        <h3 className="text-left font-medium text-foreground group-open:text-primary">
           {item.question}
         </h3>
         <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform group-open:rotate-180" />
       </summary>
-      <div 
-        className="pb-5 text-muted-foreground leading-relaxed"
-        itemScope
-        itemProp="acceptedAnswer"
-        itemType="https://schema.org/Answer"
-      >
-        <p itemProp="text">{item.answer}</p>
+      <div className="pb-5 text-muted-foreground leading-relaxed">
+        <p>{item.answer}</p>
       </div>
     </details>
   )
@@ -80,7 +70,7 @@ const FAQItem = memo(function FAQItem({ item, index }) {
 
 export const FAQ = memo(function FAQ() {
   return (
-    <div className="space-y-8" itemScope itemType="https://schema.org/FAQPage">
+    <div className="space-y-8">
       <div className="text-center space-y-4">
         <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
           <HelpCircle className="w-4 h-4" />
