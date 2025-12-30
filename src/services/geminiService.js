@@ -1,10 +1,6 @@
-// Servi�o para gera��o de artigos via API serverless
-// A chave da API fica segura no servidor Vercel
-
-// URL da API - em produ��o, use a URL da Vercel
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
-// Cache para evitar regenera��o desnecess�ria durante a sess�o
+// Cache para evitar regeneração desnecessária durante a sessão
 const articleCache = new Map()
 
 export async function generateArticle(slug) {
@@ -38,7 +34,7 @@ export async function generateArticle(slug) {
   }
 }
 
-// Limpar cache (�til para desenvolvimento)
+// Limpar cache (útil para desenvolvimento)
 export function clearArticleCache() {
   articleCache.clear()
 }
