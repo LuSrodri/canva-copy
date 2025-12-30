@@ -13,12 +13,19 @@ import { generateArticle } from '../services/geminiService'
 
 // Simple markdown-like renderer for our content
 function renderContent(content) {
-  const lines = content.trim().split('\n')
+  // Normalizar quebras de linha: converter \n literais e escapados para quebras reais
+  const normalizedContent = content
+    .replace(/\\n/g, '\n')  // Converter \n literais para quebras reais
+    .trim()
+
+  const lines = normalizedContent.split('\n')
   const elements = []
   let currentList = null
   let listType = null
   let tableRows = []
   let inTable = false
+  let codeBlock = null
+  let codeBlockLines = []
 
   const processInlineMarkdown = (text) => {
     // Bold
@@ -35,6 +42,53 @@ function renderContent(content) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
     const trimmedLine = line.trim()
+
+    // Code blocks
+    if (trimmedLine.startsWith('```')) {
+      if (codeBlock === null) {
+        // Start code block
+        codeBlock = trimmedLine.slice(3) || 'text'
+        codeBlockLines = []
+      } else {
+        // End code block
+        elements.push(
+          <div key={elements.length} className="my-6">
+            <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto">
+              <code className={`language-${codeBlock} text-sm`}>
+                {codeBlockLines.join('\n')}
+              </code>
+            </pre>
+          </div>
+        )
+        codeBlock = null
+        codeBlockLines = []
+      }
+      continue
+    }
+
+    // If inside code block, collect lines
+    if (codeBlock !== null) {
+      codeBlockLines.push(line)
+      continue
+    }
+
+    // Horizontal rule
+    if (trimmedLine === '---' || trimmedLine === '***' || trimmedLine === '___') {
+      elements.push(
+        <hr key={elements.length} className="my-8 border-gray-200" />
+      )
+      continue
+    }
+
+    // Blockquote
+    if (trimmedLine.startsWith('> ')) {
+      elements.push(
+        <blockquote key={elements.length} className="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">
+          {trimmedLine.slice(2)}
+        </blockquote>
+      )
+      continue
+    }
 
     // Skip empty lines
     if (!trimmedLine) {
@@ -88,6 +142,15 @@ function renderContent(content) {
     }
 
     // Headers
+    if (trimmedLine.startsWith('# ') && !trimmedLine.startsWith('## ')) {
+      elements.push(
+        <h1 key={elements.length} className="text-3xl font-bold text-foreground mt-10 mb-6">
+          {trimmedLine.slice(2)}
+        </h1>
+      )
+      continue
+    }
+
     if (trimmedLine.startsWith('## ')) {
       elements.push(
         <h2 key={elements.length} className="text-2xl font-bold text-foreground mt-8 mb-4">
@@ -106,8 +169,17 @@ function renderContent(content) {
       continue
     }
 
-    // Unordered list
-    if (trimmedLine.startsWith('- ')) {
+    if (trimmedLine.startsWith('#### ')) {
+      elements.push(
+        <h4 key={elements.length} className="text-lg font-semibold text-foreground mt-5 mb-2">
+          {trimmedLine.slice(5)}
+        </h4>
+      )
+      continue
+    }
+
+    // Unordered list (suporta "- " e "-" sem espaço)
+    if (trimmedLine.startsWith('- ') || (trimmedLine.startsWith('-') && trimmedLine.length > 1 && trimmedLine[1] !== '-')) {
       if (!currentList || listType !== 'ul') {
         if (currentList) {
           elements.push(
@@ -117,14 +189,15 @@ function renderContent(content) {
         currentList = []
         listType = 'ul'
       }
+      const content = trimmedLine.startsWith('- ') ? trimmedLine.slice(2) : trimmedLine.slice(1).trim()
       currentList.push(
-        <li key={currentList.length} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: processInlineMarkdown(trimmedLine.slice(2)) }} />
+        <li key={currentList.length} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: processInlineMarkdown(content) }} />
       )
       continue
     }
 
-    // Ordered list
-    const orderedMatch = trimmedLine.match(/^(\d+)\.\s(.+)$/)
+    // Ordered list (suporta "1. " e "1." sem espaço)
+    const orderedMatch = trimmedLine.match(/^(\d+)\.\s*(.+)$/)
     if (orderedMatch) {
       if (!currentList || listType !== 'ol') {
         if (currentList) {
