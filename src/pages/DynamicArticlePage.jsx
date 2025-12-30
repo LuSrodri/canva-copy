@@ -283,7 +283,7 @@ export default function DynamicArticlePage() {
           <main className="flex-1 flex items-center justify-center">
             <div className="text-center space-y-4">
               <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto" />
-              <p className="text-muted-foreground">Gerando artigo...</p>
+              <p className="text-muted-foreground">Carregando artigo...</p>
             </div>
           </main>
           <Footer />
@@ -329,7 +329,7 @@ export default function DynamicArticlePage() {
           <main className="flex-1 flex items-center justify-center">
             <div className="text-center space-y-4">
               <h1 className="text-2xl font-bold">Erro ao carregar artigo</h1>
-              <p className="text-muted-foreground">Não foi possível gerar o artigo. Tente novamente mais tarde.</p>
+              <p className="text-muted-foreground">Não foi possível carregar o artigo. Tente novamente mais tarde.</p>
               <Link to="/blog" className="text-primary hover:underline">
                 Ver todos os artigos
               </Link>
