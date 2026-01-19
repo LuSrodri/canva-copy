@@ -4,12 +4,13 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { cn } from '@/lib/utils'
 
+import treeThumb from '@/assets/images/examples/tree-thumb.webp?w=80&h=60&format=webp&quality=100'
 import planeThumb from '@/assets/images/examples/plane-thumb.webp?w=80&h=60&format=webp&quality=100'
 import fatherDaughterThumb from '@/assets/images/examples/father-daughter-thumb.webp?w=90&h=60&format=webp&quality=100'
 import besidePoolThumb from '@/assets/images/examples/beside-pool-thumb.webp?w=60&h=90&format=webp&quality=100'
 
 const EXAMPLE_IMAGES = [
-  { src: '/examples/tree-thumb.webp', full: '/examples/tree.png', alt: 'Árvore' },
+  { src: treeThumb, full: '/examples/tree.png', alt: 'Árvore' },
   { src: planeThumb, full: '/examples/plane.jpg', alt: 'Avião' },
   { src: fatherDaughterThumb, full: '/examples/father-daughter-walking.jpg', alt: 'Pai e filha' },
   { src: besidePoolThumb, full: '/examples/beside-pool.jpg', alt: 'Piscina' },
@@ -157,7 +158,8 @@ export const DropZone = memo(function DropZone({ onFilesAdded, onExampleClick, p
               className={cn(
                 "w-16 h-16 rounded-xl overflow-hidden border-2 border-transparent",
                 "transition-all duration-200 hover:scale-110 hover:border-primary hover:shadow-lg",
-                "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                "cursor-pointer"
               )}
               aria-label={`Usar imagem de exemplo: ${img.alt}`}
             >
