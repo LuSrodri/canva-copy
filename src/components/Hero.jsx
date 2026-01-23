@@ -19,17 +19,12 @@ export const Hero = memo(function Hero({ children }) {
         />
 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center">
-          Uma Nova Forma de{' '}
-          <span className="text-gradient">
-            Remover Background
-          </span>
-          {' '}de Imagens!
+          <span className="text-gradient">Remova Background</span> de Imagens! Sem perder a privacidade.
         </h1>
 
         <p className="text-lg text-muted-foreground text-center max-w-xl">
-          <strong className="text-foreground">I Hate Background</strong> é o <strong className="text-foreground">removedor de fundo de imagens 100% gratuito</strong>, 
-          ilimitado, com foco em privacidade e <strong className="text-foreground">sem necessidade de login</strong>. 
-          Remova fundos de fotos em segundos usando inteligência artificial avançada, diretamente no seu navegador.
+          <strong className="text-foreground">Remova fundo de imagens 100% gratuito</strong>, 
+          ilimitado, com foco em privacidade e <strong className="text-foreground">sem necessidade de login</strong>.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 text-sm">
