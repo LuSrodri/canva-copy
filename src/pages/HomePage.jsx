@@ -53,13 +53,13 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>I Hate Background — Removedor de Fundo de Imagens 100% Gratuito, Ilimitado e Sem Login</title>
+        <title>Remova Background de Imagens! Sem perder a privacidade.</title>
         <meta name="description" content="Remova o fundo de qualquer imagem em segundos com I Hate Background. Ferramenta gratuita, ilimitada, sem login e 100% focada em privacidade. Funciona direto no navegador com inteligência artificial." />
         <meta name="keywords" content="remover fundo, remover fundo de imagem, remover fundo gratis, remover fundo png, tirar fundo de foto, background remover, removedor de fundo, remover fundo online, remover fundo automatico, i hate background" />
         <link rel="canonical" href="https://ihatebackground.com/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="I Hate Background — Removedor de Fundo de Imagens Gratuito" />
+        <meta property="og:title" content="Remova Background de Imagens! Sem perder a privacidade." />
         <meta property="og:description" content="Remova o fundo de qualquer imagem em segundos. 100% gratuito, ilimitado, sem login e focado em privacidade." />
         <meta property="og:url" content="https://ihatebackground.com/" />
         <meta property="og:type" content="website" />
@@ -67,8 +67,8 @@ export default function HomePage() {
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="I Hate Background — Removedor de Fundo Gratuito" />
-        <meta name="twitter:description" content="Remova o fundo de qualquer imagem em segundos. 100% gratuito, ilimitado e sem login." />
+        <meta name="twitter:title" content="Remova Background de Imagens! Sem perder a privacidade." />
+        <meta name="twitter:description" content="Remova o fundo de qualquer imagem em segundos. 100% gratuito, ilimitado, sem login e focado em privacidade." />
         <meta name="twitter:image" content="https://ihatebackground.com/og-image.png" />
       </Helmet>
       
