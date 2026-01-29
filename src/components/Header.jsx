@@ -4,9 +4,10 @@ import { Link, useLocation } from 'react-router-dom'
 
 import logoImage from '@/assets/images/logo.webp?w=40&h=40&format=webp&quality=85'
 
-export const Header = memo(function Header() {
+export const Header = memo(function Header({ nav = "true" }) {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const isNavDisabled = nav === "false"
 
   // Função para navegar para seção na home ou redirecionar para home com hash
   const handleSectionClick = (sectionId) => (e) => {
@@ -46,9 +47,10 @@ export const Header = memo(function Header() {
           </span>
         </Link>
 
+        {isNavDisabled ? null : (
         <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
           <a 
-            href={isHomePage ? "#features" : "/#features"}
+            href={isHomePage ? "#features" : "#features"}
             onClick={handleSectionClick('features')}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             title="Por que usar o I Hate Background"
@@ -56,7 +58,7 @@ export const Header = memo(function Header() {
             Por que usar
           </a>
           <a 
-            href={isHomePage ? "#how-to-use" : "/#how-to-use"}
+            href={isHomePage ? "#how-to-use" : "#how-to-use"}
             onClick={handleSectionClick('how-to-use')}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             title="Como usar o I Hate Background"
@@ -64,7 +66,7 @@ export const Header = memo(function Header() {
             Como usar
           </a>
           <a 
-            href={isHomePage ? "#how-it-works" : "/#how-it-works"}
+            href={isHomePage ? "#how-it-works" : "#how-it-works"}
             onClick={handleSectionClick('how-it-works')}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             title="Como o I Hate Background funciona"
@@ -79,7 +81,7 @@ export const Header = memo(function Header() {
             Blog
           </Link>
           <a 
-            href={isHomePage ? "#faq" : "/#faq"}
+            href={isHomePage ? "#faq" : "#faq"}
             onClick={handleSectionClick('faq')}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             title="Perguntas frequentes"
@@ -87,14 +89,14 @@ export const Header = memo(function Header() {
             FAQ
           </a>
           <a 
-            href={isHomePage ? "#about" : "/#about"}
+            href={isHomePage ? "#about" : "#about"}
             onClick={handleSectionClick('about')}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             title="Sobre o projeto I Hate Background"
           >
             Sobre
           </a>
-        </nav>
+        </nav> )}
 
         <a
           href="https://www.producthunt.com/products/i-hate-background"

@@ -22,6 +22,19 @@
   <url><loc>https://ihatebackground.com/#faq</loc><lastmod>2025-12-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ihatebackground.com/#about</loc><lastmod>2025-12-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <!-- Landing Pages -->
+  <url>
+    <loc>https://ihatebackground.com/remover-fundo-documentos-com-seguranca</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ihatebackground.com/og-image-documentos.png</image:loc>
+      <image:title>Remover Fundo de Documentos com Seguranca - I Hate Background</image:title>
+      <image:caption>Remova o fundo de imagens de documentos com total seguranca e privacidade. Processamento 100% local.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog Index -->
   <url>
     <loc>https://ihatebackground.com/blog</loc>
