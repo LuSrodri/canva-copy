@@ -42,17 +42,17 @@ export default function RemoverFundoDocumentosPage() {
   return (
     <>
       <Helmet>
-        <title>Remover Fundo de Documentos com Seguranca - 100% Privado e Gratuito | I Hate Background</title>
-        <meta name="description" content="Remova o fundo de imagens de documentos com total seguranca e privacidade. Processamento 100% local no seu navegador. Ideal para RG, CPF, certidoes e documentos sensiveis. Gratuito, ilimitado e sem login." />
-        <meta name="keywords" content="remover fundo documento, remover fundo rg, remover fundo cpf, remover fundo certidao, remover fundo documento seguro, remover fundo privacidade, remover fundo local, remover fundo offline, remover fundo documento identidade, remover fundo passaporte, remover fundo cnh, remover fundo comprovante" />
+        <title>Remover Fundo de Documentos com Segurança - 100% Privado e Gratuito | I Hate Background</title>
+        <meta name="description" content="Remova o fundo de imagens de documentos com total segurança e privacidade. Processamento 100% local no seu navegador. Ideal para RG, CPF, certidões e documentos sensíveis. Gratuito, ilimitado e sem login." />
+        <meta name="keywords" content="remover fundo documento, remover fundo rg, remover fundo cpf, remover fundo certidão, remover fundo documento seguro, remover fundo privacidade, remover fundo local, remover fundo offline, remover fundo documento identidade, remover fundo passaporte, remover fundo cnh, remover fundo comprovante" />
         <link rel="canonical" href="https://ihatebackground.com/remover-fundo-documentos-com-seguranca" />
 
         {/* Robots */}
         <meta name="robots" content="index, follow, max-image-preview:large" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Remover Fundo de Documentos com Seguranca - 100% Privado" />
-        <meta property="og:description" content="Remova o fundo de imagens de documentos com total seguranca. Processamento 100% local, sem enviar seus dados para servidores. Ideal para documentos sensiveis." />
+        <meta property="og:title" content="Remover Fundo de Documentos com Segurança - 100% Privado" />
+        <meta property="og:description" content="Remova o fundo de imagens de documentos com total segurança. Processamento 100% local, sem enviar seus dados para servidores. Ideal para documentos sensíveis." />
         <meta property="og:url" content="https://ihatebackground.com/remover-fundo-documentos-com-seguranca" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ihatebackground.com/og-image-documentos.png" />
@@ -61,8 +61,8 @@ export default function RemoverFundoDocumentosPage() {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Remover Fundo de Documentos com Seguranca - 100% Privado" />
-        <meta name="twitter:description" content="Remova o fundo de imagens de documentos com total seguranca. Processamento 100% local, sem enviar dados para servidores." />
+        <meta name="twitter:title" content="Remover Fundo de Documentos com Segurança - 100% Privado" />
+        <meta name="twitter:description" content="Remova o fundo de imagens de documentos com total segurança. Processamento 100% local, sem enviar dados para servidores." />
         <meta name="twitter:image" content="https://ihatebackground.com/og-image-documentos.png" />
 
         {/* Additional SEO */}
@@ -80,7 +80,7 @@ export default function RemoverFundoDocumentosPage() {
               <div className="flex flex-col items-center justify-center space-y-6 text-center lg:text-left order-1 lg:order-1">
                 <img
                   src={heroDocImage}
-                  alt="Remover fundo de documentos com seguranca e privacidade"
+                  alt="Remover fundo de documentos com segurança e privacidade"
                   loading="eager"
                   fetchpriority="high"
                   decoding="async"
@@ -90,11 +90,11 @@ export default function RemoverFundoDocumentosPage() {
                 />
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center">
-                  <span className="text-gradient">Remova Fundo de Documentos</span> com Total Seguranca
+                  <span className="text-gradient">Remova Fundo de Documentos</span> com Total Segurança
                 </h1>
 
                 <p className="text-lg text-muted-foreground text-center max-w-xl">
-                  <strong className="text-foreground">Processe imagens de documentos sensiveis</strong> como RG, CPF, certidoes e comprovantes{' '}
+                  <strong className="text-foreground">Processe imagens de documentos sensíveis</strong> como RG, CPF, certidões e comprovantes{' '}
                   <strong className="text-foreground">sem enviar seus dados para nenhum servidor</strong>.
                   100% local, 100% privado.
                 </p>
@@ -102,7 +102,7 @@ export default function RemoverFundoDocumentosPage() {
                 <div className="flex flex-wrap justify-center gap-3 text-sm">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-700 font-medium">
                     <Shield className="w-3.5 h-3.5" />
-                    Seguranca Total
+                    Segurança Total
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-medium">
                     <EyeOff className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export default function RemoverFundoDocumentosPage() {
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Zap className="w-4 h-4 text-yellow-500" />
-                    Processamento instantaneo com IA
+                    Processamento instantâneo com IA
                   </div>
                   <div className="flex items-center gap-2">
                     <Lock className="w-4 h-4 text-blue-500" />
@@ -134,8 +134,8 @@ export default function RemoverFundoDocumentosPage() {
                 />
 
                 <p className="text-xs text-muted-foreground text-center max-w-md pt-2">
-                  Arraste suas imagens de documentos, cole da area de transferencia ou clique para selecionar.
-                  Suporta JPG, PNG e WebP. Processe varios documentos ao mesmo tempo!
+                  Arraste suas imagens de documentos, cole da área de transferência ou clique para selecionar.
+                  Suporta JPG, PNG e WebP. Processe vários documentos ao mesmo tempo!
                 </p>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function RemoverFundoDocumentosPage() {
                 Por que usar o <span className="text-gradient">I Hate Background</span> para documentos?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Quando se trata de documentos sensiveis, a privacidade e essencial.
+                Quando se trata de documentos sensíveis, a privacidade é essencial.
                 Nossa ferramenta processa tudo localmente no seu navegador.
               </p>
             </div>
@@ -174,8 +174,8 @@ export default function RemoverFundoDocumentosPage() {
                   <h3 className="font-semibold text-lg">Processamento 100% Local</h3>
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Suas imagens de documentos <strong>nunca sao enviadas para servidores externos</strong>.
-                  Todo o processamento acontece diretamente no seu navegador usando inteligencia artificial.
+                  Suas imagens de documentos <strong>nunca são enviadas para servidores externos</strong>.
+                  Todo o processamento acontece diretamente no seu navegador usando inteligência artificial.
                 </p>
               </div>
 
@@ -187,8 +187,8 @@ export default function RemoverFundoDocumentosPage() {
                   <h3 className="font-semibold text-lg">Privacidade Garantida</h3>
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Nao coletamos, armazenamos ou transmitimos suas imagens. Ideal para documentos como
-                  <strong> RG, CPF, CNH, passaporte, certidoes</strong> e outros documentos sensiveis.
+                  Não coletamos, armazenamos ou transmitimos suas imagens. Ideal para documentos como
+                  <strong> RG, CPF, CNH, passaporte, certidões</strong> e outros documentos sensíveis.
                 </p>
               </div>
 
@@ -222,9 +222,9 @@ export default function RemoverFundoDocumentosPage() {
                 { icon: FileText, label: 'RG e CPF', desc: 'Documentos de identidade' },
                 { icon: FileText, label: 'CNH', desc: 'Carteira de motorista' },
                 { icon: FileText, label: 'Passaporte', desc: 'Documentos de viagem' },
-                { icon: FileText, label: 'Certidoes', desc: 'Nascimento, casamento' },
-                { icon: FileText, label: 'Comprovantes', desc: 'Residencia, renda' },
-                { icon: FileText, label: 'Diplomas', desc: 'Certificados academicos' },
+                { icon: FileText, label: 'Certidões', desc: 'Nascimento, casamento' },
+                { icon: FileText, label: 'Comprovantes', desc: 'Residência, renda' },
+                { icon: FileText, label: 'Diplomas', desc: 'Certificados acadêmicos' },
                 { icon: FileText, label: 'Contratos', desc: 'Documentos assinados' },
                 { icon: FileText, label: 'Outros', desc: 'Qualquer documento' },
               ].map((item, index) => (
@@ -253,20 +253,20 @@ export default function RemoverFundoDocumentosPage() {
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 {
-                  q: 'Minhas imagens de documentos sao enviadas para algum servidor?',
-                  a: 'Nao! Todo o processamento e feito localmente no seu navegador. Suas imagens nunca saem do seu dispositivo, garantindo total privacidade e seguranca para seus documentos sensiveis.'
+                  q: 'Minhas imagens de documentos são enviadas para algum servidor?',
+                  a: 'Não! Todo o processamento é feito localmente no seu navegador. Suas imagens nunca saem do seu dispositivo, garantindo total privacidade e segurança para seus documentos sensíveis.'
                 },
                 {
-                  q: 'E seguro usar para documentos como RG e CPF?',
-                  a: 'Sim, e completamente seguro. Como o processamento e 100% local, seus documentos de identidade nunca sao transmitidos pela internet. Voce tem controle total sobre suas imagens.'
+                  q: 'É seguro usar para documentos como RG e CPF?',
+                  a: 'Sim, é completamente seguro. Como o processamento é 100% local, seus documentos de identidade nunca são transmitidos pela internet. Você tem controle total sobre suas imagens.'
                 },
                 {
                   q: 'Funciona offline?',
-                  a: 'Apos carregar a pagina pela primeira vez, a ferramenta pode funcionar mesmo sem conexao com a internet, ja que todo o processamento e feito no seu navegador.'
+                  a: 'Após carregar a página pela primeira vez, a ferramenta pode funcionar mesmo sem conexão com a internet, já que todo o processamento é feito no seu navegador.'
                 },
                 {
-                  q: 'Qual a qualidade da remocao de fundo em documentos?',
-                  a: 'Utilizamos inteligencia artificial avancada que funciona muito bem com documentos escaneados ou fotografados. O resultado e um PNG com fundo transparente de alta qualidade.'
+                  q: 'Qual a qualidade da remoção de fundo em documentos?',
+                  a: 'Utilizamos inteligência artificial avançada que funciona muito bem com documentos escaneados ou fotografados. O resultado é um PNG com fundo transparente de alta qualidade.'
                 },
               ].map((item, index) => (
                 <div key={index} className="p-6 rounded-xl bg-white border border-gray-100">
