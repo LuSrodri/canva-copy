@@ -9,6 +9,7 @@ import { Features } from '../components/Features'
 import { HowToUse } from '../components/HowToUse'
 import { HowItWorks } from '../components/HowItWorks'
 import { SEOContent } from '../components/SEOContent'
+import { DocumentsPromo } from '../components/DocumentsPromo'
 import { ArticlesPreview } from '../components/ArticlesPreview'
 import { FAQ } from '../components/FAQ'
 import { About } from '../components/About'
@@ -115,6 +116,12 @@ export default function HomePage() {
 
         <section id="seo-content">
           <SEOContent />
+        </section>
+
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
+
+        <section id="documents">
+          <DocumentsPromo />
         </section>
 
         <div className="w-48 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto" />
