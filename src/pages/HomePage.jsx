@@ -74,7 +74,6 @@ export default function HomePage() {
       </Helmet>
       
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50/50 via-white to-purple-50/30">
-        <AdBanner />
         <Header />
         
         <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 py-8">
