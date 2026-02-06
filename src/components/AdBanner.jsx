@@ -16,7 +16,7 @@ export function AdBanner() {
           className="hover:text-blue-300 transition-colors duration-200 grow"
         >
           <span className="font-semibold text-blue-400">Celular para Quem Cria de Verdade:</span>{' '}
-          <span className="text-gray-200">Apple iPhone 17, Magicolorido, Feito para Admirar, e Para Durar.</span>
+          <span className="text-gray-200">Apple iPhone 17. Magicolorido. Feito para admirar e para durar.</span>
           <span className="ml-2 text-blue-400 hover:underline">Saiba mais →</span>
         </a>
         <button 
