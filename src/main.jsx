@@ -6,9 +6,11 @@ import { TooltipProvider } from './components/ui/tooltip'
 import HomePage from './pages/HomePage'
 import './index.css'
 import { AdBanner } from './components/AdBanner'
+import { Analytics } from "@vercel/analytics/react"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Analytics />
     <HelmetProvider>
       <BrowserRouter>
         <TooltipProvider>
