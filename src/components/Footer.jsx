@@ -7,13 +7,12 @@ export const Footer = memo(function Footer() {
   return (
     <footer className="w-full py-12 px-4 border-t bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* SEO Rich Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">I Hate Background</h3>
             <p className="text-muted-foreground leading-relaxed">
-              O <strong>I Hate Background</strong> é um <strong>removedor de fundo de imagens 100% gratuito</strong>, 
-              ilimitado, com foco em privacidade e sem necessidade de login. Remova fundos de fotos usando 
+              O <strong>I Hate Background</strong> remove fundo de imagens de forma <strong>100% gratuita,
+              ilimitada, com foco em privacidade e sem necessidade de login.</strong> Remova fundos de fotos usando
               inteligência artificial avançada, diretamente no seu navegador.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -33,24 +32,14 @@ export const Footer = memo(function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Recursos</h3>
+            <h3 className="font-semibold text-foreground">Links</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#features" className="hover:text-foreground transition-colors">Por que usar</a></li>
-              <li><a href="#how-to-use" className="hover:text-foreground transition-colors">Como usar</a></li>
-              <li><a href="#how-it-works" className="hover:text-foreground transition-colors">Como funciona</a></li>
-              <li><a href="#articles" className="hover:text-foreground transition-colors">Artigos e tutoriais</a></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors">Perguntas frequentes</a></li>
               <li><a href="#about" className="hover:text-foreground transition-colors">Sobre o projeto</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Links Externos</h3>
-            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="#help-us" className="hover:text-foreground transition-colors">Como ajudar</a></li>
               <li>
-                <a 
-                  href="https://github.com/lusrodri/canva-copy" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/lusrodri/canva-copy"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
@@ -58,9 +47,9 @@ export const Footer = memo(function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.producthunt.com/products/i-hate-background" 
-                  target="_blank" 
+                <a
+                  href="https://www.producthunt.com/products/i-hate-background"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
@@ -68,9 +57,9 @@ export const Footer = memo(function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://buymeacoffee.com/lusrodri" 
-                  target="_blank" 
+                <a
+                  href="https://buymeacoffee.com/lusrodri"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
@@ -78,9 +67,9 @@ export const Footer = memo(function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://lusrodri.me" 
-                  target="_blank" 
+                <a
+                  href="https://lusrodri.me"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
@@ -91,13 +80,11 @@ export const Footer = memo(function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-        {/* Bottom Section */}
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-sm text-muted-foreground">
-            © {year} I Hate Background — Removedor de fundo de imagens gratuito, ilimitado e focado em privacidade.
+            © {year} I Hate Background — Remova fundo de imagens de forma gratuita, ilimitada e com foco em privacidade.
           </p>
           <p className="text-sm text-muted-foreground">
             Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500 inline" aria-label="amor" /> por{' '}

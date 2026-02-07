@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Zap, Lock, Infinity, Shield, CheckCircle } from 'lucide-react'
+import { Zap, Lock, Infinity, Shield, CheckCircle, Sparkles, PackageOpen } from 'lucide-react'
 
 import heroImage from '@/assets/images/hero.webp?w=384&quality=100&format=webp';
 
@@ -22,11 +22,6 @@ export const Hero = memo(function Hero({ children }) {
           <span className="text-gradient">Remova Background</span> de Imagens! Sem perder a privacidade.
         </h1>
 
-        <p className="text-lg text-muted-foreground text-center max-w-xl">
-          <strong className="text-foreground">Remova fundo de imagens 100% gratuito</strong>, 
-          ilimitado, com foco em privacidade e <strong className="text-foreground">sem necessidade de login</strong>.
-        </p>
-
         <div className="flex flex-wrap justify-center gap-3 text-sm">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-700 font-medium">
             <CheckCircle className="w-3.5 h-3.5" />
@@ -39,6 +34,10 @@ export const Hero = memo(function Hero({ children }) {
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-purple-700 font-medium">
             <Shield className="w-3.5 h-3.5" />
             Privacidade Total
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-50 text-yellow-700 font-medium">
+            <PackageOpen className="w-3.5 h-3.5" />
+            Não Requer LogIn
           </span>
         </div>
       </div>
@@ -58,9 +57,22 @@ export const Hero = memo(function Hero({ children }) {
         {children}
 
         <p className="text-xs text-muted-foreground text-center max-w-md pt-2">
-          Arraste suas imagens, cole da área de transferência ou clique para selecionar. 
+          Arraste suas imagens, cole da área de transferência ou clique para selecionar.
           Suporta JPG, PNG e WebP. Processe várias imagens ao mesmo tempo!
         </p>
+
+        <div className="flex justify-center">
+          <a
+            href="https://www.producthunt.com/products/i-hate-background"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-600 hover:bg-orange-100 transition-colors text-sm font-medium"
+            title="I Hate Background no Product Hunt"
+          >
+            <Sparkles className="w-4 h-4" />
+            Product Hunt
+          </a>
+        </div>
       </div>
     </div>
   )
