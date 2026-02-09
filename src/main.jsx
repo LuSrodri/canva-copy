@@ -10,7 +10,6 @@ import { Analytics } from "@vercel/analytics/react"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Analytics />
     <HelmetProvider>
       <BrowserRouter>
         <TooltipProvider>
@@ -22,5 +21,6 @@ createRoot(document.getElementById('root')).render(
         </TooltipProvider>
       </BrowserRouter>
     </HelmetProvider>
+    <Analytics />
   </StrictMode>,
 )
